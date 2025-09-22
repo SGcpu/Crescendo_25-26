@@ -1,0 +1,130 @@
+---
+
+## Design tokens (quick)
+
+* Primary purple: `#6A0DBD` (deep violet)
+* Accent gold: `#D4AF37` (metallic gold)
+* Near-black background: `#0B0B0D`
+* Accent gradient: `linear-gradient(135deg,#6A0DBD 0%, #2A0036 60%, #000000 100%)`
+* Headline font: **Cinzel** (or Playfair Display) — stately, mythic.
+* Body font: **Inter** or **Poppins** — readable.
+* Accessibility: always check gold on purple for contrast; use golden accents on dark backgrounds, not for long paragraphs.
+
+---
+
+# HOME — Landing (hero will be built later)
+
+**Prompt paragraph (for UI/animation designer / AI):**
+“Create a cinematic festival landing shell in deep purple and black with razor-gold accents. The page feels mystical and high-energy — a central emblem (stylized third eye / Trinetra glyph) sits left of the fold, with subtle particle halos, slow radial light sweeps, and a floating layered grid that hints at depth. Provide clear CTAs: ‘Events’, ‘Brochure’, ‘Register’. Keep space for a later 3D/three.js hero; for now use layered SVGs and motion-ready CSS hooks.”
+
+**Purpose & flow:** immediate mood, brand imprint, fast links to events/brochure/register.
+**Key sections:** compact hero placeholder, three quick entry cards (Events / Sponsors / Brochure), festival highlights (dates + venue), featured callout for headline event, social proof (partner logos).
+**Animation ideas:** golden light-sweep headline reveal (anime.js), faint parallax of background glyphs, micro-hover glow on entry cards. Respect `prefers-reduced-motion`.
+**Next.js notes:** static SSG, hero skeleton component ready for later dynamic import of heavy 3D bundle.
+
+---
+
+# EVENTS — Catalogue + Detail
+
+**Prompt paragraph:**
+“Design an event hub that reads like an ancient grimoire organized with modern clarity: category filters at top, animated cards for each event that flip or expand to reveal details, and a left-side persistent timeline that animates progress toward the finale. Use purple cards with gold edge rims and subtle shadowed black backgrounds. The tone is energetic but authoritative; registration CTA is always visible.”
+
+**Purpose & flow:** discover → filter → open event → register.
+**Key components:** search + filters (Track, Date, Solo/Team, Difficulty), event grid/list, event detail modal/page, calendar/timeline view, “Register” sticky CTA.
+**Interaction ideas:** card hover lifts + gold rim pulse (anime.js), progressive loading (skeletons), modal open animation (scale + fade).
+**Data & routes:** Next.js dynamic route `/events/[slug]` with SSG from JSON/Headless CMS. Example event schema (JSON):
+
+```json
+{
+  "slug":"circuit-breaker",
+  "title":"Circuit Breaker — Hardware Hack",
+  "category":"Hackathon",
+  "date":"2026-02-11",
+  "team_size":"1-4",
+  "difficulty":"Intermediate",
+  "location":"Main Hall",
+  "summary":"48-hour hardware + firmware sprint",
+  "assets":[ "poster.jpg" ],
+  "registration_link": "/register/circuit-breaker"
+}
+```
+
+**Dev note:** prefetch critical event pages; lazy-load heavy assets.
+
+---
+
+# SPONSORS — Tiered, Proud, Interactive
+
+**Prompt paragraph:**
+“Make Sponsors a gilded gallery: tiered shelves (Platinum, Gold, Silver) each on a textured black backdrop. Sponsor logos start desaturated and reveal in full color and a golden halo on hover. Offer an animated ‘Sponsor Story’ tile that shows sponsor impact metrics with animated counters (saves, attendees sponsored, workshops). Include an unobtrusive CTA tile ‘Become a Partner’.”
+
+**Purpose & flow:** show gratitude, social proof, and sell sponsorships.
+**Key sections:** hero banner, tiered grid, sponsor spotlight carousel, downloadable sponsorship pack CTA, contact for partnerships.
+**Animation ideas:** grayscale → color reveal with glow, counter animations for impact stats, scrolling marquee of logos.
+**Implementation:** logos served as optimized SVG/WEBP; privacy-friendly logos; sponsor card includes link to sponsor page.
+
+---
+
+# BROCHURE — Interactive preview + Download
+
+**Prompt paragraph:**
+“Present the official brochure as an elegant flipbook/preview with golden page edges and purple gradients. Include a large ‘Download PDF’ CTA, and a ‘Light Mode’ thumbnail gallery for quick skim. Provide animated page turns or a horizontal swiper that feels tactile and premium.”
+
+**Purpose & flow:** quick scan → download → share.
+**Key pieces:** embedded preview (PDF or images), one-click download (high-res + low-res), highlights strip (key events & dates), share buttons.
+**Animation ideas:** page-turn animation (Lottie or CSS + anime.js), subtle ribbon bookmark animation on the current page.
+**Accessibility:** provide text-only brochure download (HTML) for screen readers.
+
+---
+
+# ABOUT US — make it *distinct*
+
+**Prompt paragraph:**
+“Tell the Crescendo story as an interactive ritual: an ‘Awakening Timeline’ that scrolls from origin to present with three major milestones represented as ritual acts (Inception, Expansion, Third Eye). Each milestone unfolds into multimedia cards (short founder audio, images, micro-videos). The page reads like a journey—mystic yet credible.”
+
+**Purpose & flow:** brand narrative, trust, volunteer/partner recruitment.
+**Unique elements:** interactive timeline (scrub-controlled), core pillars presented as ‘eyes’ that open to reveal values (Innovation, Inclusion, Integrity), team carousel with micro-interviews, impact numbers.
+**Animation ideas:** timeline parallax, portrait cards with golden iris reveal on hover, short audio-snippets play on click.
+**Content tone:** mythic but factual — avoid fluff: include stats, year-by-year growth, testimonials.
+
+---
+
+# CONTACT US + VOLUNTEER/FAQ
+
+**Prompt paragraph:**
+“Build a compact contact hub: big golden CTAs (Volunteer / Press / Partnerships), a clean contact form, and an embedded map. Forms should provide instant micro-feedback (success toast in gold). Add a small FAQ accordion with smooth slide animations.”
+
+**Purpose & flow:** capture leads (sponsors/volunteers/press), answer common questions, provide logistics.
+**Key features:** contact form (serverless API), volunteer sign-up (conditional questions), press kit download, social links, map, FAQ.
+**Implementation notes:** Next.js API route (`/api/contact`) with rate-limiting and captcha; provide server-side validation; send emails via transactional provider (SendGrid / Postmark).
+
+---
+
+# Header / Nav / Footer (global)
+
+* **Nav:** left logo (third-eye glyph), center-page anchors, right CTA buttons (Register / Brochure). Animated underline and gold glow on active. Mobile: hamburger with animated reveal.
+* **Footer:** condensed festival info, important dates, sponsor mini-wall, mailing-list signup. Black background, small golden separators.
+
+---
+
+# Animations & performance rules (must-have)
+
+1. Use **anime.js** for micro-interactions (reveals, counters, hover effects). Use **Lottie** for vector animations & **three.js** only for hero 3D (lazy-loaded).
+2. Respect `prefers-reduced-motion` and provide instant disable toggles.
+3. Lazy-load heavy assets, dynamic-import 3D bundles, use progressive image formats (WebP/AVIF).
+4. Keep total JS budget low on initial load — hero 3D must be deferred.
+
+---
+
+# Developer / Implementation checklist (Next.js + tech)
+
+* Next.js pages for `/`, `/events`, `/events/[slug]`, `/sponsors`, `/brochure`, `/about`, `/contact`. Use SSG for public pages, ISR for frequently updated lists.
+* Data source: simple JSON during dev → Contentful / Sanity or Git-based MDX for editors.
+* Styling: TailwindCSS (fast) or CSS modules + design tokens. Preload critical fonts.
+* Animations: create a small `animation-hooks` util (wrap anime.js API).
+* Forms: Next.js API route + SendGrid / serverless function. Add reCAPTCHA or Honeypot.
+* Assets: SVG-first (logo/glyph), WebP for photos, use CDN.
+
+---
+
+
