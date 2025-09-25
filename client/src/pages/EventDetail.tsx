@@ -1,17 +1,21 @@
-import { useParams, Link } from 'wouter';
-import { useQuery } from '@tanstack/react-query';
-import { type Event } from '@shared/schema';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { Skeleton } from '@/components/ui/skeleton';
+import { useParams, Link } from "wouter";
+import { useQuery } from "@tanstack/react-query";
+import { type Event } from "@shared/schema";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function EventDetail() {
   const { slug } = useParams();
-  
-  const { data: event, isLoading, error } = useQuery<Event>({
-    queryKey: ['/api/events', slug],
+
+  const {
+    data: event,
+    isLoading,
+    error,
+  } = useQuery<Event>({
+    queryKey: ["/api/events", slug],
   });
 
   if (isLoading) {
@@ -57,21 +61,23 @@ export default function EventDetail() {
 
   const getCategoryIcon = (category: string) => {
     const iconMap: { [key: string]: string } = {
-      'Hackathon': 'fas fa-code',
-      'Workshop': 'fas fa-chalkboard-teacher',
-      'Final Competition': 'fas fa-trophy',
-      'Competition': 'fas fa-medal'
+      Hackathon: "fas fa-code",
+      Workshop: "fas fa-chalkboard-teacher",
+      "Final Competition": "fas fa-trophy",
+      Competition: "fas fa-medal",
     };
-    return iconMap[category] || 'fas fa-calendar';
+    return iconMap[category] || "fas fa-calendar";
   };
 
   const getDifficultyColor = (difficulty: string) => {
     const colorMap: { [key: string]: string } = {
-      'Beginner': 'bg-green-500/20 text-green-400 border-green-500/20',
-      'Intermediate': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/20',
-      'Advanced': 'bg-red-500/20 text-red-400 border-red-500/20'
+      Beginner: "bg-green-500/20 text-green-400 border-green-500/20",
+      Intermediate: "bg-yellow-500/20 text-yellow-400 border-yellow-500/20",
+      Advanced: "bg-red-500/20 text-red-400 border-red-500/20",
     };
-    return colorMap[difficulty] || 'bg-gray-500/20 text-gray-400 border-gray-500/20';
+    return (
+      colorMap[difficulty] || "bg-muted text-muted-foreground border-border"
+    );
   };
 
   return (
@@ -80,7 +86,10 @@ export default function EventDetail() {
         {/* Breadcrumb */}
         <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-8">
           <Link href="/events">
-            <a className="hover:text-accent transition-colors" data-testid="link-events">
+            <a
+              className="hover:text-accent transition-colors"
+              data-testid="link-events"
+            >
               Events
             </a>
           </Link>
@@ -92,18 +101,22 @@ export default function EventDetail() {
         <div className="mb-12">
           <div className="flex items-center space-x-4 mb-4">
             <div className="flex items-center space-x-2">
-              <i className={`${getCategoryIcon(event.category)} text-primary text-xl`} />
+              <i
+                className={`${getCategoryIcon(
+                  event.category
+                )} text-primary text-xl`}
+              />
               <Badge variant="secondary">{event.category}</Badge>
             </div>
             <Badge className={getDifficultyColor(event.difficulty)}>
               {event.difficulty}
             </Badge>
           </div>
-          
+
           <h1 className="font-cinzel text-4xl md:text-6xl font-bold mb-6 text-foreground">
             {event.title}
           </h1>
-          
+
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl">
             {event.summary}
           </p>
@@ -155,7 +168,7 @@ export default function EventDetail() {
 
           {/* Registration CTA */}
           <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
-            <Button 
+            <Button
               className="px-8 py-4 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg animate-pulse-gold"
               data-testid="button-register-event"
             >
@@ -179,7 +192,9 @@ export default function EventDetail() {
           <div className="lg:col-span-2">
             <Card className="bg-card border border-border">
               <CardHeader>
-                <CardTitle className="font-cinzel text-2xl">Event Description</CardTitle>
+                <CardTitle className="font-cinzel text-2xl">
+                  Event Description
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="prose prose-invert max-w-none">
@@ -193,7 +208,9 @@ export default function EventDetail() {
             {/* Additional Details */}
             <Card className="bg-card border border-border mt-8">
               <CardHeader>
-                <CardTitle className="font-cinzel text-2xl">What to Expect</CardTitle>
+                <CardTitle className="font-cinzel text-2xl">
+                  What to Expect
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -203,7 +220,8 @@ export default function EventDetail() {
                       Innovation Focus
                     </h4>
                     <p className="text-muted-foreground">
-                      Cutting-edge technology challenges that push the boundaries of what's possible.
+                      Cutting-edge technology challenges that push the
+                      boundaries of what's possible.
                     </p>
                   </div>
                   <div>
@@ -212,7 +230,8 @@ export default function EventDetail() {
                       Recognition
                     </h4>
                     <p className="text-muted-foreground">
-                      Showcase your solutions to industry experts and potential employers.
+                      Showcase your solutions to industry experts and potential
+                      employers.
                     </p>
                   </div>
                   <div>
@@ -221,7 +240,8 @@ export default function EventDetail() {
                       Networking
                     </h4>
                     <p className="text-muted-foreground">
-                      Connect with like-minded innovators and industry professionals.
+                      Connect with like-minded innovators and industry
+                      professionals.
                     </p>
                   </div>
                   <div>
@@ -230,7 +250,8 @@ export default function EventDetail() {
                       Learning
                     </h4>
                     <p className="text-muted-foreground">
-                      Gain valuable experience through hands-on challenges and expert mentorship.
+                      Gain valuable experience through hands-on challenges and
+                      expert mentorship.
                     </p>
                   </div>
                 </div>
@@ -243,13 +264,17 @@ export default function EventDetail() {
             {/* Event Stats */}
             <Card className="bg-card border border-border mb-8">
               <CardHeader>
-                <CardTitle className="font-cinzel text-xl">Event Details</CardTitle>
+                <CardTitle className="font-cinzel text-xl">
+                  Event Details
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {event.maxTeams && (
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Max Teams</span>
-                    <span className="font-semibold text-foreground">{event.maxTeams}</span>
+                    <span className="font-semibold text-foreground">
+                      {event.maxTeams}
+                    </span>
                   </div>
                 )}
                 <Separator />
@@ -262,14 +287,18 @@ export default function EventDetail() {
                 <Separator />
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Category</span>
-                  <span className="font-semibold text-foreground">{event.category}</span>
+                  <span className="font-semibold text-foreground">
+                    {event.category}
+                  </span>
                 </div>
                 {event.prizePool && (
                   <>
                     <Separator />
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">Prize Pool</span>
-                      <span className="font-semibold text-accent">{event.prizePool}</span>
+                      <span className="font-semibold text-accent">
+                        {event.prizePool}
+                      </span>
                     </div>
                   </>
                 )}
@@ -279,14 +308,16 @@ export default function EventDetail() {
             {/* Related Events */}
             <Card className="bg-card border border-border">
               <CardHeader>
-                <CardTitle className="font-cinzel text-xl">Related Events</CardTitle>
+                <CardTitle className="font-cinzel text-xl">
+                  Related Events
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm">
                   Check out other events happening during the festival.
                 </p>
                 <Link href="/events">
-                  <Button 
+                  <Button
                     variant="outline"
                     className="w-full mt-4 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
                     data-testid="button-view-all-events"

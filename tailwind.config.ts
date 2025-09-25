@@ -63,7 +63,14 @@ export default {
         },
         'festival-purple': "var(--festival-purple)",
         'festival-gold': "var(--festival-gold)",
-        'festival-dark': "var(--festival-dark)"
+        'festival-dark': "var(--festival-dark)",
+        // New theme colors
+        'theme-purple-1': "#6A3C99",
+        'theme-purple-2': "#4C275C", 
+        'theme-purple-3': "#2E1834",
+        'theme-gold-1': "#E6B800", // Bright clear gold
+        'theme-gold-2': "#FFD700", // Classic gold
+        'pitch-black': "#000000"
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
@@ -90,8 +97,8 @@ export default {
           },
         },
         'pulse-gold': {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(212, 175, 55, 0.4)' },
-          '50%': { boxShadow: '0 0 0 10px rgba(212, 175, 55, 0)' }
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(230, 184, 0, 0.4)' },
+          '50%': { boxShadow: '0 0 0 10px rgba(230, 184, 0, 0)' }
         },
         'float': {
           '0%, 100%': { transform: 'translateY(0px)' },
