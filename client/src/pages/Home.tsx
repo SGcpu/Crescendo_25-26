@@ -59,26 +59,26 @@ export default function Home() {
   const partnerLogos = Array(6).fill(null).map((_, i) => `Partner ${i + 1}`);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen swirl-bg">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden mystical-gradient">
-        <ParticleBackground density="medium" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <ParticleBackground density="heavy" />
         
         {/* Hero Content */}
         <div className="container mx-auto px-6 py-20 text-center relative z-10">
           {/* Central Third Eye Emblem */}
           <div className="flex justify-center mb-8">
-            <ThirdEyeGlyph size="xl" />
+            <ThirdEyeGlyph size="xl" className="mystical-glow" />
           </div>
           
           {/* Main Headline */}
-          <h1 className="font-cinzel text-6xl md:text-8xl font-bold mb-6 text-foreground">
-            <span className="block">AWAKEN</span>
-            <span className="block text-accent">YOUR VISION</span>
+          <h1 className="font-cinzel text-6xl md:text-8xl font-bold mb-6">
+            <span className="block text-[var(--lavender-gray)]">TRINETRA</span>
+            <span className="block text-[var(--red)] eye-glow">AWAKENING</span>
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto font-light">
+          <p className="text-xl md:text-2xl text-[var(--wild-blue-yonder)] mb-8 max-w-3xl mx-auto font-light">
             Join the ultimate convergence of innovation, creativity, and transcendent technology at Crescendo Festival 2026
           </p>
           
@@ -97,7 +97,7 @@ export default function Home() {
           {/* Primary CTAs */}
           <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
             <Button 
-              className="px-8 py-4 bg-accent text-accent-foreground rounded-xl hover:bg-accent/90 font-semibold text-lg animate-pulse-gold"
+              className="px-8 py-4 bg-[var(--blue)] text-white rounded-xl hover:bg-[var(--dark-blue)]/90 font-semibold text-lg eye-glow"
               data-testid="button-register-hero"
             >
               <i className="fas fa-ticket-alt mr-2" />

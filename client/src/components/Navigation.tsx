@@ -36,8 +36,8 @@ export default function Navigation() {
   const NavLink = ({ href, label, onClick }: { href: string; label: string; onClick?: () => void }) => (
     <Link href={href} onClick={onClick}>
       <a 
-        className={`font-medium transition-colors hover:text-accent ${
-          isActive(href) ? 'text-accent' : 'text-muted-foreground'
+        className={`font-medium transition-colors hover:text-[var(--red)] ${
+          isActive(href) ? 'text-[var(--red)]' : 'text-[var(--lavender-gray)]'
         }`}
         data-testid={`nav-link-${label.toLowerCase()}`}
       >
@@ -60,9 +60,9 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/">
             <a className="flex items-center space-x-4" data-testid="logo-link">
-              <ThirdEyeGlyph size="sm" />
-              <span className="font-cinzel text-2xl font-bold text-foreground">
-                Crescendo
+              <ThirdEyeGlyph size="sm" className="eye-glow" />
+              <span className="font-cinzel text-2xl font-bold text-[var(--lavender-gray)]">
+                TRINETRA
               </span>
             </a>
           </Link>
@@ -82,14 +82,14 @@ export default function Navigation() {
               <Link href="/brochure">
                 <Button 
                   variant="outline" 
-                  className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                  className="border-[var(--orange-roughy)] text-[var(--orange-roughy)] hover:bg-[var(--orange-roughy)] hover:text-white"
                   data-testid="button-brochure"
                 >
                   Brochure
                 </Button>
               </Link>
               <Button 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 animate-pulse-gold"
+                className="bg-[var(--blue)] text-white hover:bg-[var(--dark-blue)] eye-glow"
                 data-testid="button-register"
               >
                 Register Now
@@ -122,7 +122,7 @@ export default function Navigation() {
                     <Link href="/brochure">
                       <Button 
                         variant="outline" 
-                        className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                        className="w-full border-[var(--orange-roughy)] text-[var(--orange-roughy)] hover:bg-[var(--orange-roughy)] hover:text-white"
                         onClick={() => setMobileMenuOpen(false)}
                         data-testid="button-brochure-mobile"
                       >
@@ -130,7 +130,7 @@ export default function Navigation() {
                       </Button>
                     </Link>
                     <Button 
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                      className="w-full bg-[var(--blue)] text-white hover:bg-[var(--dark-blue)] eye-glow"
                       onClick={() => setMobileMenuOpen(false)}
                       data-testid="button-register-mobile"
                     >

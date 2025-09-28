@@ -25,23 +25,32 @@ export default function ThirdEyeGlyph({
 
   return (
     <div 
-      className={`${sizes[size]} bg-primary/20 rounded-full flex items-center justify-center gold-glow relative ${animated ? 'animate-float force-animate' : ''} ${className}`}
+      className={`${sizes[size]} bg-[var(--port-gore)] rounded-full flex items-center justify-center relative ${animated ? 'animate-float force-animate' : ''} ${className}`}
       data-testid="third-eye-glyph"
+      style={{
+        boxShadow: '0 0 25px 5px rgba(160, 94, 158, 0.4)'  // Mystical purple glow
+      }}
     >
-      <i className={`fas fa-eye text-accent ${iconSizes[size]}`} />
+      <i className={`fas fa-eye text-[var(--blue)] ${iconSizes[size]}`} />
       
-      {/* Rotating rings around the eye */}
+      {/* Rotating rings around the eye - using Trinetra colors */}
       {animated && (
         <>
           <div 
-            className="absolute inset-0 border-2 border-accent/30 rounded-full animate-spin force-animate" 
+            className="absolute inset-0 border-2 border-[var(--blue)]/50 rounded-full animate-spin force-animate" 
             style={{ animationDuration: '8s' }}
           />
           <div 
-            className="absolute inset-2 border border-accent/20 rounded-full animate-spin force-animate" 
+            className="absolute inset-2 border border-[var(--red)]/30 rounded-full animate-spin force-animate" 
             style={{ 
               animationDuration: '12s', 
               animationDirection: 'reverse' 
+            }}
+          />
+          <div 
+            className="absolute inset-4 border border-[var(--orange-roughy)]/20 rounded-full animate-spin force-animate" 
+            style={{ 
+              animationDuration: '15s'
             }}
           />
         </>

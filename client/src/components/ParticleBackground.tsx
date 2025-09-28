@@ -54,17 +54,29 @@ export default function ParticleBackground({
 
   return (
     <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`}>
-      {particles.map((particle) => (
-        <div
-          key={particle.id}
-          className="particle animate-particle-float"
-          style={{
-            top: `${particle.initialTop}%`,
-            left: `${particle.initialLeft}%`,
-            animationDelay: `${particle.delay}s`
-          }}
-        />
-      ))}
+      {particles.map((particle) => {
+        // Assign different particle colors based on Trinetra scheme
+        const colors = [
+          'bg-[var(--lavender-gray)] opacity-30', 
+          'bg-[var(--wild-blue-yonder)] opacity-40',
+          'bg-[var(--butterfly-bush)] opacity-30',
+          'bg-[var(--strikemaster)] opacity-20'
+        ];
+        const colorClass = colors[Math.floor(Math.random() * colors.length)];
+        
+        return (
+          <div
+            key={particle.id}
+            className={`particle animate-particle-float ${colorClass}`}
+            style={{
+              top: `${particle.initialTop}%`,
+              left: `${particle.initialLeft}%`,
+              animationDelay: `${particle.delay}s`,
+              boxShadow: '0 0 15px 2px rgba(170, 140, 200, 0.3)'  // Mystical glow
+            }}
+          />
+        );
+      })}
     </div>
   );
 }
