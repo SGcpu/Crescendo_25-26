@@ -5,36 +5,52 @@
 
 :root {
   /* Trinetra Poster Colors */
-  --red: #ff0100;                  /* Bold attention color for titles */
-  --blue: #1002e5;                 /* Electric blue for focus elements */
-  --dark-blue: #0803c8;            /* Deeper blue for subtle interactive elements */
-  --orange-roughy: #c04420;        /* Border color for important elements */
-  --lavender-gray: #c0b2d1;        /* Main mystical background color */
-  --wild-blue-yonder: #8884b9;     /* Mid-tone for shading */
-  --butterfly-bush: #54569b;       /* Deep shadow color */
-  --port-gore: #282852;            /* Deepest shadow color */
-  --strikemaster: #a65e9e;         /* Warm purple for secondary highlights */
-  
+  --red: #ff0100;
+  /* Bold attention color for titles */
+  --blue: #1002e5;
+  /* Electric blue for focus elements */
+  --dark-blue: #0803c8;
+  /* Deeper blue for subtle interactive elements */
+  --orange-roughy: #c04420;
+  /* Border color for important elements */
+  --lavender-gray: #c0b2d1;
+  /* Main mystical background color */
+  --wild-blue-yonder: #8884b9;
+  /* Mid-tone for shading */
+  --butterfly-bush: #54569b;
+  /* Deep shadow color */
+  --port-gore: #282852;
+  /* Deepest shadow color */
+  --strikemaster: #a65e9e;
+  /* Warm purple for secondary highlights */
+
   /* Main theme variables mapped to Trinetra colors */
-  --background: var(--port-gore);  /* Deep mystical background */
+  --background: var(--port-gore);
+  /* Deep mystical background */
   --foreground: var(--lavender-gray);
-  --card: #1a1a2e;                 /* Slightly lighter than background for cards */
+  --card: #1a1a2e;
+  /* Slightly lighter than background for cards */
   --card-foreground: var(--lavender-gray);
   --popover: #1a1a2e;
   --popover-foreground: var(--lavender-gray);
-  --primary: var(--strikemaster);  /* Main purple theme color */
+  --primary: var(--strikemaster);
+  /* Main purple theme color */
   --primary-foreground: var(--lavender-gray);
   --secondary: var(--butterfly-bush);
   --secondary-foreground: var(--lavender-gray);
-  --muted: rgba(84, 86, 155, 0.7); /* Transparent butterfly-bush */
+  --muted: rgba(84, 86, 155, 0.7);
+  /* Transparent butterfly-bush */
   --muted-foreground: #b0b0c0;
-  --accent: var(--red);            /* Bold red accent from Trinetra */
+  --accent: var(--red);
+  /* Bold red accent from Trinetra */
   --accent-foreground: white;
   --destructive: var(--red);
   --destructive-foreground: white;
-  --border: var(--orange-roughy);  /* Orange border from central figure */
+  --border: var(--orange-roughy);
+  /* Orange border from central figure */
   --input: var(--butterfly-bush);
-  --ring: var(--blue);             /* Electric blue for focus rings */
+  --ring: var(--blue);
+  /* Electric blue for focus rings */
   --chart-1: var(--strikemaster);
   /* Main purple */
   --chart-2: var(--red);
@@ -74,23 +90,29 @@
 
 .dark {
   /* Use the same Trinetra color scheme for dark mode - already mystical and dark */
-  --background: var(--port-gore);  /* Deep mystical background */
+  --background: var(--port-gore);
+  /* Deep mystical background */
   --foreground: var(--lavender-gray);
-  --card: #1a1a2e;                 /* Slightly lighter than background for cards */
+  --card: #1a1a2e;
+  /* Slightly lighter than background for cards */
   --card-foreground: var(--lavender-gray);
   --popover: #1a1a2e;
   --popover-foreground: var(--lavender-gray);
-  --primary: var(--strikemaster);  /* Main purple theme color */
+  --primary: var(--strikemaster);
+  /* Main purple theme color */
   --primary-foreground: var(--lavender-gray);
   --secondary: var(--butterfly-bush);
   --secondary-foreground: var(--lavender-gray);
-  --muted: rgba(84, 86, 155, 0.7); /* Transparent butterfly-bush */
+  --muted: rgba(84, 86, 155, 0.7);
+  /* Transparent butterfly-bush */
   --muted-foreground: #b0b0c0;
-  --accent: var(--red);            /* Bold red accent from Trinetra */
+  --accent: var(--red);
+  /* Bold red accent from Trinetra */
   --accent-foreground: white;
   --destructive: var(--red);
   --destructive-foreground: white;
-  --border: var(--orange-roughy);  /* Orange border from central figure */
+  --border: var(--orange-roughy);
+  /* Orange border from central figure */
   --input: var(--butterfly-bush);
   /* #2E1834 */
   --ring: hsl(273, 45%, 41%);
@@ -197,59 +219,63 @@
       transform: translate(10px, -10px) rotate(90deg);
       opacity: 0.8;
     }
-    
+
     50% {
       transform: translate(5px, -15px) rotate(180deg);
       opacity: 0.6;
     }
-    
+
     75% {
       transform: translate(-10px, -10px) rotate(270deg);
       opacity: 0.9;
     }
   }
-  
+
   /* Trinetra theme custom animations and styles */
   @keyframes pulseMystical {
-    0%, 100% {
+
+    0%,
+    100% {
       box-shadow: 0 0 10px 2px rgba(166, 94, 158, 0.4);
     }
+
     50% {
       box-shadow: 0 0 20px 5px rgba(166, 94, 158, 0.6);
     }
   }
-  
+
   @keyframes eyeGlow {
-    0%, 100% {
+
+    0%,
+    100% {
       filter: drop-shadow(0 0 5px rgba(16, 2, 229, 0.7));
     }
+
     50% {
       filter: drop-shadow(0 0 10px rgba(16, 2, 229, 0.9));
     }
   }
-  
+
   .mystical-glow {
     animation: pulseMystical 3s infinite ease-in-out;
   }
-  
+
   .eye-glow {
     animation: eyeGlow 2s infinite ease-in-out;
   }
-  
+
   /* Swirling background inspired by Trinetra poster */
   .swirl-bg {
-    background-image: radial-gradient(
-      circle at center,
-      var(--port-gore) 0%,
-      rgba(40, 40, 82, 0.9) 40%,
-      rgba(84, 86, 155, 0.8) 60%,
-      rgba(192, 178, 209, 0.7) 80%,
-      rgba(192, 178, 209, 0.5) 100%
-    );
+    background-image: radial-gradient(circle at center,
+        var(--port-gore) 0%,
+        rgba(40, 40, 82, 0.9) 40%,
+        rgba(84, 86, 155, 0.8) 60%,
+        rgba(192, 178, 209, 0.7) 80%,
+        rgba(192, 178, 209, 0.5) 100%);
     position: relative;
     overflow: hidden;
   }
-  
+
   .swirl-bg::before,
   .swirl-bg::after {
     content: '';
@@ -259,64 +285,65 @@
     top: -50%;
     left: -50%;
     z-index: -1;
-    background-image: 
+    background-image:
       url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='rgba(166, 94, 158, 0.1)' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E"),
       url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a65e9e' fill-opacity='0.05'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     opacity: 0.1;
     animation: rotateBackground 120s linear infinite;
   }
-  
+
   .swirl-bg::after {
     animation-direction: reverse;
     animation-duration: 180s;
   }
-  
+
   @keyframes rotateBackground {
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }
   }
+}
+
+.animate-pulse-gold {
+  animation: pulseGold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-particle-float {
+  animation: particleFloat 4s ease-in-out infinite;
+}
+
+/* Force animations in test environments */
+.force-animate {
+  animation-play-state: running !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-float,
+  .animate-particle-float,
+  .animate-pulse-gold,
+  .animate-spin {
+    animation: none;
   }
 
-  .animate-pulse-gold {
-    animation: pulseGold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  /* Override for test environments - force animations when needed */
+  .force-animate.animate-float {
+    animation: float 6s ease-in-out infinite !important;
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  .force-animate.animate-spin {
+    animation: spin 1s linear infinite !important;
   }
 
-  .animate-particle-float {
-    animation: particleFloat 4s ease-in-out infinite;
+  .force-animate.animate-pulse-gold {
+    animation: pulseGold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
   }
-
-  /* Force animations in test environments */
-  .force-animate {
-    animation-play-state: running !important;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-
-    .animate-float,
-    .animate-particle-float,
-    .animate-pulse-gold,
-    .animate-spin {
-      animation: none;
-    }
-
-    /* Override for test environments - force animations when needed */
-    .force-animate.animate-float {
-      animation: float 6s ease-in-out infinite !important;
-    }
-
-    .force-animate.animate-spin {
-      animation: spin 1s linear infinite !important;
-    }
-
-    .force-animate.animate-pulse-gold {
-      animation: pulseGold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
-    }
-  }
+}
