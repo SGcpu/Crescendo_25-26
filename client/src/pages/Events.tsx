@@ -5,6 +5,7 @@ import { type Event } from "@shared/schema";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
 import {
   Select,
   SelectContent,
@@ -14,6 +15,8 @@ import {
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import Hyperspeed from "@/components/Hyperspeed";
+import "./Events.css";
 
 export default function Events() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -82,10 +85,30 @@ export default function Events() {
   }
 
   return (
-    <div className="min-h-screen pt-24 pb-12">
-      <div className="container mx-auto px-6">
+    <div className="min-h-screen pt-24 pb-12 relative events-page-container">
+      {/* Hyperspeed Background */}
+      <div className="absolute inset-0 z-0 opacity-60">
+        <Hyperspeed
+          effectOptions={{
+            colors: {
+              roadColor: 0x080808,
+              islandColor: 0x0a0a0a,
+              background: 0x000000,
+              shoulderLines: 0x03b3c3,
+              brokenLines: 0xd856bf,
+              leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
+              rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
+              sticks: 0x03b3c3,
+            },
+            distortion: "turbulentDistortion",
+            fov: 90,
+            speedUp: 1.5,
+          }}
+        />
+      </div>
+      <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 events-header">
           <h1 className="font-cinzel text-4xl md:text-6xl font-bold mb-6 text-foreground">
             Festival Events
           </h1>
@@ -96,62 +119,71 @@ export default function Events() {
         </div>
 
         {/* Filters */}
-        <div className="grid md:grid-cols-4 gap-4 mb-12">
-          <Input
-            placeholder="Search events..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="bg-card border-border"
-            data-testid="input-search-events"
-          />
+        <CardSpotlight
+          className="mb-12 rounded-lg"
+          radius={600}
+          color="rgba(30, 12, 51, 0.8)"
+        >
+          <div className="grid md:grid-cols-4 gap-4 p-4">
+            <Input
+              placeholder="Search events..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="bg-transparent border-accent/50"
+              data-testid="input-search-events"
+            />
 
-          <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-            <SelectTrigger
-              className="bg-card border-border"
-              data-testid="select-category"
+            <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+              <SelectTrigger
+                className="bg-transparent border-accent/50"
+                data-testid="select-category"
+              >
+                <SelectValue placeholder="Category" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Categories</SelectItem>
+                {categories.map((category) => (
+                  <SelectItem key={category} value={category}>
+                    {category}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
+            <Select
+              value={difficultyFilter}
+              onValueChange={setDifficultyFilter}
             >
-              <SelectValue placeholder="Category" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Categories</SelectItem>
-              {categories.map((category) => (
-                <SelectItem key={category} value={category}>
-                  {category}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+              <SelectTrigger
+                className="bg-transparent border-accent/50"
+                data-testid="select-difficulty"
+              >
+                <SelectValue placeholder="Difficulty" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Levels</SelectItem>
+                {difficulties.map((difficulty) => (
+                  <SelectItem key={difficulty} value={difficulty}>
+                    {difficulty}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
 
-          <Select value={difficultyFilter} onValueChange={setDifficultyFilter}>
-            <SelectTrigger
-              className="bg-card border-border"
-              data-testid="select-difficulty"
+            <Button
+              onClick={() => {
+                setSearchTerm("");
+                setCategoryFilter("all");
+                setDifficultyFilter("all");
+              }}
+              variant="outline"
+              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+              data-testid="button-clear-filters"
             >
-              <SelectValue placeholder="Difficulty" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Levels</SelectItem>
-              {difficulties.map((difficulty) => (
-                <SelectItem key={difficulty} value={difficulty}>
-                  {difficulty}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-
-          <Button
-            onClick={() => {
-              setSearchTerm("");
-              setCategoryFilter("all");
-              setDifficultyFilter("all");
-            }}
-            variant="outline"
-            className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-            data-testid="button-clear-filters"
-          >
-            Clear Filters
-          </Button>
-        </div>
+              Clear Filters
+            </Button>
+          </div>
+        </CardSpotlight>
 
         {/* Events Grid */}
         {isLoading ? (
@@ -159,46 +191,59 @@ export default function Events() {
             {Array(6)
               .fill(null)
               .map((_, i) => (
-                <Card key={i} className="bg-card border border-border">
-                  <CardHeader>
+                <CardSpotlight
+                  key={i}
+                  radius={450}
+                  color="rgba(30, 12, 51, 0.8)"
+                  className="h-full"
+                >
+                  <div className="px-2 pt-2">
                     <Skeleton className="h-6 w-3/4 mb-2" />
-                    <Skeleton className="h-4 w-1/2" />
-                  </CardHeader>
-                  <CardContent>
+                    <Skeleton className="h-4 w-1/2 mb-4" />
                     <Skeleton className="h-20 w-full mb-4" />
                     <Skeleton className="h-4 w-full mb-2" />
                     <Skeleton className="h-4 w-2/3" />
-                  </CardContent>
-                </Card>
+                  </div>
+                </CardSpotlight>
               ))}
           </div>
         ) : filteredEvents.length === 0 ? (
-          <div className="text-center py-16">
-            <i className="fas fa-search text-6xl text-muted-foreground mb-6" />
-            <h3 className="font-cinzel text-2xl font-bold mb-4 text-foreground">
-              No Events Found
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Try adjusting your search criteria or clear the filters.
-            </p>
-            <Button
-              onClick={() => {
-                setSearchTerm("");
-                setCategoryFilter("all");
-                setDifficultyFilter("all");
-              }}
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
-              data-testid="button-clear-filters-empty"
-            >
-              Clear All Filters
-            </Button>
-          </div>
+          <CardSpotlight
+            className="text-center py-16 rounded-lg"
+            radius={600}
+            color="rgba(30, 12, 51, 0.8)"
+          >
+            <div className="p-8">
+              <i className="fas fa-search text-6xl text-muted-foreground mb-6" />
+              <h3 className="font-cinzel text-2xl font-bold mb-4 text-foreground">
+                No Events Found
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                Try adjusting your search criteria or clear the filters.
+              </p>
+              <Button
+                onClick={() => {
+                  setSearchTerm("");
+                  setCategoryFilter("all");
+                  setDifficultyFilter("all");
+                }}
+                className="bg-accent text-accent-foreground hover:bg-accent/90"
+                data-testid="button-clear-filters-empty"
+              >
+                Clear All Filters
+              </Button>
+            </div>
+          </CardSpotlight>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredEvents.map((event) => (
               <Link key={event.id} href={`/events/${event.slug}`}>
-                <Card className="bg-card border border-border hover-lift cursor-pointer group h-full">
-                  <CardHeader>
+                <CardSpotlight
+                  className="h-full cursor-pointer group"
+                  radius={450}
+                  color="rgba(30, 12, 51, 0.8)"
+                >
+                  <div className="px-2 pt-2">
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex items-center space-x-2">
                         <i
@@ -214,10 +259,10 @@ export default function Events() {
                         {event.difficulty}
                       </Badge>
                     </div>
-                    <CardTitle className="font-cinzel text-xl group-hover:text-accent transition-colors">
+                    <h3 className="font-cinzel text-xl group-hover:text-accent transition-colors font-bold mt-2">
                       {event.title}
-                    </CardTitle>
-                    <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                    </h3>
+                    <div className="flex items-center space-x-4 text-sm text-muted-foreground mt-1 mb-2">
                       <span className="flex items-center space-x-1">
                         <i className="fas fa-calendar" />
                         <span>{new Date(event.date).toLocaleDateString()}</span>
@@ -227,8 +272,7 @@ export default function Events() {
                         <span>{event.teamSize}</span>
                       </span>
                     </div>
-                  </CardHeader>
-                  <CardContent>
+
                     <p className="text-muted-foreground mb-4 line-clamp-3">
                       {event.summary}
                     </p>
@@ -248,57 +292,15 @@ export default function Events() {
                         Learn More <i className="fas fa-arrow-right ml-2" />
                       </span>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </CardSpotlight>
               </Link>
             ))}
           </div>
         )}
 
-        {/* Event Timeline */}
-        {!isLoading && filteredEvents.length > 0 && (
-          <div className="mt-20">
-            <h2 className="font-cinzel text-3xl font-bold text-center mb-12 text-foreground">
-              Event Timeline
-            </h2>
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-border" />
-              {filteredEvents
-                .sort(
-                  (a, b) =>
-                    new Date(a.date).getTime() - new Date(b.date).getTime()
-                )
-                .map((event, index) => (
-                  <div
-                    key={event.id}
-                    className={`relative flex items-center mb-8 ${
-                      index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                    }`}
-                  >
-                    <div className="flex-1 px-8">
-                      <Card className="bg-card border border-border">
-                        <CardContent className="p-6">
-                          <div className="flex items-center space-x-2 mb-2">
-                            <Badge variant="secondary">{event.category}</Badge>
-                            <span className="text-sm text-muted-foreground">
-                              {new Date(event.date).toLocaleDateString()}
-                            </span>
-                          </div>
-                          <h3 className="font-cinzel text-lg font-bold mb-2">
-                            {event.title}
-                          </h3>
-                          <p className="text-muted-foreground text-sm">
-                            {event.summary}
-                          </p>
-                        </CardContent>
-                      </Card>
-                    </div>
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent rounded-full border-4 border-background" />
-                  </div>
-                ))}
-            </div>
-          </div>
-        )}
+        {/* Empty space to showcase background animation */}
+        <div className="mt-40"></div>
       </div>
     </div>
   );

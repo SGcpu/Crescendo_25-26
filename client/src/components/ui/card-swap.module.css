@@ -1,0 +1,72 @@
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) translateZ(0);
+    }
+
+    50% {
+        transform: translateY(-10px) translateZ(20px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px 5px rgba(164, 94, 158, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 25px 10px rgba(164, 94, 158, 0.4);
+    }
+}
+
+.cardWrapper {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    z-index: 20;
+    /* Ensure cards are above other content */
+    margin: 0 auto;
+    /* Center the container */
+}
+
+.card {
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 10px 30px -5px rgba(0, 0, 0, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.22),
+        inset 0 0 15px rgba(255, 255, 255, 0.05),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg,
+            rgba(26, 26, 46, 0.95) 0%,
+            rgba(40, 40, 82, 0.85) 100%);
+    backdrop-filter: blur(10px);
+}
+
+.hoverGlow {
+    box-shadow:
+        0 0 15px 2px var(--primary),
+        0 0 30px 8px rgba(164, 94, 158, 0.3);
+    animation: pulse 2s infinite;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Add custom animation for the first card */
+.cardWrapper>div:first-child::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center,
+            rgba(164, 94, 158, 0.1) 0%,
+            transparent 70%);
+    z-index: -1;
+    opacity: 0.5;
+    animation: float 6s infinite;
+}

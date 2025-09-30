@@ -109,6 +109,10 @@ export default {
           '25%': { transform: 'translate(10px, -10px) rotate(90deg)', opacity: '0.8' },
           '50%': { transform: 'translate(-5px, -20px) rotate(180deg)', opacity: '0.6' },
           '75%': { transform: 'translate(-10px, -10px) rotate(270deg)', opacity: '0.9' }
+        },
+        'fadeIn': {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
         }
       },
       animation: {
@@ -117,6 +121,8 @@ export default {
         'pulse-gold': 'pulse-gold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float': 'float 6s ease-in-out infinite',
         'particle-float': 'particle-float 4s ease-in-out infinite',
+        'fadeIn': 'fadeIn 0.3s ease-out forwards',
+        'fade-in': 'fadeIn 0.3s ease-out forwards',
       },
     },
   },

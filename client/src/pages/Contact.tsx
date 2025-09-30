@@ -1,18 +1,37 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useMutation } from '@tanstack/react-query';
-import { z } from 'zod';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { useToast } from '@/hooks/use-toast';
-import { apiRequest } from '@/lib/queryClient';
-import { insertContactSchema } from '@shared/schema';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { z } from "zod";
+import DotGrid from "@/components/DotGrid";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
+import { insertContactSchema } from "@shared/schema";
 
 const extendedContactSchema = insertContactSchema.extend({
   phone: z.string().optional(),
@@ -21,23 +40,23 @@ const extendedContactSchema = insertContactSchema.extend({
 type ContactFormData = z.infer<typeof extendedContactSchema>;
 
 export default function Contact() {
-  const [activeTab, setActiveTab] = useState('general');
+  const [activeTab, setActiveTab] = useState("general");
   const { toast } = useToast();
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(extendedContactSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      phone: '',
-      type: 'general',
-      message: '',
+      name: "",
+      email: "",
+      phone: "",
+      type: "general",
+      message: "",
     },
   });
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      const response = await apiRequest('POST', '/api/contact', data);
+      const response = await apiRequest("POST", "/api/contact", data);
       return response.json();
     },
     onSuccess: () => {
@@ -51,7 +70,8 @@ export default function Contact() {
     onError: (error: any) => {
       toast({
         title: "Error",
-        description: error.message || "Failed to send message. Please try again.",
+        description:
+          error.message || "Failed to send message. Please try again.",
         variant: "destructive",
       });
     },
@@ -63,104 +83,131 @@ export default function Contact() {
 
   const contactTypes = [
     {
-      id: 'general',
-      title: 'General Inquiry',
-      description: 'Questions about the festival, events, or general information',
-      icon: 'fas fa-info-circle',
-      color: 'primary'
+      id: "general",
+      title: "General Inquiry",
+      description:
+        "Questions about the festival, events, or general information",
+      icon: "fas fa-info-circle",
+      color: "primary",
     },
     {
-      id: 'volunteer',
-      title: 'Volunteer',
-      description: 'Join our team and help make Crescendo Festival amazing',
-      icon: 'fas fa-hands-helping',
-      color: 'accent'
+      id: "volunteer",
+      title: "Volunteer",
+      description: "Join our team and help make Crescendo Festival amazing",
+      icon: "fas fa-hands-helping",
+      color: "accent",
     },
     {
-      id: 'press',
-      title: 'Press & Media',
-      description: 'Media inquiries, interviews, and press kit requests',
-      icon: 'fas fa-newspaper',
-      color: 'secondary'
+      id: "press",
+      title: "Press & Media",
+      description: "Media inquiries, interviews, and press kit requests",
+      icon: "fas fa-newspaper",
+      color: "secondary",
     },
     {
-      id: 'partnership',
-      title: 'Partnerships',
-      description: 'Sponsorship opportunities and strategic partnerships',
-      icon: 'fas fa-handshake',
-      color: 'primary'
-    }
+      id: "partnership",
+      title: "Partnerships",
+      description: "Sponsorship opportunities and strategic partnerships",
+      icon: "fas fa-handshake",
+      color: "primary",
+    },
   ];
 
   const contactInfo = [
     {
-      title: 'Festival Headquarters',
-      details: ['Innovation District, Mumbai', 'Maharashtra, India - 400001'],
-      icon: 'fas fa-map-marker-alt'
+      title: "Festival Headquarters",
+      details: ["Innovation District, Mumbai", "Maharashtra, India - 400001"],
+      icon: "fas fa-map-marker-alt",
     },
     {
-      title: 'General Information',
-      details: ['+91 98765 43210', 'info@crescendofestival.com'],
-      icon: 'fas fa-phone'
+      title: "General Information",
+      details: ["+91 98765 43210", "info@crescendofestival.com"],
+      icon: "fas fa-phone",
     },
     {
-      title: 'Media Relations',
-      details: ['press@crescendofestival.com', 'Download Press Kit'],
-      icon: 'fas fa-newspaper'
+      title: "Media Relations",
+      details: ["press@crescendofestival.com", "Download Press Kit"],
+      icon: "fas fa-newspaper",
     },
     {
-      title: 'Partnerships',
-      details: ['partnerships@crescendofestival.com', 'Sponsorship Opportunities'],
-      icon: 'fas fa-briefcase'
-    }
+      title: "Partnerships",
+      details: [
+        "partnerships@crescendofestival.com",
+        "Sponsorship Opportunities",
+      ],
+      icon: "fas fa-briefcase",
+    },
   ];
 
   const faqs = [
     {
-      question: 'How do I register for events?',
-      answer: 'You can register for individual events through our Events page. Each event has its own registration form and requirements. Early bird discounts are available until December 15, 2025.'
+      question: "How do I register for events?",
+      answer:
+        "You can register for individual events through our Events page. Each event has its own registration form and requirements. Early bird discounts are available until December 15, 2025.",
     },
     {
-      question: 'What is included in the registration fee?',
-      answer: 'Registration includes access to all workshops, networking sessions, meals during the festival, official merchandise, and participation certificates. Competition-specific prizes are additional.'
+      question: "What is included in the registration fee?",
+      answer:
+        "Registration includes access to all workshops, networking sessions, meals during the festival, official merchandise, and participation certificates. Competition-specific prizes are additional.",
     },
     {
-      question: 'Are there accommodation arrangements?',
-      answer: 'We have partnerships with local hotels offering discounted rates for participants. A list of recommended accommodations is available in our brochure and will be sent upon registration.'
+      question: "Are there accommodation arrangements?",
+      answer:
+        "We have partnerships with local hotels offering discounted rates for participants. A list of recommended accommodations is available in our brochure and will be sent upon registration.",
     },
     {
-      question: 'Can I participate remotely?',
-      answer: 'While Crescendo Festival is primarily an in-person experience, select workshops and keynote sessions will be live-streamed. However, competitions and hands-on activities require physical presence.'
+      question: "Can I participate remotely?",
+      answer:
+        "While Crescendo Festival is primarily an in-person experience, select workshops and keynote sessions will be live-streamed. However, competitions and hands-on activities require physical presence.",
     },
     {
-      question: 'What should I bring to the festival?',
-      answer: 'Bring your laptop, chargers, any specific hardware for competitions, government-issued ID for verification, and comfortable clothing. Detailed packing lists are provided for specific events.'
+      question: "What should I bring to the festival?",
+      answer:
+        "Bring your laptop, chargers, any specific hardware for competitions, government-issued ID for verification, and comfortable clothing. Detailed packing lists are provided for specific events.",
     },
     {
-      question: 'How can I become a volunteer?',
-      answer: 'We welcome volunteers! Fill out the volunteer application form above or email volunteer@crescendofestival.com. Volunteers receive festival access, meals, exclusive volunteer merchandise, and networking opportunities.'
+      question: "How can I become a volunteer?",
+      answer:
+        "We welcome volunteers! Fill out the volunteer application form above or email volunteer@crescendofestival.com. Volunteers receive festival access, meals, exclusive volunteer merchandise, and networking opportunities.",
     },
     {
-      question: 'What are the judging criteria for competitions?',
-      answer: 'Competitions are judged on innovation, technical execution, presentation quality, and real-world impact. Detailed rubrics are provided for each competition during the briefing sessions.'
+      question: "What are the judging criteria for competitions?",
+      answer:
+        "Competitions are judged on innovation, technical execution, presentation quality, and real-world impact. Detailed rubrics are provided for each competition during the briefing sessions.",
     },
     {
-      question: 'Is there a code of conduct?',
-      answer: 'Yes, all participants must adhere to our Code of Conduct, which promotes inclusive, respectful, and professional behavior. The full document is available on our website and in the brochure.'
-    }
+      question: "Is there a code of conduct?",
+      answer:
+        "Yes, all participants must adhere to our Code of Conduct, which promotes inclusive, respectful, and professional behavior. The full document is available on our website and in the brochure.",
+    },
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-12">
-      <div className="container mx-auto px-6">
+    <div className="min-h-screen pt-24 pb-12 relative">
+      {/* Dot Grid Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <DotGrid
+          dotSize={6}
+          gap={25}
+          baseColor="rgba(82, 39, 255, 0.15)"
+          activeColor="rgba(82, 39, 255, 0.6)"
+          proximity={120}
+          shockRadius={250}
+          shockStrength={5}
+          resistance={750}
+          returnDuration={1.5}
+        />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="font-cinzel text-4xl md:text-6xl font-bold mb-6 text-foreground">
             Get In Touch
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to be part of something extraordinary? We're here to answer your questions 
-            and help you join the Crescendo Festival community.
+            Ready to be part of something extraordinary? We're here to answer
+            your questions and help you join the Crescendo Festival community.
           </p>
         </div>
 
@@ -173,20 +220,28 @@ export default function Contact() {
                 <Card
                   key={type.id}
                   className={`cursor-pointer transition-all duration-300 ${
-                    activeTab === type.id 
-                      ? 'border-accent bg-accent/5' 
-                      : 'border-border hover:border-accent/50'
+                    activeTab === type.id
+                      ? "border-accent bg-accent/5"
+                      : "border-border hover:border-accent/50"
                   }`}
                   onClick={() => {
                     setActiveTab(type.id);
-                    form.setValue('type', type.id);
+                    form.setValue("type", type.id);
                   }}
                   data-testid={`contact-type-${type.id}`}
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className={`w-12 h-12 bg-${type.color === 'accent' ? 'accent' : 'primary'}/20 rounded-full flex items-center justify-center flex-shrink-0`}>
-                        <i className={`${type.icon} text-${type.color === 'accent' ? 'accent' : 'primary'}`} />
+                      <div
+                        className={`w-12 h-12 bg-${
+                          type.color === "accent" ? "accent" : "primary"
+                        }/20 rounded-full flex items-center justify-center flex-shrink-0`}
+                      >
+                        <i
+                          className={`${type.icon} text-${
+                            type.color === "accent" ? "accent" : "primary"
+                          }`}
+                        />
                       </div>
                       <div>
                         <h3 className="font-cinzel font-bold text-card-foreground mb-2">
@@ -203,7 +258,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <Card className="bg-card border border-border">
+            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
               <CardHeader>
                 <CardTitle className="font-cinzel text-2xl">
                   Send us a Message
@@ -211,7 +266,10 @@ export default function Contact() {
               </CardHeader>
               <CardContent>
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="space-y-6"
+                  >
                     <div className="grid md:grid-cols-2 gap-6">
                       <FormField
                         control={form.control}
@@ -279,9 +337,16 @@ export default function Contact() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Inquiry Type *</FormLabel>
-                          <Select onValueChange={field.onChange} value={field.value} disabled>
+                          <Select
+                            onValueChange={field.onChange}
+                            value={field.value}
+                            disabled
+                          >
                             <FormControl>
-                              <SelectTrigger className="bg-background border-border" data-testid="select-type">
+                              <SelectTrigger
+                                className="bg-background border-border"
+                                data-testid="select-type"
+                              >
                                 <SelectValue />
                               </SelectTrigger>
                             </FormControl>
@@ -344,9 +409,11 @@ export default function Contact() {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* Contact Information */}
-            <Card className="bg-card border border-border">
+            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
               <CardHeader>
-                <CardTitle className="font-cinzel text-xl">Contact Information</CardTitle>
+                <CardTitle className="font-cinzel text-xl">
+                  Contact Information
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {contactInfo.map((info, index) => (
@@ -355,7 +422,9 @@ export default function Contact() {
                       <i className={`${info.icon} text-primary`} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1">{info.title}</h4>
+                      <h4 className="font-semibold text-foreground mb-1">
+                        {info.title}
+                      </h4>
                       {info.details.map((detail, i) => (
                         <p key={i} className="text-muted-foreground text-sm">
                           {detail}
@@ -368,9 +437,11 @@ export default function Contact() {
             </Card>
 
             {/* Quick Actions */}
-            <Card className="bg-card border border-border">
+            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
               <CardHeader>
-                <CardTitle className="font-cinzel text-xl">Quick Actions</CardTitle>
+                <CardTitle className="font-cinzel text-xl">
+                  Quick Actions
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <Button
@@ -381,7 +452,7 @@ export default function Contact() {
                   <i className="fas fa-download mr-2" />
                   Download Media Kit
                 </Button>
-                
+
                 <Button
                   variant="outline"
                   className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
@@ -390,7 +461,7 @@ export default function Contact() {
                   <i className="fas fa-file-pdf mr-2" />
                   Sponsorship Package
                 </Button>
-                
+
                 <Button
                   variant="outline"
                   className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
@@ -403,7 +474,7 @@ export default function Contact() {
             </Card>
 
             {/* Social Media */}
-            <Card className="bg-card border border-border">
+            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
               <CardHeader>
                 <CardTitle className="font-cinzel text-xl">Follow Us</CardTitle>
               </CardHeader>
@@ -452,7 +523,7 @@ export default function Contact() {
 
         {/* FAQ Section */}
         <div className="mt-20">
-          <Card className="bg-card border border-border">
+          <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
             <CardHeader>
               <CardTitle className="font-cinzel text-2xl text-center">
                 Frequently Asked Questions
@@ -482,7 +553,7 @@ export default function Contact() {
 
         {/* Map Section */}
         <div className="mt-16">
-          <Card className="bg-card border border-border overflow-hidden">
+          <Card className="bg-card/80 backdrop-blur-sm border border-border overflow-hidden shadow-lg">
             <CardHeader>
               <CardTitle className="font-cinzel text-2xl text-center">
                 Find Us

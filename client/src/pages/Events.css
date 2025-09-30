@@ -1,0 +1,24 @@
+.hyperspeed-card {
+    backdrop-filter: blur(8px);
+    background-color: rgba(26, 26, 46, 0.75) !important;
+    border: 1px solid rgba(192, 68, 32, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.hyperspeed-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(3, 179, 195, 0.15);
+    border: 1px solid rgba(3, 179, 195, 0.5) !important;
+}
+
+.events-page-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.events-header {
+    position: relative;
+    z-index: 10;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}

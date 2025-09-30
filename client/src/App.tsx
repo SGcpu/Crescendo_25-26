@@ -11,13 +11,25 @@ import Sponsors from "@/pages/Sponsors";
 import Brochure from "@/pages/Brochure";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
-import Navigation from "@/components/Navigation";
+import CardNav from "@/components/CardNav";
 import Footer from "@/components/Footer";
+import { useState, useEffect } from "react";
 
 function Router() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
+      <CardNav isScrolled={isScrolled} />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/events" component={Events} />
