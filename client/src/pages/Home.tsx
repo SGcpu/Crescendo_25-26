@@ -342,10 +342,9 @@ export default function Home() {
                       Synergy : Hardware Hackathon
                     </h3>
                     <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                      Gear up for a Hardware Revolution, where
- innovation meets sustainability, and unleash
- your creativity to build powerful solutions that
- shape a better future!
+                      Gear up for a Hardware Revolution, where innovation meets
+                      sustainability, and unleash your creativity to build
+                      powerful solutions that shape a better future!
                     </p>
                     <div className="flex items-center space-x-6 mb-8">
                       <div className="text-center bg-gradient-to-b from-transparent to-primary/10 px-4 py-2 rounded-lg">
@@ -361,7 +360,7 @@ export default function Home() {
                           32
                         </div>
                         <div className="text-sm text-muted-foreground font-medium">
-                         Max Teams
+                          Max Teams
                         </div>
                       </div>
                       <div className="text-center bg-gradient-to-b from-transparent to-primary/10 px-4 py-2 rounded-lg">
@@ -374,35 +373,39 @@ export default function Home() {
                       </div>
                     </div>
                     <a
-  href="https://forms.gle/your-google-form-link" 
-  target="_blank" 
-  rel="noopener noreferrer" 
->
-                    <Button
-                      className="px-8 py-3 bg-gradient-to-r from-accent to-primary text-white hover:opacity-90 font-semibold transition-all duration-300 transform hover:scale-105"
-                      data-testid="button-register-challenge"
+                      href="https://forms.gle/your-google-form-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <i className="fas fa-bolt mr-2" />
-                      Register for event
-                    </Button>
-                  </a>
+                      <Button
+                        className="px-8 py-3 bg-gradient-to-r from-accent to-primary text-white hover:opacity-90 font-semibold transition-all duration-300 transform hover:scale-105"
+                        data-testid="button-register-challenge"
+                      >
+                        <i className="fas fa-bolt mr-2" />
+                        Register for event
+                      </Button>
+                    </a>
                   </div>
-              
 
                   <div className="relative">
                     <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center border border-border overflow-hidden">
                       <div className="absolute inset-0 opacity-20">
                         <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--accent)_0%,_transparent_50%)]"></div>
                       </div>
-                      <div className="text-center relative z-10">
-                        <ThirdEyeGlyph size="lg" className="animate-float" />
-                        <p className="text-muted-foreground mt-4 font-semibold">
-                          Challenge Visualization
-                        </p>
+                      <div className="relative z-10 w-full h-full flex items-center justify-center">
+                        {/* Image placeholder - replace src with actual image when available */}
+                        <div className="w-full h-full flex items-center justify-center">
+                          <div className="text-center">
+                            <i className="fas fa-image text-4xl text-muted-foreground mb-2"></i>
+                            <p className="text-muted-foreground font-medium">
+                              Event Image
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div className="absolute top-4 right-4 w-12 h-12 bg-accent rounded-full flex items-center justify-center animate-pulse shadow-lg shadow-accent/20">
-                      <i className="fas fa-eye text-accent-foreground text-xl" />
+                      <i className="fas fa-image text-accent-foreground text-xl" />
                     </div>
                   </div>
                 </div>
