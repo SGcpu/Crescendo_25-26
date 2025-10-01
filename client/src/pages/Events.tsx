@@ -16,19 +16,34 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import Hyperspeed from "@/components/Hyperspeed";
+import EventCard from "@/components/EventCard";
+import { sampleEvents } from "@/data/events";
 import "./Events.css";
 
 export default function Events() {
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [difficultyFilter, setDifficultyFilter] = useState("all");
+  const [councilFilter, setCouncilFilter] = useState("all");
 
+  // Mock the API call with local data
   const {
     data: events,
     isLoading,
     error,
-  } = useQuery<Event[]>({
+  } = useQuery<(Omit<Event, "id"> & { id: string })[]>({
     queryKey: ["/api/events"],
+    queryFn: () => {
+      // Add fake IDs to match the Event type
+      return sampleEvents.map((event, index) => ({
+        ...event,
+        id: `event-${index}`,
+      }));
+    },
+    initialData: sampleEvents.map((event, index) => ({
+      ...event,
+      id: `event-${index}`,
+    })),
   });
 
   const filteredEvents =
@@ -41,7 +56,16 @@ export default function Events() {
       const matchesDifficulty =
         difficultyFilter === "all" || event.difficulty === difficultyFilter;
 
-      return matchesSearch && matchesCategory && matchesDifficulty;
+      // Extract council name from summary (before the dash)
+      const councilName = event.summary.split(" - ")[0];
+      const matchesCouncil =
+        councilFilter === "all" ||
+        (councilName &&
+          councilName.toLowerCase().includes(councilFilter.toLowerCase()));
+
+      return (
+        matchesSearch && matchesCategory && matchesDifficulty && matchesCouncil
+      );
     }) || [];
 
   const categories = Array.from(
@@ -49,6 +73,18 @@ export default function Events() {
   );
   const difficulties = Array.from(
     new Set(events?.map((event) => event.difficulty) || [])
+  );
+
+  // Extract all councils from event summaries
+  const councils = Array.from(
+    new Set(
+      events
+        ?.map((event) => {
+          const parts = event.summary.split(" - ");
+          return parts[0];
+        })
+        .filter(Boolean) || []
+    )
   );
 
   const getCategoryIcon = (category: string) => {
@@ -133,6 +169,23 @@ export default function Events() {
               data-testid="input-search-events"
             />
 
+            <Select value={councilFilter} onValueChange={setCouncilFilter}>
+              <SelectTrigger
+                className="bg-transparent border-accent/50"
+                data-testid="select-council"
+              >
+                <SelectValue placeholder="Council" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Councils</SelectItem>
+                {councils.map((council) => (
+                  <SelectItem key={council} value={council}>
+                    {council}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
             <Select value={categoryFilter} onValueChange={setCategoryFilter}>
               <SelectTrigger
                 className="bg-transparent border-accent/50"
@@ -175,11 +228,13 @@ export default function Events() {
                 setSearchTerm("");
                 setCategoryFilter("all");
                 setDifficultyFilter("all");
+                setCouncilFilter("all");
               }}
               variant="outline"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+              className="bg-transparent border-accent/50 hover:bg-accent/10"
               data-testid="button-clear-filters"
             >
+              <i className="fas fa-times mr-2" />
               Clear Filters
             </Button>
           </div>
@@ -226,6 +281,7 @@ export default function Events() {
                   setSearchTerm("");
                   setCategoryFilter("all");
                   setDifficultyFilter("all");
+                  setCouncilFilter("all");
                 }}
                 className="bg-accent text-accent-foreground hover:bg-accent/90"
                 data-testid="button-clear-filters-empty"
@@ -237,64 +293,7 @@ export default function Events() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredEvents.map((event) => (
-              <Link key={event.id} href={`/events/${event.slug}`}>
-                <CardSpotlight
-                  className="h-full cursor-pointer group"
-                  radius={450}
-                  color="rgba(30, 12, 51, 0.8)"
-                >
-                  <div className="px-2 pt-2">
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="flex items-center space-x-2">
-                        <i
-                          className={`${getCategoryIcon(
-                            event.category
-                          )} text-primary`}
-                        />
-                        <Badge variant="secondary" className="text-xs">
-                          {event.category}
-                        </Badge>
-                      </div>
-                      <Badge className={getDifficultyColor(event.difficulty)}>
-                        {event.difficulty}
-                      </Badge>
-                    </div>
-                    <h3 className="font-cinzel text-xl group-hover:text-accent transition-colors font-bold mt-2">
-                      {event.title}
-                    </h3>
-                    <div className="flex items-center space-x-4 text-sm text-muted-foreground mt-1 mb-2">
-                      <span className="flex items-center space-x-1">
-                        <i className="fas fa-calendar" />
-                        <span>{new Date(event.date).toLocaleDateString()}</span>
-                      </span>
-                      <span className="flex items-center space-x-1">
-                        <i className="fas fa-users" />
-                        <span>{event.teamSize}</span>
-                      </span>
-                    </div>
-
-                    <p className="text-muted-foreground mb-4 line-clamp-3">
-                      {event.summary}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                        <i className="fas fa-map-marker-alt" />
-                        <span>{event.location}</span>
-                      </div>
-                      {event.prizePool && (
-                        <span className="text-accent font-semibold">
-                          {event.prizePool}
-                        </span>
-                      )}
-                    </div>
-                    <div className="mt-4 pt-4 border-t border-border">
-                      <span className="text-accent font-medium hover:underline">
-                        Learn More <i className="fas fa-arrow-right ml-2" />
-                      </span>
-                    </div>
-                  </div>
-                </CardSpotlight>
-              </Link>
+              <EventCard key={event.id} event={event} />
             ))}
           </div>
         )}
