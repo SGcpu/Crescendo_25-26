@@ -20,12 +20,12 @@ export default function EventDetail() {
     queryKey: ["/api/events", slug],
     queryFn: () => {
       // Find the event with the matching slug
-      const foundEvent = sampleEvents.find(e => e.slug === slug);
-      
+      const foundEvent = sampleEvents.find((e) => e.slug === slug);
+
       if (!foundEvent) {
         throw new Error("Event not found");
       }
-      
+
       // Add fake ID to match Event type
       return {
         ...foundEvent,
@@ -136,7 +136,10 @@ export default function EventDetail() {
           <div className="mb-8 max-w-3xl">
             {/* Split the summary to extract council name */}
             <div className="flex flex-wrap items-center mb-2">
-              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 text-sm py-1 px-3">
+              <Badge
+                variant="outline"
+                className="bg-primary/10 text-primary border-primary/20 text-sm py-1 px-3"
+              >
                 {event.summary.split(" - ")[0]}
               </Badge>
             </div>
@@ -296,22 +299,34 @@ export default function EventDetail() {
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-center space-x-4">
-                  <Button variant="outline" className="w-10 h-10 p-0 rounded-full">
+                  <Button
+                    variant="outline"
+                    className="w-10 h-10 p-0 rounded-full"
+                  >
                     <i className="fab fa-twitter text-[#1DA1F2]" />
                   </Button>
-                  <Button variant="outline" className="w-10 h-10 p-0 rounded-full">
+                  <Button
+                    variant="outline"
+                    className="w-10 h-10 p-0 rounded-full"
+                  >
                     <i className="fab fa-facebook text-[#4267B2]" />
                   </Button>
-                  <Button variant="outline" className="w-10 h-10 p-0 rounded-full">
+                  <Button
+                    variant="outline"
+                    className="w-10 h-10 p-0 rounded-full"
+                  >
                     <i className="fab fa-linkedin text-[#0077B5]" />
                   </Button>
-                  <Button variant="outline" className="w-10 h-10 p-0 rounded-full">
+                  <Button
+                    variant="outline"
+                    className="w-10 h-10 p-0 rounded-full"
+                  >
                     <i className="fab fa-whatsapp text-[#25D366]" />
                   </Button>
                 </div>
               </CardContent>
             </Card>
-            
+
             {/* Event Stats */}
             <Card className="bg-card border border-border mb-8">
               <CardHeader>
@@ -368,26 +383,34 @@ export default function EventDetail() {
                   {(() => {
                     // Extract council name from event summary
                     const currentCouncil = event.summary.split(" - ")[0];
-                    
+
                     // Get events from the same council or category, excluding current event
                     const relatedEvents = sampleEvents
-                      .filter(e => 
-                        e.slug !== event.slug && 
-                        (
-                          e.summary.startsWith(currentCouncil) || 
-                          e.category === event.category
-                        )
+                      .filter(
+                        (e) =>
+                          e.slug !== event.slug &&
+                          (e.summary.startsWith(currentCouncil) ||
+                            e.category === event.category)
                       )
                       .slice(0, 3);
-                      
+
                     return relatedEvents.length > 0 ? (
-                      relatedEvents.map(relatedEvent => (
-                        <Link key={relatedEvent.slug} href={`/events/${relatedEvent.slug}`}>
+                      relatedEvents.map((relatedEvent) => (
+                        <Link
+                          key={relatedEvent.slug}
+                          href={`/events/${relatedEvent.slug}`}
+                        >
                           <div className="p-2 hover:bg-accent/10 rounded-md transition-colors cursor-pointer">
-                            <h4 className="font-medium text-foreground">{relatedEvent.title}</h4>
+                            <h4 className="font-medium text-foreground">
+                              {relatedEvent.title}
+                            </h4>
                             <div className="flex items-center justify-between mt-1">
-                              <span className="text-xs text-accent">{relatedEvent.summary.split(" - ")[0]}</span>
-                              <Badge variant="outline" className="text-xs">{relatedEvent.category}</Badge>
+                              <span className="text-xs text-accent">
+                                {relatedEvent.summary.split(" - ")[0]}
+                              </span>
+                              <Badge variant="outline" className="text-xs">
+                                {relatedEvent.category}
+                              </Badge>
                             </div>
                           </div>
                         </Link>

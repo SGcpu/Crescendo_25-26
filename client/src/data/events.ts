@@ -49,21 +49,38 @@ export const sampleEvents: Omit<Event, 'id'>[] = [
     assets: ["mars-simulation-poster.jpg"],
     registrationLink: "/register/simulate-life-on-mars"
   },
+
   {
-    slug: "droneathlon",
-    title: "Droneathlon",
-    category: "Competition",
+    slug: "bgmi-showdown",
+    title: "BGMI Showdown",
+    category: "Esports",
     date: "2026-02-13",
-    teamSize: "2-4",
+    teamSize: "4",
     difficulty: "Advanced",
-    location: "Drone Arena",
-    summary: "Team Mavericks UAS - Drone racing and obstacle challenge",
-    description: "Team Mavericks UAS hosts this high-flying drone competition where participants navigate complex courses and complete precision tasks. From racing to payload delivery, teams will push the boundaries of drone technology and pilot skills.",
-    prizePool: "₹1,80,000",
-    maxTeams: 25,
+    location: "Gaming Arena",
+    summary: "Esports Club - Battlegrounds Mobile India tournament",
+    description: "Compete in this intense BGMI tournament where squads battle for survival and glory. Teams will navigate through qualifiers and finals to claim victory in this battle royale showdown. Professional gaming setups and live commentary will make this a thrilling experience for players and spectators alike.",
+    prizePool: "₹1,50,000",
+    maxTeams: 24,
+    duration: "12 hours",
+    assets: ["bgmi-showdown-poster.jpg"],
+    registrationLink: "/register/bgmi-showdown"
+  },
+  {
+    slug: "valorant-champions",
+    title: "VALORANT Champions",
+    category: "Esports",
+    date: "2026-02-14",
+    teamSize: "5",
+    difficulty: "Advanced",
+    location: "Gaming Arena",
+    summary: "Esports Club - Tactical shooter competition",
+    description: "The VALORANT Champions tournament brings together the best tactical shooter teams to compete in this high-stakes competition. Teams will showcase their strategic gameplay, precise shooting skills, and team coordination across multiple maps and rounds to claim the top position.",
+    prizePool: "₹1,75,000",
+    maxTeams: 16,
     duration: "10 hours",
-    assets: ["droneathlon-poster.jpg"],
-    registrationLink: "/register/droneathlon"
+    assets: ["valorant-champions-poster.jpg"],
+    registrationLink: "/register/valorant-champions"
   },
   {
     slug: "watts-next",
@@ -247,7 +264,8 @@ export const eventCategories = [
   "Hackathon",
   "Workshop", 
   "Competition",
-  "Final Competition"
+  "Final Competition",
+  "Esports"
 ];
 
 export const difficultyLevels = [
@@ -271,5 +289,6 @@ export const eventLocations = [
   "FinTech Hub",
   "Green Tech Lab",
   "Cloud Lab",
-  "Robotics Arena"
+  "Robotics Arena",
+  "Gaming Arena"
 ];

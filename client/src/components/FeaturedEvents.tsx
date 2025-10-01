@@ -1,90 +1,105 @@
-import { useState, useRef } from "react";
-import { Link } from "wouter";
-import { type Event } from "@shared/schema";
-import { Button } from "@/components/ui/button";
-import { sampleEvents } from "@/data/events";
-import EventCard from "@/components/EventCard";
-import { Badge } from "@/components/ui/badge";
+import React from "react";
+import InfiniteScroll from "@/components/InfiniteScroll";
+
+// Council data - logos will be added later
+const councilData = [
+  {
+    name: "IEEE",
+    description: "Institute of Electrical and Electronics Engineers",
+  },
+  { name: "CSI", description: "Computer Society of India" },
+  { name: "SAE", description: "Society of Automotive Engineers" },
+  {
+    name: "IETE",
+    description: "Institution of Electronics and Telecommunication Engineers",
+  },
+  { name: "ASME", description: "American Society of Mechanical Engineers" },
+  {
+    name: "ISHRAE",
+    description:
+      "Indian Society of Heating, Refrigerating and Air Conditioning Engineers",
+  },
+  { name: "ACS", description: "Association for Computing Society" },
+  { name: "ISTE", description: "Indian Society for Technical Education" },
+  { name: "IICHE", description: "Indian Institute of Chemical Engineers" },
+];
+
+// Convert council data to the format needed by InfiniteScroll
+const scrollItems = councilData.map((council) => ({
+  content: (
+    <div className="p-4">
+      <div className="flex flex-col items-center justify-center">
+        <div className="mb-3 w-16 h-16 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full flex items-center justify-center">
+          <span className="text-xl font-bold text-white">
+            {council.name.charAt(0)}
+          </span>
+        </div>
+        <h3 className="text-lg font-medium text-foreground mb-1">
+          {council.name}
+        </h3>
+        <p className="text-xs text-muted-foreground text-center">
+          {council.description}
+        </p>
+      </div>
+    </div>
+  ),
+}));
 
 export default function FeaturedEvents() {
-  const [activeCouncil, setActiveCouncil] = useState<string | null>(null);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  // Extract unique council names from events
-  const councils = Array.from(
-    new Set(
-      sampleEvents.map((event) => event.summary.split(" - ")[0]).filter(Boolean)
-    )
-  );
-
-  // Get events for active council or some featured events if no council is selected
-  const getEventsByCouncil = () => {
-    if (!activeCouncil) {
-      // If no council selected, return a few featured events
-      return sampleEvents.slice(0, 4);
-    }
-
-    // Filter events by selected council
-    return sampleEvents
-      .filter((event) => event.summary.split(" - ")[0] === activeCouncil)
-      .slice(0, 4); // Show max 4 events per council
-  };
-
-  const selectedEvents = getEventsByCouncil();
-
-  const handleCouncilClick = (council: string) => {
-    setActiveCouncil(council === activeCouncil ? null : council);
-  };
-
   return (
     <section className="py-20 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-8">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
           <h2 className="font-cinzel text-4xl font-bold mb-4">
-            Council Events
+            Partnering Councils
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Discover exciting events organized by our student councils
+            Crescendo brings together the brightest minds from across technical
+            disciplines
           </p>
         </div>
 
-        {/* Council Filters */}
-        <div className="mb-10">
-          <div className="overflow-x-auto pb-4" ref={scrollContainerRef}>
-            <div className="flex space-x-2 min-w-max">
-              {councils.map((council) => (
-                <Button
-                  key={council}
-                  onClick={() => handleCouncilClick(council)}
-                  variant={activeCouncil === council ? "default" : "outline"}
-                  className={`whitespace-nowrap ${
-                    activeCouncil === council
-                      ? "bg-accent text-accent-foreground hover:bg-accent/90"
-                      : "border-accent/30 hover:border-accent hover:text-accent"
-                  }`}
-                >
-                  {council}
-                </Button>
-              ))}
+        <div className="flex justify-center mb-8">
+          <div className="w-full max-w-4xl flex flex-row justify-between gap-8">
+            {/* Left tilted scroll */}
+            <div className="w-1/2 h-[600px] relative">
+              <InfiniteScroll
+                items={scrollItems}
+                isTilted={true}
+                tiltDirection="left"
+                autoplay={true}
+                autoplaySpeed={0.1}
+                autoplayDirection="down"
+                pauseOnHover={true}
+                width="100%"
+                maxHeight="600px"
+                itemMinHeight={180}
+              />
+            </div>
+
+            {/* Right tilted scroll */}
+            <div className="w-1/2 h-[600px] relative">
+              <InfiniteScroll
+                items={scrollItems.slice().reverse()}
+                isTilted={true}
+                tiltDirection="right"
+                autoplay={true}
+                autoplaySpeed={0.15}
+                autoplayDirection="up"
+                pauseOnHover={true}
+                width="100%"
+                maxHeight="600px"
+                itemMinHeight={180}
+              />
             </div>
           </div>
         </div>
 
-        {/* Events Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {selectedEvents.map((event) => (
-            <EventCard key={event.slug} event={event} variant="compact" />
-          ))}
-        </div>
-
-        {/* View All Button */}
-        <div className="flex justify-center mt-12">
-          <Link href="/events">
-            <Button className="px-8 py-3 bg-gradient-to-r from-accent to-primary text-white hover:opacity-90 font-semibold transition-all duration-300 transform hover:scale-105">
-              Explore All Events
-              <i className="fas fa-arrow-right ml-2" />
-            </Button>
-          </Link>
+        <div className="mt-8 text-center">
+          <p className="text-sm text-muted-foreground">
+            Council logos will be added soon. The placeholder cards will be
+            replaced with actual council logos.
+          </p>
         </div>
       </div>
     </section>
