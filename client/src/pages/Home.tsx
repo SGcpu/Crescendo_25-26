@@ -88,7 +88,7 @@ export default function Home() {
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-[var(--wild-blue-yonder)] mb-8 max-w-3xl mx-auto font-light">
             Join the ultimate convergence of innovation, creativity, and
-            transcendent technology at Crescendo Festival 2026
+            transcendent technology at Crescendo Festival 2025
           </p>
 
           {/* Date and Location */}
@@ -170,7 +170,7 @@ export default function Home() {
                 </div>
 
                 <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed">
-                  Crescendo 2026 invites you to explore personalized pathways
+                  Crescendo 2025 invites you to explore personalized pathways
                   designed for innovators, creators, and visionaries. Navigate
                   through our curated experiences and immerse yourself in a
                   celebration of cutting-edge technology and artistic
@@ -339,18 +339,18 @@ export default function Home() {
                       </span>
                     </div>
                     <h3 className="font-cinzel text-4xl font-bold mb-6 text-card-foreground bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                      The Third Eye Challenge
+                      Synergy : Hardware Hackathon
                     </h3>
                     <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                      The ultimate test of innovation awaits. Teams will have 12
-                      hours to solve a mystery challenge that combines AI,
-                      blockchain, and IoT. Only those who see beyond the obvious
-                      will claim victory.
+                      Gear up for a Hardware Revolution, where
+ innovation meets sustainability, and unleash
+ your creativity to build powerful solutions that
+ shape a better future!
                     </p>
                     <div className="flex items-center space-x-6 mb-8">
                       <div className="text-center bg-gradient-to-b from-transparent to-primary/10 px-4 py-2 rounded-lg">
                         <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                          ₹10L
+                          ₹45,000
                         </div>
                         <div className="text-sm text-muted-foreground font-medium">
                           Prize Pool
@@ -358,10 +358,10 @@ export default function Home() {
                       </div>
                       <div className="text-center bg-gradient-to-b from-transparent to-primary/10 px-4 py-2 rounded-lg">
                         <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                          50
+                          32
                         </div>
                         <div className="text-sm text-muted-foreground font-medium">
-                          Teams Max
+                         Max Teams
                         </div>
                       </div>
                       <div className="text-center bg-gradient-to-b from-transparent to-primary/10 px-4 py-2 rounded-lg">
@@ -373,14 +373,21 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
+                    <a
+  href="https://forms.gle/your-google-form-link" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+>
                     <Button
                       className="px-8 py-3 bg-gradient-to-r from-accent to-primary text-white hover:opacity-90 font-semibold transition-all duration-300 transform hover:scale-105"
                       data-testid="button-register-challenge"
                     >
                       <i className="fas fa-bolt mr-2" />
-                      Register for Challenge
+                      Register for event
                     </Button>
+                  </a>
                   </div>
+              
 
                   <div className="relative">
                     <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center border border-border overflow-hidden">

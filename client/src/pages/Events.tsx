@@ -146,10 +146,10 @@ export default function Events() {
         {/* Header */}
         <div className="text-center mb-12 events-header">
           <h1 className="font-cinzel text-4xl md:text-6xl font-bold mb-6 text-foreground">
-            Festival Events
+            Council Events
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Discover hackathons, workshops, and competitions that will challenge
+            Discover hackathons and competitions that will challenge
             your limits and expand your horizons
           </p>
         </div>

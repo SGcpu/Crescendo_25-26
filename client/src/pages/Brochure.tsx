@@ -217,7 +217,7 @@ export default function Brochure() {
             {/* Quick Facts */}
             <Card className="bg-card border border-border">
               <CardHeader>
-                <CardTitle className="font-cinzel text-xl">Festival Highlights</CardTitle>
+                <CardTitle className="font-cinzel text-xl">Crescendo Highlights</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-4 mb-6">

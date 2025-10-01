@@ -46,18 +46,48 @@ export default function Footer() {
     newsletterMutation.mutate(email);
   };
 
-  const socialLinks = [
-    { icon: 'fab fa-twitter', href: '#', label: 'Twitter' },
+    const socialLinks = [
     { icon: 'fab fa-instagram', href: '#', label: 'Instagram' },
     { icon: 'fab fa-linkedin', href: '#', label: 'LinkedIn' },
-    { icon: 'fab fa-discord', href: '#', label: 'Discord' },
   ];
 
+
   const importantDates = [
-    { label: 'Early Bird', date: 'Dec 15, 2025' },
-    { label: 'Registration', date: 'Jan 31, 2026' },
-    { label: 'Festival', date: 'Feb 10-12, 2026' },
+    { label: 'Roborift', date: '10 Oct, 2025' },
+    { label: 'Synergy', date: '12 Oct, 2025' },
+    { label: 'Esports', date: '9 ,10 ,11 Oct 2025' },
   ];
+
+  const credits = [
+  { 
+    name: 'Elish Mark', 
+    role: 'Technical Representative',
+    socials: {
+      instagram: 'https://www.instagram.com/elish_mark?igsh=MWE2cWZtZjlzZGQ3OA%3D%3D&utm_source=qr',
+      linkedin: 'https://www.linkedin.com/in/elish-mark4444',
+      github: 'https://github.com/Elish-4444'
+    }
+  },
+  { 
+    name: 'Sian George', 
+    role: 'Technical Representative',
+    socials: {
+      instagram: 'https://www.instagram.com/sg.phil_',
+      linkedin: 'https://www.linkedin.com/in/sian-george-864a69352',
+      github: 'https://github.com/SGcpu'
+    }
+  },
+  { 
+    name: 'Jack Sequeira', 
+    role: 'Technical Secretary',
+    socials: {
+      instagram: 'https://www.instagram.com/gabbar_v7/',
+      linkedin: 'https://www.linkedin.com/in/gabbar-v7',
+      github: 'https://github.com/Gabbar-v7'
+    }
+  },
+];
+
 
   return (
     <footer className="bg-background border-t border-border py-12" data-testid="footer">
@@ -68,7 +98,7 @@ export default function Footer() {
             <div className="flex items-center space-x-4 mb-6">
               <ThirdEyeGlyph size="sm" />
               <span className="font-cinzel text-2xl font-bold text-foreground">
-                Crescendo Festival 2026
+                Crescendo Festival 2025
               </span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
@@ -130,10 +160,54 @@ export default function Footer() {
           </div>
         </div>
 
+{/* Credits Section */}
+<div className="grid md:grid-cols-3 gap-6 mb-8">
+  {credits.map((person) => (
+    <div
+      key={person.name}
+      className="p-4 rounded-2xl shadow-md bg-card text-center border border-border"
+    >
+      <h5 className="font-semibold text-foreground">{person.name}</h5>
+      <p className="text-sm text-muted-foreground mb-4">{person.role}</p>
+
+      {/* Social Links */}
+      <div className="flex justify-center space-x-4">
+        <a
+          href={person.socials.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+          aria-label={`${person.name} Instagram`}
+        >
+          <i className="fab fa-instagram" />
+        </a>
+        <a
+          href={person.socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+          aria-label={`${person.name} LinkedIn`}
+        >
+          <i className="fab fa-linkedin" />
+        </a>
+        <a
+          href={person.socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+          aria-label={`${person.name} GitHub`}
+        >
+          <i className="fab fa-github" />
+        </a>
+      </div>
+    </div>
+  ))}
+</div>
+
         {/* Bottom Bar */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm mb-4 md:mb-0">
-            © 2025 Crescendo Festival. All rights reserved.
+            © 2025 Crescendo. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm text-muted-foreground">
             <Link href="/privacy">
