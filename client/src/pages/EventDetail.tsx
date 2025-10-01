@@ -6,16 +6,32 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
+import { sampleEvents } from "@/data/events";
 
 export default function EventDetail() {
   const { slug } = useParams();
 
+  // Find event from local data instead of API call
   const {
     data: event,
     isLoading,
     error,
   } = useQuery<Event>({
     queryKey: ["/api/events", slug],
+    queryFn: () => {
+      // Find the event with the matching slug
+      const foundEvent = sampleEvents.find(e => e.slug === slug);
+      
+      if (!foundEvent) {
+        throw new Error("Event not found");
+      }
+      
+      // Add fake ID to match Event type
+      return {
+        ...foundEvent,
+        id: `event-${slug}`,
+      };
+    },
   });
 
   if (isLoading) {
@@ -117,9 +133,17 @@ export default function EventDetail() {
             {event.title}
           </h1>
 
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl">
-            {event.summary}
-          </p>
+          <div className="mb-8 max-w-3xl">
+            {/* Split the summary to extract council name */}
+            <div className="flex flex-wrap items-center mb-2">
+              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 text-sm py-1 px-3">
+                {event.summary.split(" - ")[0]}
+              </Badge>
+            </div>
+            <p className="text-xl text-muted-foreground">
+              {event.summary.split(" - ")[1] || event.summary}
+            </p>
+          </div>
 
           {/* Key Info */}
           <div className="grid md:grid-cols-4 gap-6 mb-8">
@@ -168,13 +192,15 @@ export default function EventDetail() {
 
           {/* Registration CTA */}
           <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
-            <Button
-              className="px-8 py-4 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg animate-pulse-gold"
-              data-testid="button-register-event"
-            >
-              <i className="fas fa-ticket-alt mr-2" />
-              Register for Event
-            </Button>
+            <Link href={event.registrationLink || "#"}>
+              <Button
+                className="px-8 py-4 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg animate-pulse-gold"
+                data-testid="button-register-event"
+              >
+                <i className="fas fa-ticket-alt mr-2" />
+                Register for Event
+              </Button>
+            </Link>
             {event.prizePool && (
               <div className="flex items-center space-x-2">
                 <i className="fas fa-trophy text-accent" />
@@ -261,6 +287,31 @@ export default function EventDetail() {
 
           {/* Sidebar */}
           <div>
+            {/* Social Sharing */}
+            <Card className="bg-card border border-border mb-8">
+              <CardHeader>
+                <CardTitle className="font-cinzel text-xl">
+                  Share Event
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-center space-x-4">
+                  <Button variant="outline" className="w-10 h-10 p-0 rounded-full">
+                    <i className="fab fa-twitter text-[#1DA1F2]" />
+                  </Button>
+                  <Button variant="outline" className="w-10 h-10 p-0 rounded-full">
+                    <i className="fab fa-facebook text-[#4267B2]" />
+                  </Button>
+                  <Button variant="outline" className="w-10 h-10 p-0 rounded-full">
+                    <i className="fab fa-linkedin text-[#0077B5]" />
+                  </Button>
+                  <Button variant="outline" className="w-10 h-10 p-0 rounded-full">
+                    <i className="fab fa-whatsapp text-[#25D366]" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+            
             {/* Event Stats */}
             <Card className="bg-card border border-border mb-8">
               <CardHeader>
@@ -313,9 +364,41 @@ export default function EventDetail() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground text-sm">
-                  Check out other events happening during the festival.
-                </p>
+                <div className="space-y-4">
+                  {(() => {
+                    // Extract council name from event summary
+                    const currentCouncil = event.summary.split(" - ")[0];
+                    
+                    // Get events from the same council or category, excluding current event
+                    const relatedEvents = sampleEvents
+                      .filter(e => 
+                        e.slug !== event.slug && 
+                        (
+                          e.summary.startsWith(currentCouncil) || 
+                          e.category === event.category
+                        )
+                      )
+                      .slice(0, 3);
+                      
+                    return relatedEvents.length > 0 ? (
+                      relatedEvents.map(relatedEvent => (
+                        <Link key={relatedEvent.slug} href={`/events/${relatedEvent.slug}`}>
+                          <div className="p-2 hover:bg-accent/10 rounded-md transition-colors cursor-pointer">
+                            <h4 className="font-medium text-foreground">{relatedEvent.title}</h4>
+                            <div className="flex items-center justify-between mt-1">
+                              <span className="text-xs text-accent">{relatedEvent.summary.split(" - ")[0]}</span>
+                              <Badge variant="outline" className="text-xs">{relatedEvent.category}</Badge>
+                            </div>
+                          </div>
+                        </Link>
+                      ))
+                    ) : (
+                      <p className="text-muted-foreground text-sm">
+                        No related events found.
+                      </p>
+                    );
+                  })()}
+                </div>
                 <Link href="/events">
                   <Button
                     variant="outline"
