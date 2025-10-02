@@ -32,7 +32,7 @@ export default function CardNav({ isScrolled }: CardNavProps) {
   const navCategories: NavCategory[] = [
     {
       label: "Events",
-      bgColor: "#0D0716",
+      bgColor: "rgba(13, 13, 13, 0.95)",
       textColor: "#fff",
       links: [
         { label: "All Events", href: "/events", ariaLabel: "View all events" },
@@ -50,7 +50,7 @@ export default function CardNav({ isScrolled }: CardNavProps) {
     },
     {
       label: "About",
-      bgColor: "#170D27",
+      bgColor: "rgba(26, 0, 31, 0.95)",
       textColor: "#fff",
       links: [
         {
@@ -64,7 +64,7 @@ export default function CardNav({ isScrolled }: CardNavProps) {
     },
     {
       label: "Resources",
-      bgColor: "#271E37",
+      bgColor: "rgba(20, 5, 25, 0.95)",
       textColor: "#fff",
       links: [
         {
@@ -119,8 +119,8 @@ export default function CardNav({ isScrolled }: CardNavProps) {
         } overflow-hidden`}
         style={{
           backgroundColor: isScrolled
-            ? "rgba(40, 40, 82, 0.85)"
-            : "rgba(40, 40, 82, 0.5)",
+            ? "rgba(13, 13, 13, 0.85)"
+            : "rgba(26, 0, 31, 0.5)",
           backdropFilter: isScrolled ? "blur(8px)" : "none",
         }}
       >
@@ -135,12 +135,12 @@ export default function CardNav({ isScrolled }: CardNavProps) {
             tabIndex={0}
           >
             <div
-              className={`w-[30px] h-[2px] bg-[var(--lavender-gray)] transition-all ${
+              className={`w-[30px] h-[2px] bg-[var(--noir-gold)] transition-all ${
                 isOpen ? "translate-y-[4px] rotate-45" : ""
               }`}
             ></div>
             <div
-              className={`w-[30px] h-[2px] bg-[var(--lavender-gray)] transition-all ${
+              className={`w-[30px] h-[2px] bg-[var(--noir-gold)] transition-all ${
                 isOpen ? "-translate-y-[4px] -rotate-45" : ""
               }`}
             ></div>
@@ -150,7 +150,7 @@ export default function CardNav({ isScrolled }: CardNavProps) {
           <Link href="/">
             <a className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center space-x-2">
               <ThirdEyeGlyph size="sm" className="eye-glow" />
-              <span className="font-cinzel text-xl md:text-2xl font-bold text-[var(--lavender-gray)]">
+              <span className="font-cinzel text-xl md:text-2xl font-bold text-[var(--noir-gold)]">
                 TRINETRA
               </span>
             </a>
@@ -159,7 +159,7 @@ export default function CardNav({ isScrolled }: CardNavProps) {
           {/* Register button */}
           <Link href="/register">
             <a className="hidden md:block">
-              <Button className="bg-[var(--blue)] text-white hover:bg-[var(--dark-blue)] eye-glow">
+              <Button className="bg-[var(--noir-crimson)] text-white hover:bg-[var(--noir-crimson)]/90 shadow-lg shadow-[var(--noir-crimson)]/20 eye-glow">
                 Register Now
               </Button>
             </a>
@@ -191,13 +191,11 @@ export default function CardNav({ isScrolled }: CardNavProps) {
                   <Link key={i} href={link.href}>
                     <a
                       className={`flex items-center gap-2 ${
-                        isActive(link.href) ? "text-[var(--red)]" : ""
-                      } hover:text-[var(--red)] transition-colors`}
+                        isActive(link.href) ? "text-[var(--noir-crimson)]" : ""
+                      } hover:text-[var(--noir-crimson)] transition-colors`}
                       aria-label={link.ariaLabel}
                       onClick={() => {
-                        if (isActive(link.href)) {
-                          setIsOpen(false);
-                        }
+                        setIsOpen(false);
                       }}
                     >
                       <GoArrowUpRight className="flex-shrink-0" />

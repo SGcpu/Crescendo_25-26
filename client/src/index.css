@@ -3,6 +3,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Apply background to html, body and #root element */
+html,
+body,
+#root {
+  background-color: #0D0D0D;
+  /* noir-black */
+  background: linear-gradient(180deg, #0D0D0D, #1A001F);
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: transparent;
+}
+
 @keyframes scroll {
   to {
     transform: translate(calc(-50% - 0.5rem));
@@ -54,50 +75,48 @@
 }
 
 :root {
-  /* Trinetra Poster Colors */
-  --red: #ff0100;
-  /* Bold attention color for titles */
-  --blue: #1002e5;
-  /* Electric blue for focus elements */
-  --dark-blue: #0803c8;
-  /* Deeper blue for subtle interactive elements */
-  --orange-roughy: #c04420;
-  /* Border color for important elements */
-  --lavender-gray: #c0b2d1;
-  /* Main mystical background color */
-  --wild-blue-yonder: #8884b9;
-  /* Mid-tone for shading */
-  --butterfly-bush: #54569b;
-  /* Deep shadow color */
-  --port-gore: #282852;
-  /* Deepest shadow color */
-  --strikemaster: #a65e9e;
-  /* Warm purple for secondary highlights */
+  /* Golden Noir Theme Colors */
+  --noir-black: #0D0D0D;
+  /* Primary jet black */
+  --noir-purple: #1A001F;
+  /* Dark purple for gradient */
+  --noir-gold: #D4AF37;
+  /* Metallic gold for highlights */
+  --noir-crimson: #E63946;
+  /* Accent color for CTAs */
+  --noir-gold-light: #E9D087;
+  /* Lighter gold for hover states */
+  --noir-gold-dark: #B69121;
+  /* Darker gold for pressed states */
+  --noir-text: #FFFFFF;
+  /* White text for dark backgrounds */
+  --noir-text-muted: #A0A0A0;
+  /* Muted text for less important elements */
 
-  /* Main theme variables mapped to Trinetra colors */
-  --background: var(--port-gore);
-  /* Deep mystical background */
-  --foreground: var(--lavender-gray);
-  --card: #1a1a2e;
+  /* Main theme variables mapped to Golden Noir colors */
+  --background: linear-gradient(180deg, var(--noir-black), var(--noir-purple));
+  /* Gradient background */
+  --foreground: var(--noir-text);
+  --card: #121212;
   /* Slightly lighter than background for cards */
-  --card-foreground: var(--lavender-gray);
-  --popover: #1a1a2e;
-  --popover-foreground: var(--lavender-gray);
-  --primary: var(--strikemaster);
-  /* Main purple theme color */
-  --primary-foreground: var(--lavender-gray);
-  --secondary: var(--butterfly-bush);
-  --secondary-foreground: var(--lavender-gray);
-  --muted: rgba(84, 86, 155, 0.7);
-  /* Transparent butterfly-bush */
-  --muted-foreground: #b0b0c0;
-  --accent: var(--red);
-  /* Bold red accent from Trinetra */
+  --card-foreground: var(--noir-text);
+  --popover: #121212;
+  --popover-foreground: var(--noir-text);
+  --primary: var(--noir-black);
+  /* Primary color */
+  --primary-foreground: var(--noir-gold);
+  --secondary: var(--noir-gold);
+  --secondary-foreground: var(--noir-black);
+  --muted: rgba(212, 175, 55, 0.15);
+  /* Transparent gold */
+  --muted-foreground: var(--noir-text-muted);
+  --accent: var(--noir-crimson);
+  /* Bold crimson accent */
   --accent-foreground: white;
-  --destructive: var(--red);
+  --destructive: var(--noir-crimson);
   --destructive-foreground: white;
-  --border: var(--orange-roughy);
-  /* Orange border from central figure */
+  --border: var(--noir-gold);
+  /* Gold border */
   --input: var(--butterfly-bush);
   --ring: var(--blue);
   /* Electric blue for focus rings */
@@ -198,163 +217,166 @@
   /* Pitch black */
 }
 
-@layer base {
-  * {
-    @apply border-border;
+/* Base styles */
+* {
+  border-color: var(--border);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.mystical-gradient {
+  background: linear-gradient(135deg, #6A3C99 0%, #4C275C 60%, #000000 100%);
+}
+
+.gold-glow {
+  box-shadow: 0 0 20px rgba(230, 184, 0, 0.4);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(106, 60, 153, 0.3);
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--festival-gold);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+@keyframes pulseGold {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(230, 184, 0, 0.4);
   }
 
-  body {
-    @apply font-sans antialiased bg-background text-foreground;
+  50% {
+    box-shadow: 0 0 0 10px rgba(230, 184, 0, 0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
   }
 
-  .mystical-gradient {
-    background: linear-gradient(135deg, #6A3C99 0%, #4C275C 60%, #000000 100%);
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes particleFloat {
+
+  0%,
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+    opacity: 0.4;
   }
 
-  .gold-glow {
-    box-shadow: 0 0 20px rgba(230, 184, 0, 0.4);
+  25% {
+    transform: translate(10px, -10px) rotate(90deg);
+    opacity: 0.8;
   }
 
-  .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(106, 60, 153, 0.3);
-  }
-
-  .particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--festival-gold);
-    border-radius: 50%;
+  50% {
+    transform: translate(5px, -15px) rotate(180deg);
     opacity: 0.6;
   }
 
-  @keyframes pulseGold {
+  75% {
+    transform: translate(-10px, -10px) rotate(270deg);
+    opacity: 0.9;
+  }
+}
 
-    0%,
-    100% {
-      box-shadow: 0 0 0 0 rgba(230, 184, 0, 0.4);
-    }
+/* Trinetra theme custom animations and styles */
+@keyframes pulseMystical {
 
-    50% {
-      box-shadow: 0 0 0 10px rgba(230, 184, 0, 0);
-    }
+  0%,
+  100% {
+    box-shadow: 0 0 10px 2px rgba(166, 94, 158, 0.4);
   }
 
-  @keyframes float {
+  50% {
+    box-shadow: 0 0 20px 5px rgba(166, 94, 158, 0.6);
+  }
+}
 
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
+@keyframes eyeGlow {
 
-    50% {
-      transform: translateY(-10px);
-    }
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(16, 2, 229, 0.7));
   }
 
-  @keyframes particleFloat {
+  50% {
+    filter: drop-shadow(0 0 10px rgba(16, 2, 229, 0.9));
+  }
+}
 
-    0%,
-    100% {
-      transform: translate(0px, 0px) rotate(0deg);
-      opacity: 0.4;
-    }
+.mystical-glow {
+  animation: pulseMystical 3s infinite ease-in-out;
+}
 
-    25% {
-      transform: translate(10px, -10px) rotate(90deg);
-      opacity: 0.8;
-    }
+.eye-glow {
+  animation: eyeGlow 2s infinite ease-in-out;
+}
 
-    50% {
-      transform: translate(5px, -15px) rotate(180deg);
-      opacity: 0.6;
-    }
+/* Swirling background inspired by Trinetra poster */
+.swirl-bg {
+  background-image: radial-gradient(circle at center,
+      var(--port-gore) 0%,
+      rgba(40, 40, 82, 0.9) 40%,
+      rgba(84, 86, 155, 0.8) 60%,
+      rgba(192, 178, 209, 0.7) 80%,
+      rgba(192, 178, 209, 0.5) 100%);
+  position: relative;
+  overflow: hidden;
+}
 
-    75% {
-      transform: translate(-10px, -10px) rotate(270deg);
-      opacity: 0.9;
-    }
+.swirl-bg::before,
+.swirl-bg::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='rgba(166, 94, 158, 0.1)' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a65e9e' fill-opacity='0.05'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.1;
+  animation: rotateBackground 120s linear infinite;
+}
+
+.swirl-bg::after {
+  animation-direction: reverse;
+  animation-duration: 180s;
+}
+
+@keyframes rotateBackground {
+  from {
+    transform: rotate(0deg);
   }
 
-  /* Trinetra theme custom animations and styles */
-  @keyframes pulseMystical {
-
-    0%,
-    100% {
-      box-shadow: 0 0 10px 2px rgba(166, 94, 158, 0.4);
-    }
-
-    50% {
-      box-shadow: 0 0 20px 5px rgba(166, 94, 158, 0.6);
-    }
-  }
-
-  @keyframes eyeGlow {
-
-    0%,
-    100% {
-      filter: drop-shadow(0 0 5px rgba(16, 2, 229, 0.7));
-    }
-
-    50% {
-      filter: drop-shadow(0 0 10px rgba(16, 2, 229, 0.9));
-    }
-  }
-
-  .mystical-glow {
-    animation: pulseMystical 3s infinite ease-in-out;
-  }
-
-  .eye-glow {
-    animation: eyeGlow 2s infinite ease-in-out;
-  }
-
-  /* Swirling background inspired by Trinetra poster */
-  .swirl-bg {
-    background-image: radial-gradient(circle at center,
-        var(--port-gore) 0%,
-        rgba(40, 40, 82, 0.9) 40%,
-        rgba(84, 86, 155, 0.8) 60%,
-        rgba(192, 178, 209, 0.7) 80%,
-        rgba(192, 178, 209, 0.5) 100%);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .swirl-bg::before,
-  .swirl-bg::after {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    z-index: -1;
-    background-image:
-      url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='rgba(166, 94, 158, 0.1)' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E"),
-      url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a65e9e' fill-opacity='0.05'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.1;
-    animation: rotateBackground 120s linear infinite;
-  }
-
-  .swirl-bg::after {
-    animation-direction: reverse;
-    animation-duration: 180s;
-  }
-
-  @keyframes rotateBackground {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -392,8 +414,8 @@
   .force-animate.animate-spin {
     animation: spin 1s linear infinite !important;
   }
+}
 
-  .force-animate.animate-pulse-gold {
-    animation: pulseGold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
-  }
+.force-animate.animate-pulse-gold {
+  animation: pulseGold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
 }

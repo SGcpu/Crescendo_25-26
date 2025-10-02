@@ -57,12 +57,12 @@ export default function ParticleBackground({
       className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`}
     >
       {particles.map((particle) => {
-        // Assign different particle colors based on Trinetra scheme
+        // Assign different particle colors based on Golden Noir scheme
         const colors = [
-          "bg-[var(--lavender-gray)] opacity-30",
-          "bg-[var(--wild-blue-yonder)] opacity-40",
-          "bg-[var(--butterfly-bush)] opacity-30",
-          "bg-[var(--strikemaster)] opacity-20",
+          "bg-[var(--noir-gold)] opacity-10",
+          "bg-[var(--noir-gold-light)] opacity-15",
+          "bg-[var(--noir-crimson)] opacity-10",
+          "bg-white opacity-5",
         ];
         const colorClass = colors[Math.floor(Math.random() * colors.length)];
 
@@ -74,7 +74,7 @@ export default function ParticleBackground({
               top: `${particle.initialTop}%`,
               left: `${particle.initialLeft}%`,
               animationDelay: `${particle.delay}s`,
-              boxShadow: "0 0 15px 2px rgba(170, 140, 200, 0.3)", // Mystical glow
+              boxShadow: "0 0 15px 2px rgba(212, 175, 55, 0.15)", // Golden glow
             }}
           />
         );

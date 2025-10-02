@@ -64,12 +64,11 @@ export default {
         'festival-purple': "var(--festival-purple)",
         'festival-gold': "var(--festival-gold)",
         'festival-dark': "var(--festival-dark)",
-        // New theme colors
-        'theme-purple-1': "#6A3C99",
-        'theme-purple-2': "#4C275C", 
-        'theme-purple-3': "#2E1834",
-        'theme-gold-1': "#E6B800", // Bright clear gold
-        'theme-gold-2': "#FFD700", // Classic gold
+        // Golden Noir theme colors
+        'noir-black': "#0D0D0D",
+        'noir-purple': "#1A001F", 
+        'noir-gold': "#D4AF37",
+        'noir-crimson': "#E63946",
         'pitch-black': "#000000"
       },
       fontFamily: {

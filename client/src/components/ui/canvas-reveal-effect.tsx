@@ -6,7 +6,7 @@ import React from "react";
 // to avoid the runtime error: Cannot read properties of undefined (reading 'S')
 export const CanvasRevealEffect = ({
   containerClassName,
-  colors = [[0, 255, 255]],
+  colors = [[212, 175, 55]], // Default to gold color
 }: {
   animationSpeed?: number;
   opacities?: number[];
@@ -30,7 +30,7 @@ export const CanvasRevealEffect = ({
           background: `linear-gradient(135deg, ${gradientColor1} 0%, ${gradientColor2} 100%)`,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-[84%]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-noir-black to-noir-purple to-[84%]" />
     </div>
   );
 };

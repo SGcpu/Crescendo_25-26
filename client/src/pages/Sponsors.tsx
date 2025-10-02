@@ -31,23 +31,23 @@ export default function Sponsors() {
     platinum: {
       title: "Platinum Partners",
       description: "Our premier partners driving innovation forward",
-      color: "bg-gradient-to-br from-gray-300 to-gray-500",
-      textColor: "text-gray-300",
-      borderColor: "border-gray-300/20",
+      color: "bg-gradient-to-br from-[#E9E9E9] to-[#BABABA]",
+      textColor: "text-[#E9E9E9]",
+      borderColor: "border-[#E9E9E9]/20",
     },
     gold: {
       title: "Gold Sponsors",
       description: "Supporting excellence in technology and innovation",
-      color: "bg-gradient-to-br from-accent to-yellow-600",
-      textColor: "text-accent",
-      borderColor: "border-accent/20",
+      color: "bg-gradient-to-br from-[#D4AF37] to-[#B69121]",
+      textColor: "text-[#D4AF37]",
+      borderColor: "border-[#D4AF37]/20",
     },
     silver: {
       title: "Silver Contributors",
       description: "Enabling opportunities for the next generation",
-      color: "bg-gradient-to-br from-gray-400 to-gray-600",
-      textColor: "text-gray-400",
-      borderColor: "border-gray-400/20",
+      color: "bg-gradient-to-br from-[#C0C0C0] to-[#8E8E8E]",
+      textColor: "text-[#C0C0C0]",
+      borderColor: "border-[#C0C0C0]/20",
     },
   };
 

@@ -41,24 +41,35 @@ export default function Navigation() {
     href: string;
     label: string;
     onClick?: () => void;
-  }) => (
-    <Link href={href} onClick={onClick}>
-      <a
-        className={`font-medium transition-colors hover:text-[var(--red)] ${
-          isActive(href) ? "text-[var(--red)]" : "text-[var(--lavender-gray)]"
-        }`}
-        data-testid={`nav-link-${label.toLowerCase()}`}
-      >
-        {label}
-      </a>
-    </Link>
-  );
+  }) => {
+    const handleClick = () => {
+      // Close mobile menu if it's open
+      if (mobileMenuOpen) setMobileMenuOpen(false);
+      // Call any passed onClick handler
+      if (onClick) onClick();
+    };
+
+    return (
+      <Link href={href} onClick={handleClick}>
+        <a
+          className={`font-medium transition-colors hover:text-[var(--noir-gold)] ${
+            isActive(href)
+              ? "text-[var(--noir-gold)]"
+              : "text-[var(--noir-text)]"
+          }`}
+          data-testid={`nav-link-${label.toLowerCase()}`}
+        >
+          {label}
+        </a>
+      </Link>
+    );
+  };
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
         isScrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-border"
+          ? "bg-noir-black/90 backdrop-blur-md border-b border-noir-gold"
           : "bg-transparent"
       }`}
       data-testid="navigation"
@@ -69,7 +80,7 @@ export default function Navigation() {
           <Link href="/">
             <a className="flex items-center space-x-4" data-testid="logo-link">
               <ThirdEyeGlyph size="sm" className="eye-glow" />
-              <span className="font-cinzel text-2xl font-bold text-[var(--lavender-gray)]">
+              <span className="font-cinzel text-2xl font-bold text-[var(--noir-gold)]">
                 TRINETRA
               </span>
             </a>
@@ -90,14 +101,14 @@ export default function Navigation() {
               <Link href="/brochure">
                 <Button
                   variant="outline"
-                  className="border-[var(--orange-roughy)] text-[var(--orange-roughy)] hover:bg-[var(--orange-roughy)] hover:text-white"
+                  className="border-[var(--noir-gold)] text-[var(--noir-gold)] hover:bg-[var(--noir-gold)] hover:text-[var(--noir-black)]"
                   data-testid="button-brochure"
                 >
                   Brochure
                 </Button>
               </Link>
               <Button
-                className="bg-[var(--blue)] text-white hover:bg-[var(--dark-blue)] eye-glow"
+                className="bg-[var(--noir-crimson)] text-white hover:bg-[var(--noir-crimson)]/90 shadow-lg shadow-[var(--noir-crimson)]/20"
                 data-testid="button-register"
               >
                 Register Now
@@ -110,8 +121,9 @@ export default function Navigation() {
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button
-                  variant="ghost"
+                  variant="outline"
                   size="icon"
+                  className="border-[var(--noir-gold)] bg-[var(--noir-black)]/80 text-[var(--noir-gold)]"
                   data-testid="button-mobile-menu"
                 >
                   <i className="fas fa-bars text-xl" />
@@ -119,7 +131,7 @@ export default function Navigation() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[300px] bg-card border-border"
+                className="w-[300px] bg-noir-black border-noir-gold"
               >
                 <div className="flex flex-col space-y-6 mt-8">
                   {navLinks.map((link) => (
@@ -133,7 +145,7 @@ export default function Navigation() {
                     <Link href="/brochure">
                       <Button
                         variant="outline"
-                        className="w-full border-[var(--orange-roughy)] text-[var(--orange-roughy)] hover:bg-[var(--orange-roughy)] hover:text-white"
+                        className="w-full border-[var(--noir-gold)] text-[var(--noir-gold)] hover:bg-[var(--noir-gold)] hover:text-[var(--noir-black)]"
                         onClick={() => setMobileMenuOpen(false)}
                         data-testid="button-brochure-mobile"
                       >
@@ -141,7 +153,7 @@ export default function Navigation() {
                       </Button>
                     </Link>
                     <Button
-                      className="w-full bg-[var(--blue)] text-white hover:bg-[var(--dark-blue)] eye-glow"
+                      className="w-full bg-[var(--noir-crimson)] text-white hover:bg-[var(--noir-crimson)]/90 shadow-lg shadow-[var(--noir-crimson)]/20"
                       onClick={() => setMobileMenuOpen(false)}
                       data-testid="button-register-mobile"
                     >

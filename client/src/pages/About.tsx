@@ -17,7 +17,7 @@ export default function About() {
       subtitle: "The Vision Awakens",
       description:
         "Born from a desire to create more than just another tech event, Crescendo began as a vision to awaken the innovative spirit in every participant.",
-      icon: "fas fa-lightbulb",
+      posterImage: "/images/Assets/crescendo_2023_poster.jpg", // Path to 2023 poster
       achievements: [
         "First conceptualization",
         "Core team formation",
@@ -30,7 +30,7 @@ export default function About() {
       subtitle: "Growing the Movement",
       description:
         "Our first successful event attracted over 500 participants, establishing Crescendo as a premier platform for innovation and creativity.",
-      icon: "fas fa-rocket",
+      posterImage: "/images/Assets/crescendo_2024_poster.jpg", // Path to 2024 poster
       achievements: [
         "500+ participants",
         "₹10L prize pool",
@@ -43,7 +43,7 @@ export default function About() {
       subtitle: "Seeing Beyond",
       description:
         "Achieving new heights with expanded programs, international partnerships, and a focus on emerging technologies like AI and blockchain.",
-      icon: "fas fa-eye",
+      posterImage: "/images/Assets/crescendo_2025_poster.jpg", // Path to 2025 poster
       achievements: [
         "1500+ participants",
         "₹25L prize pool",
@@ -113,12 +113,12 @@ export default function About() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <div className="flex justify-center mb-8">
-            <ThirdEyeGlyph size="lg" />
+            <ThirdEyeGlyph size="lg" className="text-[var(--noir-gold)]" />
           </div>
-          <h1 className="font-cinzel text-4xl md:text-6xl font-bold mb-6 text-foreground">
+          <h1 className="font-cinzel text-4xl md:text-6xl font-bold mb-6 text-[var(--noir-gold)]">
             The Crescendo Story
           </h1>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-[var(--noir-text)] max-w-4xl mx-auto leading-relaxed">
             A journey of awakening innovation, fostering creativity, and
             building a community where technology serves humanity's highest
             aspirations.
@@ -132,32 +132,32 @@ export default function About() {
               data={[
                 {
                   title: "2023",
+                  image: "/images/Assets/crescendo_2023_poster.jpg",
                   content: (
                     <div>
-                      <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+                      <p className="mb-8 text-xs font-normal text-[var(--noir-text)] md:text-sm">
                         Born from a desire to create more than just another tech
                         event, Crescendo began as a vision to awaken the
                         innovative spirit in every participant.
                       </p>
                       <div className="grid grid-cols-2 gap-4">
-                        <div className="h-20 w-full rounded-lg bg-primary/20 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06)] md:h-44 lg:h-60">
-                          <div className="flex items-center justify-center h-full w-full">
-                            <div className="text-center">
-                              <i className="fas fa-lightbulb text-4xl text-primary mb-2"></i>
-                              <p className="text-sm font-medium">
-                                First conceptualization
-                              </p>
-                            </div>
-                          </div>
+                        <div className="h-20 w-full rounded-lg bg-[var(--noir-black)] border border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.15)] md:h-44 lg:h-60 overflow-hidden">
+                          <img
+                            src="/images/Assets/crescendo_2023_poster.jpg"
+                            alt="Crescendo 2023 Poster"
+                            className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                          />
                         </div>
-                        <div className="h-20 w-full rounded-lg bg-accent/20 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06)] md:h-44 lg:h-60">
-                          <div className="flex items-center justify-center h-full w-full">
-                            <div className="text-center">
-                              <i className="fas fa-users text-4xl text-accent mb-2"></i>
-                              <p className="text-sm font-medium">
-                                Core team formation
-                              </p>
-                            </div>
+                        <div className="h-20 w-full rounded-lg bg-[var(--noir-black)] border border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.15)] md:h-44 lg:h-60">
+                          <div className="flex flex-col items-center justify-center h-full w-full p-4">
+                            <h3 className="text-lg md:text-xl font-cinzel text-[var(--noir-gold)] mb-2">
+                              Key Achievements
+                            </h3>
+                            <ul className="text-[var(--noir-text)] list-disc pl-5">
+                              <li>First conceptualization</li>
+                              <li>Core team formation</li>
+                              <li>Vision alignment</li>
+                            </ul>
                           </div>
                         </div>
                       </div>
@@ -166,31 +166,58 @@ export default function About() {
                 },
                 {
                   title: "2024",
+                  image: "/images/Assets/crescendo_2024_poster.jpg",
                   content: (
                     <div>
-                      <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+                      <p className="mb-4 text-xs font-normal text-[var(--noir-text)] md:text-sm">
                         Our first successful event attracted over 500
                         participants, establishing Crescendo as a premier
                         platform for innovation and creativity.
                       </p>
-                      <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+                      <p className="mb-8 text-xs font-normal text-[var(--noir-text)] md:text-sm">
                         With over ₹10L in prize pools and 15 industry partners,
                         we set the foundation for future growth and expanded our
                         reach.
                       </p>
                       <div className="grid grid-cols-2 gap-4">
-                        <div className="h-20 w-full rounded-lg bg-primary/20 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06)] md:h-44 lg:h-60">
-                          <div className="flex flex-col items-center justify-center h-full w-full">
-                            <i className="fas fa-users text-4xl text-primary mb-2"></i>
-                            <p className="text-xl font-bold">500+</p>
-                            <p className="text-sm">Participants</p>
-                          </div>
+                        <div className="h-20 w-full rounded-lg bg-[var(--noir-black)] border border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.15)] md:h-44 lg:h-60 overflow-hidden">
+                          <img
+                            src="/images/Assets/crescendo_2024_poster.jpg"
+                            alt="Crescendo 2024 Poster"
+                            className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                          />
                         </div>
-                        <div className="h-20 w-full rounded-lg bg-accent/20 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06)] md:h-44 lg:h-60">
-                          <div className="flex flex-col items-center justify-center h-full w-full">
-                            <i className="fas fa-trophy text-4xl text-accent mb-2"></i>
-                            <p className="text-xl font-bold">₹10L</p>
-                            <p className="text-sm">Prize Pool</p>
+                        <div className="h-20 w-full rounded-lg bg-[var(--noir-black)] border border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.15)] md:h-44 lg:h-60">
+                          <div className="flex flex-col items-center justify-center h-full w-full p-4">
+                            <h3 className="text-lg md:text-xl font-cinzel text-[var(--noir-gold)] mb-3">
+                              Key Stats
+                            </h3>
+                            <div className="grid grid-cols-2 gap-4 w-full">
+                              <div className="text-center">
+                                <p className="text-xl font-bold text-[var(--noir-crimson)]">
+                                  500+
+                                </p>
+                                <p className="text-sm text-[var(--noir-text)]">
+                                  Participants
+                                </p>
+                              </div>
+                              <div className="text-center">
+                                <p className="text-xl font-bold text-[var(--noir-crimson)]">
+                                  ₹10L
+                                </p>
+                                <p className="text-sm text-[var(--noir-text)]">
+                                  Prize Pool
+                                </p>
+                              </div>
+                              <div className="text-center col-span-2 mt-2">
+                                <p className="text-lg font-bold text-[var(--noir-gold)]">
+                                  15
+                                </p>
+                                <p className="text-sm text-[var(--noir-text)]">
+                                  Industry Partners
+                                </p>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -199,46 +226,53 @@ export default function About() {
                 },
                 {
                   title: "2025",
+                  image: "/images/Assets/crescendo_2025_poster.jpg",
                   content: (
                     <div>
-                      <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+                      <p className="mb-4 text-xs font-normal text-[var(--noir-text)] md:text-sm">
                         Achieving new heights with expanded programs,
                         international partnerships, and a focus on emerging
                         technologies like AI and blockchain.
                       </p>
                       <div className="mb-8">
-                        <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-                          <i className="fas fa-check-circle text-accent"></i>{" "}
+                        <div className="flex items-center gap-2 text-xs text-[var(--noir-text-muted)] md:text-sm">
+                          <i className="fas fa-check-circle text-[var(--noir-crimson)]"></i>{" "}
                           1500+ participants from across the globe
                         </div>
-                        <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-                          <i className="fas fa-check-circle text-accent"></i>{" "}
+                        <div className="flex items-center gap-2 text-xs text-[var(--noir-text-muted)] md:text-sm">
+                          <i className="fas fa-check-circle text-[var(--noir-crimson)]"></i>{" "}
                           ₹25L prize pool across all competitions
                         </div>
-                        <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-                          <i className="fas fa-check-circle text-accent"></i>{" "}
+                        <div className="flex items-center gap-2 text-xs text-[var(--noir-text-muted)] md:text-sm">
+                          <i className="fas fa-check-circle text-[var(--noir-crimson)]"></i>{" "}
                           50+ global partners and sponsors
                         </div>
-                        <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-                          <i className="fas fa-check-circle text-accent"></i>{" "}
+                        <div className="flex items-center gap-2 text-xs text-[var(--noir-text-muted)] md:text-sm">
+                          <i className="fas fa-check-circle text-[var(--noir-crimson)]"></i>{" "}
                           Introduction of the Third Eye Challenge
                         </div>
-                        <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-                          <i className="fas fa-check-circle text-accent"></i>{" "}
+                        <div className="flex items-center gap-2 text-xs text-[var(--noir-text-muted)] md:text-sm">
+                          <i className="fas fa-check-circle text-[var(--noir-crimson)]"></i>{" "}
                           First international satellite events
                         </div>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
-                        <div className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06)] md:h-44 lg:h-60 overflow-hidden bg-primary/20">
-                          <div className="flex items-center justify-center h-full w-full">
-                            <ThirdEyeGlyph size="xl" className="opacity-50" />
-                          </div>
+                        <div className="h-20 w-full rounded-lg bg-[var(--noir-black)] border border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.15)] md:h-44 lg:h-60 overflow-hidden">
+                          <img
+                            src="/images/Assets/crescendo_2025_poster.jpg"
+                            alt="Crescendo 2025 Poster"
+                            className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                          />
                         </div>
-                        <div className="h-20 w-full rounded-lg bg-accent/20 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06)] md:h-44 lg:h-60">
-                          <div className="text-center">
-                            <i className="fas fa-eye text-5xl text-accent mb-3"></i>
-                            <p className="font-medium text-lg">
+                        <div className="h-20 w-full rounded-lg bg-[var(--noir-black)] border border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.15)] md:h-44 lg:h-60">
+                          <div className="text-center p-4">
+                            <ThirdEyeGlyph size="md" className="mb-4" />
+                            <p className="font-cinzel text-lg text-[var(--noir-gold)] mb-2">
                               Third Eye Awakening
+                            </p>
+                            <p className="text-sm text-[var(--noir-text-muted)]">
+                              Our signature event with a ₹25L prize pool and
+                              international participation
                             </p>
                           </div>
                         </div>
@@ -254,10 +288,10 @@ export default function About() {
         {/* Core Values */}
         <section className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="font-cinzel text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            <h2 className="font-cinzel text-3xl md:text-4xl font-bold mb-4 text-[var(--noir-gold)]">
               Our Core Values
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-[var(--noir-text-muted)] max-w-2xl mx-auto">
               Three fundamental principles that guide everything we do
             </p>
           </div>
@@ -266,25 +300,29 @@ export default function About() {
             {coreValues.map((value, index) => (
               <Card
                 key={index}
-                className="bg-card border border-border hover-lift cursor-pointer group"
+                className="bg-[var(--noir-black)] border border-[var(--noir-gold)] hover-lift cursor-pointer group shadow-lg shadow-[var(--noir-gold)]/10"
                 data-testid={`value-card-${value.title.toLowerCase()}`}
               >
                 <CardContent className="p-8 text-center">
                   <div
-                    className={`w-20 h-20 bg-${
-                      value.color === "accent" ? "accent" : "primary"
-                    }/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform`}
+                    className={`w-20 h-20 ${
+                      value.color === "accent"
+                        ? "bg-[var(--noir-crimson)]/20"
+                        : "bg-[var(--noir-gold)]/20"
+                    } rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform`}
                   >
                     <i
-                      className={`${value.icon} text-3xl text-${
-                        value.color === "accent" ? "accent" : "primary"
+                      className={`${value.icon} text-3xl ${
+                        value.color === "accent"
+                          ? "text-[var(--noir-crimson)]"
+                          : "text-[var(--noir-gold)]"
                       }`}
                     />
                   </div>
-                  <h3 className="font-cinzel text-2xl font-bold mb-4 text-card-foreground group-hover:text-accent transition-colors">
+                  <h3 className="font-cinzel text-2xl font-bold mb-4 text-[var(--noir-gold)] group-hover:text-[var(--noir-gold-light)] transition-colors">
                     {value.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-[var(--noir-text)] leading-relaxed">
                     {value.description}
                   </p>
                 </CardContent>
@@ -295,13 +333,13 @@ export default function About() {
 
         {/* Team Section */}
         <section className="mb-20">
-          <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border border-accent/20 p-8">
+          <Card className="bg-gradient-to-br from-[var(--noir-black)] to-[var(--noir-purple)] border border-[var(--noir-gold)]/30 p-8 shadow-lg shadow-[var(--noir-gold)]/10">
             <CardContent className="p-8">
               <div className="text-center mb-12">
-                <h2 className="font-cinzel text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                <h2 className="font-cinzel text-3xl md:text-4xl font-bold mb-4 text-[var(--noir-gold)]">
                   Meet Our Visionaries
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-lg text-[var(--noir-text-muted)] max-w-2xl mx-auto">
                   The passionate individuals who bring Crescendo Festival to
                   life
                 </p>
@@ -328,24 +366,24 @@ export default function About() {
 
         {/* Call to Action */}
         <section>
-          <Card className="bg-card border border-border overflow-hidden">
+          <Card className="bg-[var(--noir-black)] border border-[var(--noir-gold)] overflow-hidden shadow-lg shadow-[var(--noir-gold)]/10">
             <CardContent className="p-12 text-center relative">
               {/* Background pattern */}
               <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-10 left-10 w-8 h-8 border border-accent rotate-45" />
-                <div className="absolute top-20 right-20 w-6 h-6 border border-primary rotate-12" />
-                <div className="absolute bottom-20 left-20 w-10 h-10 border border-accent rotate-45" />
-                <div className="absolute bottom-10 right-10 w-4 h-4 bg-primary rotate-45" />
+                <div className="absolute top-10 left-10 w-8 h-8 border border-[var(--noir-crimson)] rotate-45" />
+                <div className="absolute top-20 right-20 w-6 h-6 border border-[var(--noir-gold)] rotate-12" />
+                <div className="absolute bottom-20 left-20 w-10 h-10 border border-[var(--noir-gold)] rotate-45" />
+                <div className="absolute bottom-10 right-10 w-4 h-4 bg-[var(--noir-crimson)] rotate-45" />
               </div>
 
               <div className="relative z-10">
                 <ThirdEyeGlyph size="md" className="mx-auto mb-8" />
 
-                <h2 className="font-cinzel text-3xl md:text-4xl font-bold mb-6 text-foreground">
+                <h2 className="font-cinzel text-3xl md:text-4xl font-bold mb-6 text-[var(--noir-gold)]">
                   Join Our Vision
                 </h2>
 
-                <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                <p className="text-xl text-[var(--noir-text)] mb-8 max-w-2xl mx-auto">
                   Be part of a movement that's shaping the future of technology
                   and innovation. Whether as a participant, volunteer, or
                   partner, your contribution matters.
@@ -353,7 +391,7 @@ export default function About() {
 
                 <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
                   <Button
-                    className="px-8 py-4 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg"
+                    className="px-8 py-4 bg-[var(--noir-crimson)] text-white hover:bg-[var(--noir-crimson)]/90 font-semibold text-lg shadow-lg shadow-[var(--noir-crimson)]/20"
                     data-testid="button-get-involved"
                   >
                     <i className="fas fa-hands-helping mr-2" />
@@ -361,7 +399,7 @@ export default function About() {
                   </Button>
                   <Button
                     variant="outline"
-                    className="px-8 py-4 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold text-lg"
+                    className="px-8 py-4 border-[var(--noir-gold)] text-[var(--noir-gold)] hover:bg-[var(--noir-gold)]/10 hover:text-[var(--noir-gold-light)] font-semibold text-lg"
                     data-testid="button-contact-team"
                   >
                     <i className="fas fa-envelope mr-2" />
