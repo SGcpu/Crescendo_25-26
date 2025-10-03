@@ -1,0 +1,7 @@
+.profile-card-hover {
+    transition: background-image 0.5s ease;
+}
+
+.profile-card-hover:hover {
+    background-image: var(--hover-image) !important;
+}
