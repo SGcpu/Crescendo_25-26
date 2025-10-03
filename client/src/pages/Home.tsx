@@ -41,7 +41,7 @@ export default function Home() {
 
   const quickEntryCards = [
     {
-      icon: "fas fa-calendar-star",
+      icon: "fas fa-calendar-alt",
       title: "Events",
       description:
         "Discover hackathons, workshops, and competitions that will challenge your limits",
@@ -61,7 +61,7 @@ export default function Home() {
       title: "Brochure",
       description:
         "Download our complete festival guide with schedules and venue maps",
-      href: "/brochure",
+      href: "https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view?usp=drive_link",
       color: "secondary",
     },
   ];
@@ -126,7 +126,7 @@ export default function Home() {
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-[var(--noir-text)] mb-8 max-w-3xl mx-auto font-light animate-in opacity-0">
               Join the ultimate convergence of innovation, creativity, and
-              transcendent technology at Crescendo Festival 2025
+              transcendent technology at Festival 2025
             </p>
 
             {/* Date and Location */}
@@ -187,90 +187,87 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12 relative">
-              {/* Left side content */}
-              <div className="p-8 lg:p-12 order-2 lg:order-1">
-                <div className="relative">
-                  {/* Decorative elements */}
-                  <div className="absolute -left-8 -top-8 w-16 h-16 border border-accent/30 rounded-full hidden lg:block"></div>
+           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12 relative"> 
+  {/* Left side content */}
+  <div className="p-8 lg:p-12 order-2 lg:order-1">
+    <div className="relative">
+      {/* Decorative elements */}
+      <div className="absolute -left-8 -top-8 w-16 h-16 border border-accent/30 rounded-full hidden lg:block"></div>
 
-                  <div className="flex flex-col md:flex-row gap-4 items-start md:items-center font-cinzel relative z-10 mb-6 animate-in opacity-0">
-                    <LayoutTextFlip
-                      text="Unlock Your"
-                      words={[
-                        "Festival Experience",
-                        "Creative Journey",
-                        "Innovation Path",
-                        "Tech Adventure",
-                      ]}
-                      duration={3000}
-                    />
-                  </div>
+      <div className="flex flex-col md:flex-row gap-4 items-start md:items-center font-cinzel relative z-10 mb-6 animate-in opacity-0">
+        <LayoutTextFlip
+          text="Unlock Your"
+          words={[
+            "Festival Experience",
+            "Creative Journey",
+            "Innovation Path",
+            "Tech Adventure",
+          ]}
+          duration={3000}
+        />
+      </div>
 
-                  <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed">
-                    Crescendo 2025 invites you to explore personalized pathways
-                    designed for innovators, creators, and visionaries. Navigate
-                    through our curated experiences and immerse yourself in a
-                    celebration of cutting-edge technology and artistic
-                    expression.
-                  </p>
+      <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed">
+        Crescendo 2025 presents a dynamic stage for innovators, creators, and changemakers to showcase originality and skill. 
+        Dive into competitions, workshops, and showcases that bring together cutting-edge technology, creativity, and collaboration.
+      </p>
 
-                  <ul className="space-y-5 mb-8">
-                    <li className="flex items-start group transition-all duration-300">
-                      <div className="bg-primary/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-primary/40 transition-all duration-300">
-                        <i className="fas fa-lightbulb text-primary"></i>
-                      </div>
-                      <div>
-                        <span className="text-[var(--noir-gold)] font-medium block mb-1">
-                          Exclusive Access
-                        </span>
-                        <span className="text-[var(--noir-text)]">
-                          Participate in specialized workshops and competitions
-                        </span>
-                      </div>
-                    </li>
-                    <li className="flex items-start group transition-all duration-300">
-                      <div className="bg-accent/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-accent/40 transition-all duration-300">
-                        <i className="fas fa-users text-[var(--noir-crimson)]"></i>
-                      </div>
-                      <div>
-                        <span className="text-[var(--noir-gold)] font-medium block mb-1">
-                          Industry Connections
-                        </span>
-                        <span className="text-[var(--noir-text)]">
-                          Network with tech leaders and potential mentors
-                        </span>
-                      </div>
-                    </li>
-                    <li className="flex items-start group transition-all duration-300">
-                      <div className="bg-secondary/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-secondary/40 transition-all duration-300">
-                        <i className="fas fa-map-marked text-[var(--noir-gold-light)]"></i>
-                      </div>
-                      <div>
-                        <span className="text-[var(--noir-gold)] font-medium block mb-1">
-                          Interactive Exploration
-                        </span>
-                        <span className="text-[var(--noir-text)]">
-                          Navigate the venue with digital maps and guides
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
+      <ul className="space-y-5 mb-8">
+        <li className="flex items-start group transition-all duration-300">
+          <div className="bg-primary/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-primary/40 transition-all duration-300">
+            {/* Inline SVG lightbulb — uses currentColor so Tailwind's text-* applies */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 text-[var(--noir-gold)]"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M9 21h6v-1a1 1 0 00-1-1H10a1 1 0 00-1 1v1z" />
+              <path d="M12 2a6 6 0 00-4 10.9V15a1 1 0 001 1h6a1 1 0 001-1v-2.1A6 6 0 0012 2z" />
+            </svg>
+          </div>
+          <div>
+            <span className="text-[var(--noir-gold)] font-medium block mb-1">
+              Exclusive Opportunities
+            </span>
+            <span className="text-[var(--noir-text)]">
+              Compete in flagship events like the International Hackathon, RoboWars, and Hardware & Simulation Hackathon
+            </span>
+          </div>
+        </li>
 
-                  <div className="mt-10">
-                    <Button
-                      variant="outline"
-                      className="border-[var(--noir-gold)] text-[var(--noir-gold)] hover:bg-[var(--noir-gold)] hover:text-[var(--noir-black)] px-6 py-2 text-lg transition-all duration-300 hover:scale-105 group relative overflow-hidden"
-                    >
-                      <span className="absolute inset-0 w-0 bg-[var(--noir-gold)]/20 transition-all duration-[400ms] ease-out group-hover:w-full"></span>
-                      <span className="relative flex items-center">
-                        <i className="fas fa-compass mr-2"></i>
-                        Explore Guide
-                      </span>
-                    </Button>
-                  </div>
-                </div>
-              </div>
+        <li className="flex items-start group transition-all duration-300">
+          <div className="bg-accent/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-accent/40 transition-all duration-300">
+            <i className="fas fa-users text-[var(--noir-crimson)]"></i>
+          </div>
+          <div>
+            <span className="text-[var(--noir-gold)] font-medium block mb-1">
+              Industry & Community
+            </span>
+            <span className="text-[var(--noir-text)]">
+              Connect with leading professionals, student councils, and peers from across institutions
+            </span>
+          </div>
+        </li>
+
+        <li className="flex items-start group transition-all duration-300">
+          <div className="bg-secondary/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-secondary/40 transition-all duration-300">
+            <i className="fas fa-map-marked text-[var(--noir-gold-light)]"></i>
+          </div>
+          <div>
+            <span className="text-[var(--noir-gold)] font-medium block mb-1">
+              Immersive Experience
+            </span>
+            <span className="text-[var(--noir-text)]">
+              Engage with 15+ technical and non-technical events, plus eSports tournaments, all under one festival
+            </span>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
 
               {/* Right side with card swap */}
               <div className="relative h-[600px] md:h-[700px] flex justify-center items-center order-1 lg:order-2">
@@ -294,41 +291,81 @@ export default function Home() {
                       key={index}
                       className="overflow-hidden rounded-2xl p-8 text-center"
                     >
-                      <Link
-                        href={card.href}
-                        className="flex flex-col h-full no-underline"
-                      >
-                        <div className="absolute inset-0 opacity-40">
-                          <div className="w-full h-full bg-[radial-gradient(circle_at_top,_var(--accent)_0%,_transparent_70%)]"></div>
-                        </div>
-
-                        <div className="relative z-10">
-                          <div
-                            className={`w-24 h-24 bg-${card.color}/30 rounded-full flex items-center justify-center mx-auto mb-10 backdrop-blur-md border border-white/10 shadow-lg`}
-                          >
-                            <i
-                              className={`${card.icon} text-4xl text-${
-                                card.color === "accent" ? "white" : "white"
-                              }`}
-                            />
+                      {card.href.startsWith('http') ? (
+                        <a
+                          href={card.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex flex-col h-full no-underline"
+                        >
+                          <div className="absolute inset-0 opacity-40">
+                            <div className="w-full h-full bg-[radial-gradient(circle_at_top,_var(--accent)_0%,_transparent_70%)]"></div>
                           </div>
 
-                          <h3 className="font-cinzel text-4xl font-bold mb-8 text-white">
-                            {card.title}
-                          </h3>
+                          <div className="relative z-10">
+                            <div
+                              className={`w-24 h-24 bg-${card.color}/30 rounded-full flex items-center justify-center mx-auto mb-10 backdrop-blur-md border border-white/10 shadow-lg`}
+                            >
+                              <i
+                                className={`${card.icon} text-4xl text-${
+                                  card.color === "accent" ? "white" : "white"
+                                }`}
+                              />
+                            </div>
 
-                          <p className="text-xl text-white/90 mb-10 leading-relaxed">
-                            {card.description}
-                          </p>
+                            <h3 className="font-cinzel text-4xl font-bold mb-8 text-white">
+                              {card.title}
+                            </h3>
 
-                          <div className="mt-auto bg-gradient-to-r from-primary/40 to-accent/40 py-3 px-6 rounded-xl backdrop-blur-sm border border-white/10 transition-all hover:scale-105">
-                            <span className="text-white font-medium inline-flex items-center justify-center">
-                              Explore {card.title}{" "}
-                              <i className="fas fa-arrow-right ml-3" />
-                            </span>
+                            <p className="text-xl text-white/90 mb-10 leading-relaxed">
+                              {card.description}
+                            </p>
+
+                            <div className="mt-auto bg-gradient-to-r from-primary/40 to-accent/40 py-3 px-6 rounded-xl backdrop-blur-sm border border-white/10 transition-all hover:scale-105">
+                              <span className="text-white font-medium inline-flex items-center justify-center">
+                                Explore {card.title}{" "}
+                                <i className="fas fa-arrow-right ml-3" />
+                              </span>
+                            </div>
                           </div>
-                        </div>
-                      </Link>
+                        </a>
+                      ) : (
+                        <Link
+                          href={card.href}
+                          className="flex flex-col h-full no-underline"
+                        >
+                          <div className="absolute inset-0 opacity-40">
+                            <div className="w-full h-full bg-[radial-gradient(circle_at_top,_var(--accent)_0%,_transparent_70%)]"></div>
+                          </div>
+
+                          <div className="relative z-10">
+                            <div
+                              className={`w-24 h-24 bg-${card.color}/30 rounded-full flex items-center justify-center mx-auto mb-10 backdrop-blur-md border border-white/10 shadow-lg`}
+                            >
+                              <i
+                                className={`${card.icon} text-4xl text-${
+                                  card.color === "accent" ? "white" : "white"
+                                }`}
+                              />
+                            </div>
+
+                            <h3 className="font-cinzel text-4xl font-bold mb-8 text-white">
+                              {card.title}
+                            </h3>
+
+                            <p className="text-xl text-white/90 mb-10 leading-relaxed">
+                              {card.description}
+                            </p>
+
+                            <div className="mt-auto bg-gradient-to-r from-primary/40 to-accent/40 py-3 px-6 rounded-xl backdrop-blur-sm border border-white/10 transition-all hover:scale-105">
+                              <span className="text-white font-medium inline-flex items-center justify-center">
+                                Explore {card.title}{" "}
+                                <i className="fas fa-arrow-right ml-3" />
+                              </span>
+                            </div>
+                          </div>
+                        </Link>
+                      )}
                     </Card>
                   ))}
                 </CardSwap>
