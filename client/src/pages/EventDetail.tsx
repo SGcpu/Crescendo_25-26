@@ -194,24 +194,32 @@ export default function EventDetail() {
           </div>
 
           {/* Registration CTA */}
-          <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
-            <Link href={event.registrationLink || "#"}>
-              <Button
-                className="px-8 py-4 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg animate-pulse-gold"
-                data-testid="button-register-event"
-              >
-                <i className="fas fa-ticket-alt mr-2" />
-                Register for Event
-              </Button>
-            </Link>
-            {event.prizePool && (
-              <div className="flex items-center space-x-2">
-                <i className="fas fa-trophy text-accent" />
-                <span className="text-lg font-semibold text-accent">
-                  Prize Pool: {event.prizePool}
-                </span>
-              </div>
-            )}
+<div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+
+  {/* Registration Button */}
+  <a 
+    href="https://docs.google.com/forms/d/e/1FAIpQLSeiBELtYDQ1WVlXRUBkeqG31vdjbnA2gIOhMu8rVTKvthYUgA/viewform" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <Button
+      className="px-8 py-4 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg animate-pulse-gold"
+      data-testid="button-register-event"
+    >
+      <i className="fas fa-ticket-alt mr-2" />
+      Register for Event
+    </Button>
+  </a>
+
+  {/* Prize Pool Info */}
+  {event.prizePool && (
+    <div className="flex items-center space-x-2">
+      <i className="fas fa-trophy text-accent" />
+      <span className="text-lg font-semibold text-accent">
+        Prize Pool: {event.prizePool}
+      </span>
+    </div>
+  )}
           </div>
         </div>
 
@@ -246,41 +254,37 @@ export default function EventDetail() {
                   <div>
                     <h4 className="font-semibold text-foreground mb-2 flex items-center">
                       <i className="fas fa-lightbulb text-accent mr-2" />
-                      Innovation Focus
+                      Idea Pitching
                     </h4>
                     <p className="text-muted-foreground">
-                      Cutting-edge technology challenges that push the
-                      boundaries of what's possible.
+                      Present your innovative ideas and solutions to real-world problems in front of Google mentors and industry experts.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2 flex items-center">
                       <i className="fas fa-trophy text-accent mr-2" />
-                      Recognition
+                      Expert Guidance
                     </h4>
                     <p className="text-muted-foreground">
-                      Showcase your solutions to industry experts and potential
-                      employers.
+                      Receive mentorship and constructive feedback from experienced professionals to refine your project.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2 flex items-center">
                       <i className="fas fa-handshake text-accent mr-2" />
-                      Networking
+                      Team Collaboration
                     </h4>
                     <p className="text-muted-foreground">
-                      Connect with like-minded innovators and industry
-                      professionals.
+                      Work closely with your team to develop and showcase your venture from concept to presentation.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2 flex items-center">
                       <i className="fas fa-graduation-cap text-accent mr-2" />
-                      Learning
+                     Industry Exposure
                     </h4>
                     <p className="text-muted-foreground">
-                      Gain valuable experience through hands-on challenges and
-                      expert mentorship.
+                      Get the opportunity to present your solutions to potential employers, tech leaders, and fellow innovators.
                     </p>
                   </div>
                 </div>
@@ -288,44 +292,59 @@ export default function EventDetail() {
             </Card>
           </div>
 
-          {/* Sidebar */}
+         
+           {/* Sidebar */}
           <div>
-            {/* Social Sharing */}
-            <Card className="bg-card border border-border mb-8">
-              <CardHeader>
-                <CardTitle className="font-cinzel text-xl">
-                  Share Event
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-center space-x-4">
-                  <Button
-                    variant="outline"
-                    className="w-10 h-10 p-0 rounded-full"
-                  >
-                    <i className="fab fa-twitter text-[#1DA1F2]" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="w-10 h-10 p-0 rounded-full"
-                  >
-                    <i className="fab fa-facebook text-[#4267B2]" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="w-10 h-10 p-0 rounded-full"
-                  >
-                    <i className="fab fa-linkedin text-[#0077B5]" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="w-10 h-10 p-0 rounded-full"
-                  >
-                    <i className="fab fa-whatsapp text-[#25D366]" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+  {/* Sidebar: Share Website */}
+<Card className="bg-card border border-border mb-8">
+  <CardHeader>
+    <CardTitle className="font-cinzel text-xl">
+      Share Website
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
+    <div className="flex items-center justify-center space-x-8">
+
+      {/* WhatsApp Share */}
+      <div className="flex flex-col items-center">
+        <a
+          href="https://api.whatsapp.com/send?text=Check%20out%20our%20amazing%20Crescendo%20website:%20https://crescendo.frcrce.stuco.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button
+            variant="outline"
+            className="w-10 h-10 p-0 rounded-full"
+          >
+            <i className="fab fa-whatsapp text-[#25D366]" />
+          </Button>
+        </a>
+        <span className="text-sm mt-1">Share on WhatsApp</span>
+      </div>
+
+      {/* Instagram Share */}
+      <div className="flex flex-col items-center">
+        <a
+          href="https://www.instagram.com/direct/new/?text=Check%20out%20our%20amazing%20Crescendo%20website:%20https://crescendo.frcrce.stuco.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button
+            variant="outline"
+            className="w-10 h-10 p-0 rounded-full"
+          >
+            <i className="fab fa-instagram text-[#E4405F]" />
+          </Button>
+        </a>
+        <span className="text-sm mt-1">Share on Instagram</span>
+      </div>
+
+    </div>
+  </CardContent>
+</Card>
+
+
+
 
             {/* Event Stats */}
             <Card className="bg-card border border-border mb-8">

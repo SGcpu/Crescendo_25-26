@@ -5,7 +5,6 @@ import ThirdEyeGlyph from "@/components/ThirdEyeGlyph";
 import { Button } from "@/components/ui/button";
 import { Card as ShadcnCard, CardContent } from "@/components/ui/card";
 import FestivalHighlights from "@/components/FestivalHighlights";
-import FeaturedEvents from "@/components/FeaturedEvents";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { sampleSponsors } from "@/data/sponsors.ts";
 import ElectricBorder from "@/components/ElectricBorder";
@@ -345,8 +344,6 @@ export default function Home() {
         {/* Festival Highlights */}
         <FestivalHighlights />
 
-        {/* Council Events Section */}
-        <FeaturedEvents />
 
         {/* Featured Event Callout */}
         <section className="py-20 bg-background">
