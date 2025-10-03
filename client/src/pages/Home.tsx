@@ -8,7 +8,6 @@ import FestivalHighlights from "@/components/FestivalHighlights";
 import FeaturedEvents from "@/components/FeaturedEvents";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { sampleSponsors } from "@/data/sponsors.ts";
-import ElectricBorder from "@/components/ElectricBorder";
 import CardSwap, { Card } from "@/components/ui/card-swap";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import LoadingScreen from "@/components/LoadingScreen";
@@ -118,7 +117,7 @@ export default function Home() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-cinzel text-6xl md:text-8xl font-bold mb-6 animate-in opacity-0">
+            <h1 className="font-cinzel text-6xl md:text-8xl font-bold mb-6 animate-in opacity-0 text-center">
               <span className="block text-[var(--noir-gold)]">TRINETRA</span>
               <span className="block text-[var(--noir-crimson)] eye-glow">
                 AWAKENING
@@ -351,107 +350,99 @@ export default function Home() {
         {/* Featured Event Callout */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-6">
-            <ElectricBorder
-              color="#5227FF"
-              speed={0.8}
-              chaos={1.2}
-              thickness={2}
-              className="rounded-3xl"
-            >
-              <ShadcnCard className="relative bg-card rounded-3xl border-0 overflow-hidden">
-                <CardContent className="p-12">
-                  {/* Background Pattern */}
-                  <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-10 left-10 w-4 h-4 border border-accent rotate-45" />
-                    <div className="absolute top-20 right-20 w-6 h-6 border border-primary rotate-12" />
-                    <div className="absolute bottom-20 left-20 w-5 h-5 border border-accent rotate-45" />
-                    <div className="absolute bottom-10 right-10 w-3 h-3 bg-primary rotate-45" />
-                  </div>
+            <ShadcnCard className="relative bg-card rounded-3xl overflow-hidden border border-accent/20">
+              <CardContent className="p-6 md:p-12">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-10 left-10 w-4 h-4 border border-accent rotate-45" />
+                  <div className="absolute top-20 right-20 w-6 h-6 border border-primary rotate-12" />
+                  <div className="absolute bottom-20 left-20 w-5 h-5 border border-accent rotate-45" />
+                  <div className="absolute bottom-10 right-10 w-3 h-3 bg-primary rotate-45" />
+                </div>
 
-                  <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                      <div className="flex items-center space-x-3 mb-4">
-                        <span className="px-3 py-1 bg-primary/20 text-primary text-sm font-medium rounded-full animate-pulse">
-                          HEADLINE EVENT
-                        </span>
-                        <span className="text-muted-foreground text-sm">
-                          Day 3 Finale
-                        </span>
-                      </div>
-                      <h3 className="font-cinzel text-4xl font-bold mb-6 text-card-foreground bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                        Synergy : Hardware Hackathon
-                      </h3>
-                      <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                        Gear up for a Hardware Revolution, where innovation
-                        meets sustainability, and unleash your creativity to
-                        build powerful solutions that shape a better future!
-                      </p>
-                      <div className="flex items-center space-x-6 mb-8">
-                        <div className="text-center bg-gradient-to-b from-transparent to-primary/10 px-4 py-2 rounded-lg">
-                          <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                            ₹45,000
-                          </div>
-                          <div className="text-sm text-muted-foreground font-medium">
-                            Prize Pool
-                          </div>
+                <div className="relative z-10 grid md:grid-cols-2 gap-6 md:gap-12 items-center">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-3 mb-4">
+                      <span className="px-3 py-1 bg-primary/20 text-primary text-sm font-medium rounded-full">
+                        HEADLINE EVENT
+                      </span>
+                      <span className="text-muted-foreground text-sm">
+                        Day 3 Finale
+                      </span>
+                    </div>
+                    <h3 className="font-cinzel text-2xl md:text-4xl font-bold mb-4 md:mb-6 text-card-foreground bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                      Synergy : Hardware Hackathon
+                    </h3>
+                    <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                      Gear up for a Hardware Revolution, where innovation meets
+                      sustainability, and unleash your creativity to build
+                      powerful solutions that shape a better future!
+                    </p>
+                    <div className="flex flex-wrap items-center gap-3 md:gap-6 mb-6 md:mb-8">
+                      <div className="text-center bg-primary/5 px-4 py-2 rounded-lg">
+                        <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                          ₹45,000
                         </div>
-                        <div className="text-center bg-gradient-to-b from-transparent to-primary/10 px-4 py-2 rounded-lg">
-                          <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                            32
-                          </div>
-                          <div className="text-sm text-muted-foreground font-medium">
-                            Max Teams
-                          </div>
-                        </div>
-                        <div className="text-center bg-gradient-to-b from-transparent to-primary/10 px-4 py-2 rounded-lg">
-                          <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                            12h
-                          </div>
-                          <div className="text-sm text-muted-foreground font-medium">
-                            Duration
-                          </div>
+                        <div className="text-sm text-muted-foreground font-medium">
+                          Prize Pool
                         </div>
                       </div>
-                      <a
-                        href="https://forms.gle/your-google-form-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <div className="text-center bg-primary/5 px-4 py-2 rounded-lg">
+                        <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                          32
+                        </div>
+                        <div className="text-sm text-muted-foreground font-medium">
+                          Max Teams
+                        </div>
+                      </div>
+                      <div className="text-center bg-primary/5 px-4 py-2 rounded-lg">
+                        <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                          12h
+                        </div>
+                        <div className="text-sm text-muted-foreground font-medium">
+                          Duration
+                        </div>
+                      </div>
+                    </div>
+                    <a
+                      href="https://forms.gle/your-google-form-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        className="px-6 py-2 md:px-8 md:py-3 bg-gradient-to-r from-accent to-primary text-white hover:opacity-90 font-semibold transition-all duration-300"
+                        data-testid="button-register-challenge"
                       >
-                        <Button
-                          className="px-8 py-3 bg-gradient-to-r from-accent to-primary text-white hover:opacity-90 font-semibold transition-all duration-300 transform hover:scale-105"
-                          data-testid="button-register-challenge"
-                        >
-                          <i className="fas fa-bolt mr-2" />
-                          Register for event
-                        </Button>
-                      </a>
-                    </div>
+                        <i className="fas fa-bolt mr-2" />
+                        Register for event
+                      </Button>
+                    </a>
+                  </div>
 
-                    <div className="relative">
-                      <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center border border-border overflow-hidden">
-                        <div className="absolute inset-0 opacity-20">
-                          <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--accent)_0%,_transparent_50%)]"></div>
-                        </div>
-                        <div className="relative z-10 w-full h-full flex items-center justify-center">
-                          {/* Image placeholder - replace src with actual image when available */}
-                          <div className="w-full h-full flex items-center justify-center">
-                            <div className="text-center">
-                              <i className="fas fa-image text-4xl text-muted-foreground mb-2"></i>
-                              <p className="text-muted-foreground font-medium">
-                                Event Image
-                              </p>
-                            </div>
+                  <div className="relative">
+                    <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center border border-border overflow-hidden">
+                      <div className="absolute inset-0 opacity-20">
+                        <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--accent)_0%,_transparent_50%)]"></div>
+                      </div>
+                      <div className="relative z-10 w-full h-full flex items-center justify-center">
+                        {/* Image placeholder - replace src with actual image when available */}
+                        <div className="w-full h-full flex items-center justify-center">
+                          <div className="text-center">
+                            <i className="fas fa-image text-4xl text-muted-foreground mb-2"></i>
+                            <p className="text-muted-foreground font-medium">
+                              Event Image
+                            </p>
                           </div>
                         </div>
                       </div>
-                      <div className="absolute top-4 right-4 w-12 h-12 bg-accent rounded-full flex items-center justify-center animate-pulse shadow-lg shadow-accent/20">
-                        <i className="fas fa-image text-accent-foreground text-xl" />
-                      </div>
+                    </div>
+                    <div className="absolute top-4 right-4 w-10 h-10 md:w-12 md:h-12 bg-accent rounded-full flex items-center justify-center">
+                      <i className="fas fa-image text-accent-foreground text-lg md:text-xl" />
                     </div>
                   </div>
-                </CardContent>
-              </ShadcnCard>
-            </ElectricBorder>
+                </div>
+              </CardContent>
+            </ShadcnCard>
           </div>
         </section>
 
