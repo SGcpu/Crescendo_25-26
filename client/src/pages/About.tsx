@@ -89,35 +89,55 @@ export default function About() {
       role: "Technical Secretary",
       bio: "The architect of innovation, shaping ideas into brilliance",
       image: "jack",
-      social: { linkedin: "#", instagram: "#", github: "#" },
+      social: { 
+        linkedin: "https://www.linkedin.com/in/gabbar-v7", 
+        instagram: "https://www.instagram.com/gabbar_v7/", 
+        github: "https://github.com/Gabbar-v7" 
+      },
     },
     {
       name: "Yashdeep Kulkarni",
       role: "General Secretary",
       bio: "The guiding spirit who weaves vision into reality",
       image: "yashdeep",
-      social: { linkedin: "#", instagram: "#", github: "#" },
+      social: { 
+        linkedin: "https://www.linkedin.com/in/yashdeep-kulkarni-33476a216", 
+        instagram: "https://www.instagram.com/yashdeepkulkarni_10/?hl=en", 
+        github: "https://github.com/ValourWarrior" 
+      },
     },
     {
       name: "Branch Mathew",
       role: "PR Head",
       bio: "The voice that turns presence into influence",
       image: "branch",
-      social: { linkedin: "#", instagram: "#", github: "#" },
+      social: { 
+        linkedin: "https://www.linkedin.com/in/branchmathew/", 
+        instagram: "https://www.instagram.com/mathewbranch16/", 
+        github: "https://github.com/mathewbranch16" 
+      },
     },
     {
       name: "Elish Mark",
       role: "Technical Representative",
       bio: "The backbone of innovation, solving challenges and powering progress",
       image: "elish",
-      social: { linkedin: "#", instagram: "#", github: "#" },
+      social: { 
+        linkedin: "https://www.linkedin.com/in/elish-mark4444", 
+        instagram: "https://www.instagram.com/elish_mark?igsh=MWE2cWZtZjlzZGQ3OA%3D%3D&utm_source=qr", 
+        github: "https://github.com/Elish-4444" 
+      },
     },
     {
       name: "Sian George",
       role: "Technical Representative",
       bio: "Bridging ideas and execution with technical expertise",
       image: "sian",
-      social: { linkedin: "#", instagram: "#", github: "#" },
+      social: { 
+        linkedin: "https://www.linkedin.com/in/sian-george-864a69352", 
+        instagram: "https://www.instagram.com/sg.phil_", 
+        github: "https://github.com/SGcpu" 
+      },
     },
   ];
 
@@ -140,10 +160,10 @@ export default function About() {
               className="w-24 h-26 text-[var(--noir-gold)] animate-float"
             />
           </div>
-          <h1 className="font-cinzel text-4xl md:text-6xl font-bold mb-6 text-[var(--noir-gold)]">
+          <h1 className="font-cinzel text-2xl md:text-5xl lg:text-6xl font-black mb-6 text-[var(--noir-gold)] max-w-6xl mx-auto">
             The Crescendo Story
           </h1>
-          <p className="text-xl text-[var(--noir-text)] max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-[var(--noir-text)] max-w-4xl mx-auto leading-relaxed font-semibold">
             A journey of awakening innovation, fostering creativity, and
             building a community where technology serves humanity's highest
             aspirations.
@@ -160,11 +180,41 @@ export default function About() {
                   image: "/images/posters/matrix.webp",
                   content: (
                     <div>
-                      <p className="mb-8 text-xs font-normal text-[var(--noir-text)] md:text-sm">
-                        Born from a desire to create more than just another tech
-                        event, Crescendo began as a vision to awaken the
-                        innovative spirit in every participant.
-                      </p>
+                      <div className="mb-8">
+                        <h3 className="text-3xl md:text-4xl font-bold text-[var(--noir-gold)] mb-4 text-center">
+                          MATRIX
+                        </h3>
+                        <p className="text-base md:text-lg font-normal text-[var(--noir-text)] text-center leading-relaxed mb-6">
+                          Step into a world where reality merges with the digital, challenging your intellect, creativity, and strategy as you explore the power of technology and connections, solve innovative problems, and unlock new possibilities while redefining the boundaries between the virtual and real.
+                        </p>
+                        
+                        <div className="mb-6">
+                          <div className="flex items-center justify-center gap-2 mb-4">
+                            <i className="fas fa-users text-[var(--noir-gold)] text-lg"></i>
+                            <span className="text-lg md:text-xl font-bold text-[var(--noir-gold)]">2K - 3K Footfall</span>
+                          </div>
+                          
+                          <div className="space-y-3">
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-code text-[var(--noir-crimson)]"></i>
+                              <span>15+ Technical Competitions</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-trophy text-[var(--noir-gold)]"></i>
+                              <span>₹5L Prize Pool</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-building text-[var(--noir-gold)]"></i>
+                              <span>10+ Industry Partners</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-microchip text-[var(--noir-crimson)]"></i>
+                              <span>AI & IoT Workshops</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
                       <div className="w-full max-w-md mx-auto flex justify-center">
                         <div className="h-64 w-64 md:h-72 md:w-72 lg:h-80 lg:w-80 rounded-full bg-[var(--noir-black)] border-2 border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.3)] overflow-hidden group hover:scale-110 hover:shadow-[0_0_60px_rgba(212,175,55,0.8)] hover:shadow-[0_0_100px_rgba(212,175,55,0.4)] transition-all duration-700 hover:border-[var(--noir-gold-light)] hover:-translate-y-2">
                           <img
@@ -183,16 +233,45 @@ export default function About() {
                   image: "/images/posters/singularity.webp",
                   content: (
                     <div>
-                      <p className="mb-4 text-xs font-normal text-[var(--noir-text)] md:text-sm">
-                        Our first successful event attracted over 500
-                        participants, establishing Crescendo as a premier
-                        platform for innovation and creativity.
-                      </p>
-                      <p className="mb-8 text-xs font-normal text-[var(--noir-text)] md:text-sm">
-                        With over ₹10L in prize pools and 15 industry partners,
-                        we set the foundation for future growth and expanded our
-                        reach.
-                      </p>
+                      <div className="mb-8">
+                        <h3 className="text-3xl md:text-4xl font-bold text-[var(--noir-gold)] mb-4 text-center">
+                          SINGULARITY
+                        </h3>
+                        <p className="text-base md:text-lg font-normal text-[var(--noir-text)] text-center leading-relaxed mb-6">
+                          Dive into the fusion of humans and technology, discovering limitless possibilities through AI and innovation, pushing the boundaries of problem-solving and creativity, celebrating forward-thinking ideas shaping the future, and experiencing a world where imagination meets cutting-edge tech.
+                        </p>
+                        
+                        <div className="mb-6">
+                          <div className="flex items-center justify-center gap-2 mb-4">
+                            <i className="fas fa-users text-[var(--noir-gold)] text-lg"></i>
+                            <span className="text-lg md:text-xl font-bold text-[var(--noir-gold)]">3.5K - 4K Footfall</span>
+                          </div>
+                          
+                          <div className="space-y-3">
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-robot text-[var(--noir-crimson)]"></i>
+                              <span>20+ AI & ML Competitions</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-trophy text-[var(--noir-gold)]"></i>
+                              <span>₹10L Prize Pool</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-handshake text-[var(--noir-gold)]"></i>
+                              <span>25+ Corporate Partners</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-brain text-[var(--noir-crimson)]"></i>
+                              <span>Machine Learning Hackathons</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-globe text-[var(--noir-gold)]"></i>
+                              <span>International Speaker Sessions</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
                       <div className="w-full max-w-md mx-auto flex justify-center">
                         <div className="h-64 w-64 md:h-72 md:w-72 lg:h-80 lg:w-80 rounded-full bg-[var(--noir-black)] border-2 border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.3)] overflow-hidden group hover:scale-110 hover:shadow-[0_0_60px_rgba(212,175,55,0.8)] hover:shadow-[0_0_100px_rgba(212,175,55,0.4)] transition-all duration-700 hover:border-[var(--noir-gold-light)] hover:-translate-y-2">
                           <img
@@ -211,33 +290,57 @@ export default function About() {
                   image: "/images/posters/trinetra.webp",
                   content: (
                     <div>
-                      <p className="mb-4 text-xs font-normal text-[var(--noir-text)] md:text-sm">
-                        Achieving new heights with expanded programs,
-                        international partnerships, and a focus on emerging
-                        technologies like AI and blockchain.
-                      </p>
                       <div className="mb-8">
-                        <div className="flex items-center gap-2 text-xs text-[var(--noir-text-muted)] md:text-sm">
-                          <i className="fas fa-check-circle text-[var(--noir-crimson)]"></i>{" "}
-                          1500+ participants from across the globe
-                        </div>
-                        <div className="flex items-center gap-2 text-xs text-[var(--noir-text-muted)] md:text-sm">
-                          <i className="fas fa-check-circle text-[var(--noir-crimson)]"></i>{" "}
-                          ₹25L prize pool across all competitions
-                        </div>
-                        <div className="flex items-center gap-2 text-xs text-[var(--noir-text-muted)] md:text-sm">
-                          <i className="fas fa-check-circle text-[var(--noir-crimson)]"></i>{" "}
-                          50+ global partners and sponsors
-                        </div>
-                        <div className="flex items-center gap-2 text-xs text-[var(--noir-text-muted)] md:text-sm">
-                          <i className="fas fa-check-circle text-[var(--noir-crimson)]"></i>{" "}
-                          Introduction of the Third Eye Challenge
-                        </div>
-                        <div className="flex items-center gap-2 text-xs text-[var(--noir-text-muted)] md:text-sm">
-                          <i className="fas fa-check-circle text-[var(--noir-crimson)]"></i>{" "}
-                          First international satellite events
+                        <h3 className="text-3xl md:text-4xl font-bold text-[var(--noir-gold)] mb-4 text-center">
+                          TRINETRA
+                        </h3>
+                        <p className="text-base md:text-lg font-normal text-[var(--noir-text)] text-center leading-relaxed mb-6">
+                          Awaken the third eye to see beyond the limits of the physical, exploring realms of insight, innovation, and imagination, where vision meets intellect, creativity drives discovery, and the unseen becomes visible, guiding minds to perceive, understand, and shape the world in ways ordinary eyes cannot.
+                        </p>
+                        
+                        <div className="mb-6">
+                          <div className="flex items-center justify-center gap-2 mb-4">
+                            <i className="fas fa-users text-[var(--noir-gold)] text-lg"></i>
+                            <span className="text-lg md:text-xl font-bold text-[var(--noir-gold)]">5K - 6K Expected Footfall</span>
+                          </div>
+                          
+                          <div className="space-y-3">
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-robot text-[var(--noir-crimson)]"></i>
+                              <span>Roborift - Robotics Competition</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-gamepad text-[var(--noir-gold)]"></i>
+                              <span>BGMI & Valorant Esports</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-microchip text-[var(--noir-crimson)]"></i>
+                              <span>Synergy Hardware Challenge</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-code text-[var(--noir-gold)]"></i>
+                              <span>20+ Technical Competitions</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-trophy text-[var(--noir-crimson)]"></i>
+                              <span>₹25L Prize Pool</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-handshake text-[var(--noir-gold)]"></i>
+                              <span>50+ Global Partners</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-shield-alt text-[var(--noir-crimson)]"></i>
+                              <span>Cybersecurity Challenges</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm md:text-base text-[var(--noir-text)]">
+                              <i className="fas fa-lightbulb text-[var(--noir-gold)]"></i>
+                              <span>Startup Pitching Competitions</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
+                      
                       <div className="w-full max-w-md mx-auto flex justify-center">
                         <div className="h-64 w-64 md:h-72 md:w-72 lg:h-80 lg:w-80 rounded-full bg-[var(--noir-black)] border-2 border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.3)] overflow-hidden group hover:scale-110 hover:shadow-[0_0_60px_rgba(212,175,55,0.8)] hover:shadow-[0_0_100px_rgba(212,175,55,0.4)] transition-all duration-700 hover:border-[var(--noir-gold-light)] hover:-translate-y-2">
                           <img
