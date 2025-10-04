@@ -9,29 +9,29 @@ export const FestivalHighlights = () => {
       council: "Students Council x Robix",
       poster: "/images/posters/roborift.webp",
       category: "Robotics",
-      prize: "₹10,000"
+      prize: "₹10,000",
     },
     {
       name: "Synergy",
-      council: "Students Council", 
+      council: "Students Council",
       poster: "/images/posters/synergy.webp",
       category: "Hardware",
-      prize: "₹40,000"
+      prize: "₹40,000",
     },
     {
       name: "BGMI",
       council: "Students Council x Tedx",
-      poster: "/images/posters/bgmi.webp", 
+      poster: "/images/posters/bgmi.webp",
       category: "Esports",
-      prize: "₹10,000"
+      prize: "₹10,000",
     },
     {
       name: "Valorant",
       council: "Students Council x Tedx",
       poster: "/images/posters/valo.webp",
-      category: "Esports", 
-      prize: "₹10,000"
-    }
+      category: "Esports",
+      prize: "₹10,000",
+    },
   ];
 
   return (
@@ -41,15 +41,20 @@ export const FestivalHighlights = () => {
           Crescendo Highlights
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-8">
+        {/* Increased gap and margin for mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-24 md:gap-10 mt-8">
           {highlightEvents.map((event, index) => (
-            <div key={event.name} className="h-[400px] relative">
+            <div
+              key={event.name}
+              // Increased mobile margin to prevent overlap
+              className="h-[400px] relative mb-16 md:mb-0"
+            >
               <PinContainer
                 title={event.name}
                 href={`/events/${event.name.toLowerCase()}`}
                 containerClassName="w-full h-full"
               >
-                <div className="flex flex-col gap-2 w-[300px]">
+                <div className="flex flex-col gap-2 w-[300px] mx-auto">
                   <div className="bg-gradient-to-br from-violet-800 to-purple-900 rounded-lg w-full flex items-center justify-center overflow-hidden">
                     <img
                       src={event.poster}
