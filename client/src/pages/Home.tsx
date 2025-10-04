@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import ParticleBackground from "@/components/ParticleBackground";
+import FuzzyText from "@/components/FuzzyText";
 import { Button } from "@/components/ui/button";
 import { Card as ShadcnCard, CardContent } from "@/components/ui/card";
 import FestivalHighlights from "@/components/FestivalHighlights";
@@ -104,8 +105,17 @@ export default function Home() {
         }`}
       >
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <ParticleBackground density="heavy" />
+        <section
+          className="relative min-h-screen flex items-center justify-center overflow-hidden"
+          style={{
+            backgroundImage: "url('/images/Assets/Trinetra_bg.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-noir-black/50 to-noir-black/60"></div>
+          <ParticleBackground density="light" />
 
           {/* Hero Content */}
           <div className="container mx-auto px-6 py-20 text-center relative z-10">
@@ -118,18 +128,29 @@ export default function Home() {
               />
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-cinzel text-6xl md:text-8xl font-bold mb-6 animate-in opacity-0 text-center">
-              <span className="block text-[var(--noir-gold)]">TRINETRA</span>
-              <span className="block text-[var(--noir-crimson)] eye-glow">
-                AWAKENING
+            {/* Main Headline with distinct animations */}
+            <h1 className="font-cinzel text-6xl md:text-8xl font-bold mb-6 text-center">
+              <span className="block text-[#FFD700] mystical-title-animation">
+                TRINETRA
               </span>
+              <div className="flex justify-center items-center w-full mt-2">
+                <FuzzyText
+                  fontSize="clamp(4rem, 8vw, 8rem)"
+                  fontWeight={700}
+                  fontFamily="Cinzel, serif"
+                  color="#8A2BE2"
+                  baseIntensity={0.2}
+                  hoverIntensity={0.5}
+                  enableHover={true}
+                >
+                  AWAKENING
+                </FuzzyText>
+              </div>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-[var(--noir-text)] mb-8 max-w-3xl mx-auto font-light animate-in opacity-0">
-              Join the ultimate convergence of innovation, creativity, and
-              transcendent technology at Festival 2025
+            {/* Sleek, Futuristic Tagline */}
+            <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto font-medium tracking-wide animate-in opacity-0">
+              Unlock Your Vision. Redefine Reality.
             </p>
 
             {/* Date and Location */}

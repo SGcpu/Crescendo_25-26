@@ -74,6 +74,31 @@ body,
   animation-delay: 0.7s;
 }
 
+/* Mystical glow animation for TRINETRA with yellow color */
+@keyframes mystical-fade-in {
+  0% {
+    opacity: 0;
+    text-shadow: 0 0 0 rgba(255, 215, 0, 0);
+  }
+
+  50% {
+    opacity: 0.7;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  }
+
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3);
+  }
+}
+
+.mystical-title-animation {
+  opacity: 0;
+  animation: mystical-fade-in 2.5s ease-out forwards;
+}
+
+/* Removed digital-glitch animation in favor of FuzzyText component */
+
 :root {
   /* Golden Noir Theme Colors */
   --noir-black: #0D0D0D;
