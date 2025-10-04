@@ -79,7 +79,11 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/">
             <a className="flex items-center space-x-4" data-testid="logo-link">
-              <ThirdEyeGlyph size="sm" className="eye-glow" />
+              <img
+                src="/images/Assets/trinetra_eye.png"
+                alt="Third Eye Emblem"
+                className="w-12 h-14 eye-glow"
+              />
               <span className="font-cinzel text-2xl font-bold text-[var(--noir-gold)]">
                 TRINETRA
               </span>

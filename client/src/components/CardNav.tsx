@@ -149,7 +149,11 @@ export default function CardNav({ isScrolled }: CardNavProps) {
           {/* Logo */}
           <Link href="/">
             <a className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center space-x-2">
-              <ThirdEyeGlyph size="sm" className="eye-glow" />
+              <img
+                src="/images/Assets/trinetra_eye.png"
+                alt="Third Eye Emblem"
+                className="w-12 h-16 eye-glow animate-float"
+              />
               <span className="font-cinzel text-xl md:text-2xl font-bold text-[var(--noir-gold)]">
                 TRINETRA
               </span>

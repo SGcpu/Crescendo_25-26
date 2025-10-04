@@ -98,7 +98,11 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-4 mb-6">
-              <ThirdEyeGlyph size="sm" />
+              <img
+                src="/images/Assets/trinetra_eye.png"
+                alt="Third Eye Emblem"
+                className="w-12 h-16 animate-float"
+              />
               <span className="font-cinzel text-2xl font-bold text-[#D4AF37]">
                 Crescendo Festival 2025
               </span>
@@ -216,7 +220,7 @@ export default function Footer() {
         <div className="mt-12 pt-6 border-t border-noir-gold/30 text-center">
           <p className="text-sm text-white/70" data-testid="footer-copyright">
             © {new Date().getFullYear()} Crescendo Festival. All rights
-            reserved. Created with <span className="text-[#E63946]">❤️</span> by
+            reserved. Created with <span className="text-[#E63946]">HONOR AND LOVE</span> by
             Student Council CRCE.
           </p>
           <div className="flex justify-center space-x-6 text-sm text-white/70 mt-4">

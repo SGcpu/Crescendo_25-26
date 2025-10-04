@@ -134,7 +134,11 @@ export default function About() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <div className="flex justify-center mb-8">
-            <ThirdEyeGlyph size="lg" className="text-[var(--noir-gold)]" />
+            <img
+              src="/images/Assets/trinetra_eye.png"
+              alt="Third Eye Emblem"
+              className="w-24 h-26 text-[var(--noir-gold)] animate-float"
+            />
           </div>
           <h1 className="font-cinzel text-4xl md:text-6xl font-bold mb-6 text-[var(--noir-gold)]">
             The Crescendo Story
@@ -339,7 +343,8 @@ export default function About() {
                   Mission
                 </h3>
                 <p className="text-lg text-[var(--noir-text)] leading-relaxed">
-                  "Empowering excellence and values to shape ethical engineers who lead with innovation and responsibility."
+                  "Empowering excellence and values to shape ethical engineers
+                  who lead with innovation and responsibility."
                 </p>
               </CardContent>
             </Card>
@@ -397,7 +402,6 @@ export default function About() {
             </CardContent>
           </Card>
         </section>
-
       </div>
     </div>
   );

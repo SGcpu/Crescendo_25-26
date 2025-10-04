@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import ParticleBackground from "@/components/ParticleBackground";
-import ThirdEyeGlyph from "@/components/ThirdEyeGlyph";
+import FuzzyText from "@/components/FuzzyText";
 import { Button } from "@/components/ui/button";
 import { Card as ShadcnCard, CardContent } from "@/components/ui/card";
 import FestivalHighlights from "@/components/FestivalHighlights";
@@ -105,28 +105,52 @@ export default function Home() {
         }`}
       >
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <ParticleBackground density="heavy" />
+        <section
+          className="relative min-h-screen flex items-center justify-center overflow-hidden"
+          style={{
+            backgroundImage: "url('/images/Assets/Trinetra_bg.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-noir-black/50 to-noir-black/60"></div>
+          <ParticleBackground density="light" />
 
           {/* Hero Content */}
           <div className="container mx-auto px-6 py-20 text-center relative z-10">
             {/* Central Third Eye Emblem */}
             <div className="flex justify-center mb-8">
-              <ThirdEyeGlyph size="xl" className="mystical-glow" />
+              <img
+                src="/images/Assets/trinetra_eye.png"
+                alt="Third Eye Emblem"
+                className="w-32 h-36 mystical-glow animate-float"
+              />
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-cinzel text-6xl md:text-8xl font-bold mb-6 animate-in opacity-0 text-center">
-              <span className="block text-[var(--noir-gold)]">TRINETRA</span>
-              <span className="block text-[var(--noir-crimson)] eye-glow">
-                AWAKENING
+            {/* Main Headline with distinct animations */}
+            <h1 className="font-cinzel text-6xl md:text-8xl font-bold mb-6 text-center">
+              <span className="block text-[#FFD700] mystical-title-animation">
+                TRINETRA
               </span>
+              <div className="flex justify-center items-center w-full mt-2">
+                <FuzzyText
+                  fontSize="clamp(4rem, 8vw, 8rem)"
+                  fontWeight={700}
+                  fontFamily="Cinzel, serif"
+                  color="#8A2BE2"
+                  baseIntensity={0.2}
+                  hoverIntensity={0.5}
+                  enableHover={true}
+                >
+                  AWAKENING
+                </FuzzyText>
+              </div>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-[var(--noir-text)] mb-8 max-w-3xl mx-auto font-light animate-in opacity-0">
-              Join the ultimate convergence of innovation, creativity, and
-              transcendent technology at Festival 2025
+            {/* Sleek, Futuristic Tagline */}
+            <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto font-medium tracking-wide animate-in opacity-0">
+              Unlock Your Vision. Redefine Reality.
             </p>
 
             {/* Date and Location */}
@@ -187,87 +211,93 @@ export default function Home() {
               </p>
             </div>
 
-           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12 relative"> 
-  {/* Left side content */}
-  <div className="p-8 lg:p-12 order-2 lg:order-1">
-    <div className="relative">
-      {/* Decorative elements */}
-      <div className="absolute -left-8 -top-8 w-16 h-16 border border-accent/30 rounded-full hidden lg:block"></div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12 relative">
+              {/* Left side content */}
+              <div className="p-8 lg:p-12 order-2 lg:order-1">
+                <div className="relative">
+                  {/* Decorative elements */}
+                  <div className="absolute -left-8 -top-8 w-16 h-16 border border-accent/30 rounded-full hidden lg:block"></div>
 
-      <div className="flex flex-col md:flex-row gap-4 items-start md:items-center font-cinzel relative z-10 mb-6 animate-in opacity-0">
-        <LayoutTextFlip
-          text="Unlock Your"
-          words={[
-            "Festival Experience",
-            "Creative Journey",
-            "Innovation Path",
-            "Tech Adventure",
-          ]}
-          duration={3000}
-        />
-      </div>
+                  <div className="flex flex-col md:flex-row gap-4 items-start md:items-center font-cinzel relative z-10 mb-6 animate-in opacity-0">
+                    <LayoutTextFlip
+                      text="Unlock Your"
+                      words={[
+                        "Festival Experience",
+                        "Creative Journey",
+                        "Innovation Path",
+                        "Tech Adventure",
+                      ]}
+                      duration={3000}
+                    />
+                  </div>
 
-      <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed">
-        Crescendo 2025 presents a dynamic stage for innovators, creators, and changemakers to showcase originality and skill. 
-        Dive into competitions, workshops, and showcases that bring together cutting-edge technology, creativity, and collaboration.
-      </p>
+                  <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed">
+                    Crescendo 2025 presents a dynamic stage for innovators,
+                    creators, and changemakers to showcase originality and
+                    skill. Dive into competitions, workshops, and showcases that
+                    bring together cutting-edge technology, creativity, and
+                    collaboration.
+                  </p>
 
-      <ul className="space-y-5 mb-8">
-        <li className="flex items-start group transition-all duration-300">
-          <div className="bg-primary/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-primary/40 transition-all duration-300">
-            {/* Inline SVG lightbulb — uses currentColor so Tailwind's text-* applies */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-[var(--noir-gold)]"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M9 21h6v-1a1 1 0 00-1-1H10a1 1 0 00-1 1v1z" />
-              <path d="M12 2a6 6 0 00-4 10.9V15a1 1 0 001 1h6a1 1 0 001-1v-2.1A6 6 0 0012 2z" />
-            </svg>
-          </div>
-          <div>
-            <span className="text-[var(--noir-gold)] font-medium block mb-1">
-              Exclusive Opportunities
-            </span>
-            <span className="text-[var(--noir-text)]">
-              Compete in flagship events like the International Hackathon, RoboWars, and Hardware & Simulation Hackathon
-            </span>
-          </div>
-        </li>
+                  <ul className="space-y-5 mb-8">
+                    <li className="flex items-start group transition-all duration-300">
+                      <div className="bg-primary/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-primary/40 transition-all duration-300">
+                        {/* Inline SVG lightbulb — uses currentColor so Tailwind's text-* applies */}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 text-[var(--noir-gold)]"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path d="M9 21h6v-1a1 1 0 00-1-1H10a1 1 0 00-1 1v1z" />
+                          <path d="M12 2a6 6 0 00-4 10.9V15a1 1 0 001 1h6a1 1 0 001-1v-2.1A6 6 0 0012 2z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <span className="text-[var(--noir-gold)] font-medium block mb-1">
+                          Exclusive Opportunities
+                        </span>
+                        <span className="text-[var(--noir-text)]">
+                          Compete in flagship events like the International
+                          Hackathon, RoboWars, and Hardware & Simulation
+                          Hackathon
+                        </span>
+                      </div>
+                    </li>
 
-        <li className="flex items-start group transition-all duration-300">
-          <div className="bg-accent/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-accent/40 transition-all duration-300">
-            <i className="fas fa-users text-[var(--noir-crimson)]"></i>
-          </div>
-          <div>
-            <span className="text-[var(--noir-gold)] font-medium block mb-1">
-              Industry & Community
-            </span>
-            <span className="text-[var(--noir-text)]">
-              Connect with leading professionals, student councils, and peers from across institutions
-            </span>
-          </div>
-        </li>
+                    <li className="flex items-start group transition-all duration-300">
+                      <div className="bg-accent/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-accent/40 transition-all duration-300">
+                        <i className="fas fa-users text-[var(--noir-crimson)]"></i>
+                      </div>
+                      <div>
+                        <span className="text-[var(--noir-gold)] font-medium block mb-1">
+                          Industry & Community
+                        </span>
+                        <span className="text-[var(--noir-text)]">
+                          Connect with leading professionals, student councils,
+                          and peers from across institutions
+                        </span>
+                      </div>
+                    </li>
 
-        <li className="flex items-start group transition-all duration-300">
-          <div className="bg-secondary/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-secondary/40 transition-all duration-300">
-            <i className="fas fa-map-marked text-[var(--noir-gold-light)]"></i>
-          </div>
-          <div>
-            <span className="text-[var(--noir-gold)] font-medium block mb-1">
-              Immersive Experience
-            </span>
-            <span className="text-[var(--noir-text)]">
-              Engage with 15+ technical and non-technical events, plus eSports tournaments, all under one festival
-            </span>
-          </div>
-        </li>
-      </ul>
-
-    </div>
-  </div>
+                    <li className="flex items-start group transition-all duration-300">
+                      <div className="bg-secondary/20 p-2 rounded-full mr-3 mt-1 group-hover:bg-secondary/40 transition-all duration-300">
+                        <i className="fas fa-map-marked text-[var(--noir-gold-light)]"></i>
+                      </div>
+                      <div>
+                        <span className="text-[var(--noir-gold)] font-medium block mb-1">
+                          Immersive Experience
+                        </span>
+                        <span className="text-[var(--noir-text)]">
+                          Engage with 15+ technical and non-technical events,
+                          plus eSports tournaments, all under one festival
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
               {/* Right side with card swap */}
               <div className="relative h-[600px] md:h-[700px] flex justify-center items-center order-1 lg:order-2">
@@ -291,7 +321,7 @@ export default function Home() {
                       key={index}
                       className="overflow-hidden rounded-2xl p-8 text-center"
                     >
-                      {card.href.startsWith('http') ? (
+                      {card.href.startsWith("http") ? (
                         <a
                           href={card.href}
                           target="_blank"
@@ -379,7 +409,6 @@ export default function Home() {
 
         {/* Festival Highlights */}
         <FestivalHighlights />
-
 
         {/* Featured Event Callout */}
         <section className="py-20 bg-background">
