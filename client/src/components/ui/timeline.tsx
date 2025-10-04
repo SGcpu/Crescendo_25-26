@@ -40,10 +40,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2 className="text-lg md:text-4xl mb-4 text-[var(--noir-gold)] font-cinzel max-w-4xl">
-          Crescendo Festival Timeline
+          Crescendo Timeline
         </h2>
         <p className="text-[var(--noir-text)] text-sm md:text-base max-w-sm">
-          Our journey from inception to becoming a premier innovation festival.
+          "Tracing our journey of evolution from a spark of ideas to a legacy of innovation in Crescendo"
         </p>
       </div>
 
@@ -54,7 +54,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             className="flex justify-start pt-10 md:pt-40 md:gap-10"
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-              <div className="h-16 absolute left-0 md:left-0 w-16 rounded-full bg-[var(--noir-black)] flex items-center justify-center border-2 border-[var(--noir-gold)] overflow-hidden">
+              <div className="h-20 w-20 absolute left-0 md:left-0 rounded-full bg-[var(--noir-black)] flex items-center justify-center border-2 border-[var(--noir-gold)] overflow-hidden shadow-lg shadow-[var(--noir-gold)]/20">
                 {item.image ? (
                   <img
                     src={item.image}

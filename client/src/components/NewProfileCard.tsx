@@ -49,31 +49,33 @@ export function NewProfileCard({
       )}
 
       <div className="text-content relative z-20 transition-all duration-300 transform group-hover:translate-y-0 translate-y-4 opacity-90 group-hover:opacity-100">
-        <h3 className="font-cinzel font-bold text-xl md:text-2xl text-[var(--noir-gold)]">
+        <h3 className="font-cinzel font-black text-xl md:text-2xl text-[var(--noir-gold)] drop-shadow-lg" style={{ fontWeight: 900 }}>
           {name}
         </h3>
-        <p className="font-normal text-sm text-[var(--noir-text)] mt-1 mb-2">
+        <p className="font-black text-base text-red-500 mt-1 mb-2 drop-shadow-md" style={{ fontWeight: 900 }}>
           {role}
         </p>
-        <p className="font-normal text-xs text-[var(--noir-text-muted)] my-2 line-clamp-2 group-hover:line-clamp-none">
+        <p className="font-normal text-xs text-white/80 my-2 line-clamp-2 group-hover:line-clamp-none drop-shadow-md">
           {bio}
         </p>
 
-        {/* Social links */}
+        {/* Social links - only GitHub, Instagram, and LinkedIn */}
         {social && Object.keys(social).length > 0 && (
           <div className="flex gap-3 mt-3">
-            {Object.entries(social).map(([platform, url]) => (
-              <a
-                key={platform}
-                href={url}
-                className="text-[var(--noir-gold)] hover:text-[var(--noir-gold-light)] transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <i className={`fab fa-${platform.toLowerCase()} text-lg`}></i>
-              </a>
-            ))}
+            {Object.entries(social)
+              .filter(([platform]) => ['github', 'instagram', 'linkedin'].includes(platform.toLowerCase()))
+              .map(([platform, url]) => (
+                <a
+                  key={platform}
+                  href={url}
+                  className="text-[var(--noir-gold)] hover:text-[var(--noir-gold-light)] transition-colors drop-shadow-lg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <i className={`fab fa-${platform.toLowerCase()} text-lg`}></i>
+                </a>
+              ))}
           </div>
         )}
       </div>

@@ -23,10 +23,10 @@ const TeamProfileCard: React.FC<TeamProfileCardProps> = ({
   onClick,
 }) => {
   // Generate avatar URL based on the member's image property
-  const imagePath = `/images/team/${member.image}.jpg`;
+  const imagePath = `/images/team/${member.image}_11zon.webp`;
   // We can use the same image for the gif path, or a different one if you have gifs
   // For now, we'll just use the same image
-  const gifPath = `/images/team/${member.image}.jpg`;
+  const gifPath = `/images/team/${member.image}_11zon.webp`;
 
   // Process social media links
   const socialLinks = Object.entries(member.social)

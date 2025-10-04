@@ -79,31 +79,45 @@ export default function About() {
       description:
         "A core tenet is the pursuit of excellence in all aspects of the college's academic offerings and activities.",
       icon: "fas fa-star",
-      color: "primary",
+      color: "accent",
     },
   ];
 
   const teamMembers = [
     {
-      name: "Arjun Mehta",
-      role: "Festival Director",
-      bio: "Visionary leader with 10+ years in tech event management and startup ecosystem development.",
-      image: "team-1",
-      social: { linkedin: "#", twitter: "#" },
+      name: "Jack Sequeira",
+      role: "Technical Secretary",
+      bio: "The architect of innovation, shaping ideas into brilliance",
+      image: "jack",
+      social: { linkedin: "#", instagram: "#", github: "#" },
     },
     {
-      name: "Priya Sharma",
-      role: "Technical Lead",
-      bio: "Former Google engineer passionate about creating platforms that empower the next generation of developers.",
-      image: "team-2",
-      social: { linkedin: "#", github: "#" },
+      name: "Yashdeep Kulkarni",
+      role: "General Secretary",
+      bio: "The guiding spirit who weaves vision into reality",
+      image: "yashdeep",
+      social: { linkedin: "#", instagram: "#", github: "#" },
     },
     {
-      name: "Rahul Kumar",
-      role: "Community Manager",
-      bio: "Expert in building and nurturing tech communities across India with focus on inclusive growth.",
-      image: "team-3",
-      social: { linkedin: "#", twitter: "#" },
+      name: "Branch Mathew",
+      role: "PR Head",
+      bio: "The voice that turns presence into influence",
+      image: "branch",
+      social: { linkedin: "#", instagram: "#", github: "#" },
+    },
+    {
+      name: "Elish Mark",
+      role: "Technical Representative",
+      bio: "The backbone of innovation, solving challenges and powering progress",
+      image: "elish",
+      social: { linkedin: "#", instagram: "#", github: "#" },
+    },
+    {
+      name: "Sian George",
+      role: "Technical Representative",
+      bio: "Bridging ideas and execution with technical expertise",
+      image: "sian",
+      social: { linkedin: "#", instagram: "#", github: "#" },
     },
   ];
 
@@ -139,7 +153,7 @@ export default function About() {
               data={[
                 {
                   title: "2023",
-                  image: "/images/Assets/crescendo_2023_poster.jpg",
+                  image: "/images/posters/matrix.webp",
                   content: (
                     <div>
                       <p className="mb-8 text-xs font-normal text-[var(--noir-text)] md:text-sm">
@@ -147,13 +161,14 @@ export default function About() {
                         event, Crescendo began as a vision to awaken the
                         innovative spirit in every participant.
                       </p>
-                      <div className="w-full max-w-md mx-auto">
-                        <div className="h-20 w-full rounded-lg bg-[var(--noir-black)] border border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.15)] md:h-44 lg:h-60 overflow-hidden">
+                      <div className="w-full max-w-md mx-auto flex justify-center">
+                        <div className="h-64 w-64 md:h-72 md:w-72 lg:h-80 lg:w-80 rounded-full bg-[var(--noir-black)] border-2 border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.3)] overflow-hidden group hover:scale-110 hover:shadow-[0_0_60px_rgba(212,175,55,0.8)] hover:shadow-[0_0_100px_rgba(212,175,55,0.4)] transition-all duration-700 hover:border-[var(--noir-gold-light)] hover:-translate-y-2">
                           <img
-                            src="/images/Assets/crescendo_2023_poster.jpg"
-                            alt="Crescendo 2023 Poster"
-                            className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                            src="/images/posters/matrix.webp"
+                            alt="Matrix Poster"
+                            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
                           />
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-[var(--noir-gold)]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
                         </div>
                       </div>
                     </div>
@@ -161,7 +176,7 @@ export default function About() {
                 },
                 {
                   title: "2024",
-                  image: "/images/Assets/crescendo_2024_poster.jpg",
+                  image: "/images/posters/singularity.webp",
                   content: (
                     <div>
                       <p className="mb-4 text-xs font-normal text-[var(--noir-text)] md:text-sm">
@@ -174,13 +189,14 @@ export default function About() {
                         we set the foundation for future growth and expanded our
                         reach.
                       </p>
-                      <div className="w-full max-w-md mx-auto">
-                        <div className="h-20 w-full rounded-lg bg-[var(--noir-black)] border border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.15)] md:h-44 lg:h-60 overflow-hidden">
+                      <div className="w-full max-w-md mx-auto flex justify-center">
+                        <div className="h-64 w-64 md:h-72 md:w-72 lg:h-80 lg:w-80 rounded-full bg-[var(--noir-black)] border-2 border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.3)] overflow-hidden group hover:scale-110 hover:shadow-[0_0_60px_rgba(212,175,55,0.8)] hover:shadow-[0_0_100px_rgba(212,175,55,0.4)] transition-all duration-700 hover:border-[var(--noir-gold-light)] hover:-translate-y-2">
                           <img
-                            src="/images/Assets/crescendo_2024_poster.jpg"
-                            alt="Crescendo 2024 Poster"
-                            className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                            src="/images/posters/singularity.webp"
+                            alt="Singularity Poster"
+                            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
                           />
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-[var(--noir-gold)]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
                         </div>
                       </div>
                     </div>
@@ -188,7 +204,7 @@ export default function About() {
                 },
                 {
                   title: "2025",
-                  image: "/images/Assets/crescendo_2025_poster.jpg",
+                  image: "/images/posters/trinetra.webp",
                   content: (
                     <div>
                       <p className="mb-4 text-xs font-normal text-[var(--noir-text)] md:text-sm">
@@ -218,13 +234,14 @@ export default function About() {
                           First international satellite events
                         </div>
                       </div>
-                      <div className="w-full max-w-md mx-auto">
-                        <div className="h-20 w-full rounded-lg bg-[var(--noir-black)] border border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_24px_rgba(212,175,55,0.15)] md:h-44 lg:h-60 overflow-hidden">
+                      <div className="w-full max-w-md mx-auto flex justify-center">
+                        <div className="h-64 w-64 md:h-72 md:w-72 lg:h-80 lg:w-80 rounded-full bg-[var(--noir-black)] border-2 border-[var(--noir-gold)] flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.3)] overflow-hidden group hover:scale-110 hover:shadow-[0_0_60px_rgba(212,175,55,0.8)] hover:shadow-[0_0_100px_rgba(212,175,55,0.4)] transition-all duration-700 hover:border-[var(--noir-gold-light)] hover:-translate-y-2">
                           <img
-                            src="/images/Assets/crescendo_2025_poster.jpg"
-                            alt="Crescendo 2025 Poster"
-                            className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                            src="/images/posters/trinetra.webp"
+                            alt="Trinetra Poster"
+                            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
                           />
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-[var(--noir-gold)]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
                         </div>
                       </div>
                     </div>
@@ -338,25 +355,44 @@ export default function About() {
                   Meet Our Visionaries
                 </h2>
                 <p className="text-lg text-[var(--noir-text-muted)] max-w-2xl mx-auto">
-                  The passionate individuals who bring Crescendo Festival to
-                  life
+                  The passionate minds who breathe life into Crescendo
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-12">
-                {teamMembers.map((member, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-center"
-                    data-testid={`team-member-${index}`}
-                  >
-                    <TeamProfileCard
-                      member={member}
-                      isActive={activeFounder === index}
-                      onClick={() => setActiveFounder(index)}
-                    />
-                  </div>
-                ))}
+              <div className="space-y-12">
+                {/* Top row - 3 members */}
+                <div className="grid md:grid-cols-3 gap-12">
+                  {teamMembers.slice(0, 3).map((member, index) => (
+                    <div
+                      key={index}
+                      className="flex justify-center"
+                      data-testid={`team-member-${index}`}
+                    >
+                      <TeamProfileCard
+                        member={member}
+                        isActive={activeFounder === index}
+                        onClick={() => setActiveFounder(index)}
+                      />
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Bottom row - 2 members */}
+                <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                  {teamMembers.slice(3, 5).map((member, index) => (
+                    <div
+                      key={index + 3}
+                      className="flex justify-center"
+                      data-testid={`team-member-${index + 3}`}
+                    >
+                      <TeamProfileCard
+                        member={member}
+                        isActive={activeFounder === index + 3}
+                        onClick={() => setActiveFounder(index + 3)}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </CardContent>
           </Card>
