@@ -107,42 +107,62 @@ export default function Contact() {
     {
       question: "How do I register for events?",
       answer:
-        "You can register for individual events through our Events page. Each event has its own registration form and requirements. Early bird discounts are available until December 15, 2025.",
+        "You can register using the official Google Forms linked in each event section of the Crescendo brochure or on the website. Each event has its own unique registration link.",
     },
     {
       question: "What is included in the registration fee?",
       answer:
-        "Registration includes access to all workshops, networking sessions, meals during the festival, official merchandise, and participation certificates. Competition-specific prizes are additional.",
+        "The fee covers participation in your selected event(s), access to festival venues, and eligibility for certificates and prizes. Some events may be free to enter.",
     },
     {
       question: "Are there accommodation arrangements?",
       answer:
-        "We have partnerships with local hotels offering discounted rates for participants. A list of recommended accommodations is available in our brochure and will be sent upon registration.",
-    },
-    {
-      question: "Can I participate remotely?",
-      answer:
-        "While Crescendo Festival is primarily an in-person experience, select workshops and keynote sessions will be live-streamed. However, competitions and hands-on activities require physical presence.",
+        "Participants from outside Mumbai can contact the organizing team for assistance with nearby accommodation suggestions, though complete accommodation would not be provided by us.",
     },
     {
       question: "What should I bring to the festival?",
       answer:
-        "Bring your laptop, chargers, any specific hardware for competitions, government-issued ID for verification, and comfortable clothing. Detailed packing lists are provided for specific events.",
+        "Carry your college ID card, registration confirmation, and essential materials (like laptops, chargers, or robotics kits) depending on the event you've registered for.",
     },
     {
-      question: "How can I become a volunteer?",
+      question: "Can I participate remotely?",
       answer:
-        "We welcome volunteers! Fill out the volunteer application form above or email volunteer@crescendofestival.com. Volunteers receive festival access, meals, exclusive volunteer merchandise, and networking opportunities.",
+        "No, for all events being present physically in the college during final offline rounds on event days is required.",
     },
     {
       question: "What are the judging criteria for competitions?",
       answer:
-        "Competitions are judged on innovation, technical execution, presentation quality, and real-world impact. Detailed rubrics are provided for each competition during the briefing sessions.",
+        "Judging is based on innovation, technical execution, feasibility, presentation, and adherence to event-specific rules. Refer to the points table for better details of some events. Also judge's decision remains final for scoring points.",
     },
     {
       question: "Is there a code of conduct?",
       answer:
-        "Yes, all participants must adhere to our Code of Conduct, which promotes inclusive, respectful, and professional behavior. The full document is available on our website and in the brochure.",
+        "All participants must maintain professionalism, punctuality, and respect towards peers and organizers. Misconduct, littering, or property damage will lead to disqualification.",
+    },
+    {
+      question: "How can I become a volunteer?",
+      answer:
+        "Students of FR.CRCE can apply through the Student Council or event organizing committees prior to the fest. Watch for official announcements and forms.",
+    },
+    {
+      question: "Are team events allowed?",
+      answer:
+        "Yes. Most competitions are team-based, with team sizes varying from 2 to 4 participants. Refer to each event's rulebook for specifics.",
+    },
+    {
+      question: "What are the flagship events of Crescendo 2025?",
+      answer:
+        "The three flagship competitions are: Hardware & Simulation Hackathon (Synergy), Intercollegiate Robo Fight (RoboRift 2.0), and CRCE Esports (BGMI and Valorant).",
+    },
+    {
+      question: "How will winners be announced?",
+      answer:
+        "Results will be declared after event evaluations are completed and verified by the judging panel and Crescendo managing committee.",
+    },
+    {
+      question: "Whom do I contact for queries?",
+      answer:
+        "For any doubts or assistance, reach out to the Student Council: Jack Sequeira (Technical Secretary): +91 91379 67300, Branch Mathew (PR Head): +91 99209 10592, Yashdeep Kulkarni (General Secretary): +91 93223 11666.",
     },
   ];
 
@@ -511,42 +531,6 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            {/* Quick Actions */}
-            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg hover:border-red-500 transition-all duration-300 cursor-pointer">
-              <CardHeader>
-                <CardTitle className="font-cinzel text-xl">
-                  Quick Actions
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <Button
-                  variant="outline"
-                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground hover:border-red-500 transition-all duration-300"
-                  data-testid="button-download-media-kit"
-                >
-                  <i className="fas fa-download mr-2" />
-                  Download Media Kit
-                </Button>
-
-                <Button
-                  variant="outline"
-                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground hover:border-red-500 transition-all duration-300"
-                  data-testid="button-sponsorship-package"
-                >
-                  <i className="fas fa-file-pdf mr-2" />
-                  Sponsorship Package
-                </Button>
-
-                <Button
-                  variant="outline"
-                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground hover:border-red-500 transition-all duration-300"
-                  data-testid="button-volunteer-guide"
-                >
-                  <i className="fas fa-hands-helping mr-2" />
-                  Volunteer Guide
-                </Button>
-              </CardContent>
-            </Card>
 
             {/* Social Media */}
             <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg hover:border-red-500 transition-all duration-300 cursor-pointer">
@@ -557,17 +541,11 @@ export default function Contact() {
                 <p className="text-muted-foreground text-sm mb-4">
                   Stay updated with the latest news and announcements
                 </p>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3">
                   <a
-                    href="#"
-                    className="flex items-center justify-center space-x-2 p-3 bg-blue-500/20 text-blue-400 rounded-lg hover:bg-blue-500/30 hover:border-red-500 border border-transparent transition-all duration-300"
-                    data-testid="social-twitter"
-                  >
-                    <i className="fab fa-twitter" />
-                    <span className="text-sm">Twitter</span>
-                  </a>
-                  <a
-                    href="#"
+                    href="https://www.instagram.com/frcrce_official?igsh=cDZrNjVxMDJocDdk"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-center space-x-2 p-3 bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 hover:border-red-500 border border-transparent transition-all duration-300"
                     data-testid="social-instagram"
                   >
@@ -575,7 +553,9 @@ export default function Contact() {
                     <span className="text-sm">Instagram</span>
                   </a>
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/students-council-crce-b9a005316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-center space-x-2 p-3 bg-blue-600/20 text-blue-500 rounded-lg hover:bg-blue-600/30 hover:border-red-500 border border-transparent transition-all duration-300"
                     data-testid="social-linkedin"
                   >
@@ -583,12 +563,14 @@ export default function Contact() {
                     <span className="text-sm">LinkedIn</span>
                   </a>
                   <a
-                    href="#"
-                    className="flex items-center justify-center space-x-2 p-3 bg-purple-500/20 text-purple-400 rounded-lg hover:bg-purple-500/30 hover:border-red-500 border border-transparent transition-all duration-300"
-                    data-testid="social-discord"
+                    href="https://youtube.com/@studentscouncilcrce?si=yrUHbKgLMQN4MMi0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center space-x-2 p-3 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 hover:border-red-500 border border-transparent transition-all duration-300"
+                    data-testid="social-youtube"
                   >
-                    <i className="fab fa-discord" />
-                    <span className="text-sm">Discord</span>
+                    <i className="fab fa-youtube" />
+                    <span className="text-sm">YouTube</span>
                   </a>
                 </div>
               </CardContent>
