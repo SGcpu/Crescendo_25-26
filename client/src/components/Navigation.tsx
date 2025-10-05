@@ -111,12 +111,14 @@ export default function Navigation() {
                   Brochure
                 </Button>
               </Link>
-              <Button
-                className="bg-[var(--noir-crimson)] text-white hover:bg-[var(--noir-crimson)]/90 shadow-lg shadow-[var(--noir-crimson)]/20"
-                data-testid="button-register"
-              >
-                Register Now
-              </Button>
+              <Link href="/schedule">
+                <Button
+                  className="bg-[var(--noir-crimson)] text-white hover:bg-[var(--noir-crimson)]/90 shadow-lg shadow-[var(--noir-crimson)]/20"
+                  data-testid="button-schedule"
+                >
+                  Schedule
+                </Button>
+              </Link>
             </div>
           )}
 
@@ -156,13 +158,15 @@ export default function Navigation() {
                         Brochure
                       </Button>
                     </Link>
-                    <Button
-                      className="w-full bg-[var(--noir-crimson)] text-white hover:bg-[var(--noir-crimson)]/90 shadow-lg shadow-[var(--noir-crimson)]/20"
-                      onClick={() => setMobileMenuOpen(false)}
-                      data-testid="button-register-mobile"
-                    >
-                      Register Now
-                    </Button>
+                    <Link href="/schedule">
+                      <Button
+                        className="w-full bg-[var(--noir-crimson)] text-white hover:bg-[var(--noir-crimson)]/90 shadow-lg shadow-[var(--noir-crimson)]/20"
+                        onClick={() => setMobileMenuOpen(false)}
+                        data-testid="button-schedule-mobile"
+                      >
+                        Schedule
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </SheetContent>

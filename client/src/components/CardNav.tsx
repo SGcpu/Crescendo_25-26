@@ -73,9 +73,9 @@ export default function CardNav({ isScrolled }: CardNavProps) {
           ariaLabel: "Download brochure",
         },
         {
-          label: "Register",
-          href: "/register",
-          ariaLabel: "Register for the festival",
+          label: "Schedule",
+          href: "/schedule",
+          ariaLabel: "View event schedule",
         },
       ],
     },
@@ -160,11 +160,11 @@ export default function CardNav({ isScrolled }: CardNavProps) {
             </a>
           </Link>
 
-          {/* Register button */}
-          <Link href="/register">
+          {/* Schedule button */}
+          <Link href="/schedule">
             <a className="hidden md:block">
               <Button className="bg-[var(--noir-crimson)] text-white hover:bg-[var(--noir-crimson)]/90 shadow-lg shadow-[var(--noir-crimson)]/20 eye-glow">
-                Register Now
+                Schedule
               </Button>
             </a>
           </Link>

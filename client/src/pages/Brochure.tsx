@@ -24,16 +24,9 @@ export default function Brochure() {
     window.open('https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view?usp=drive_link', '_blank');
   };
 
-  const shareOnTwitter = () => {
-    window.open('https://twitter.com/intent/tweet?text=Check%20out%20Crescendo%20Festival%202025!&url=https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view', '_blank');
-  };
-
-  const shareOnLinkedIn = () => {
-    window.open('https://www.linkedin.com/sharing/share-offsite/?url=https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view', '_blank');
-  };
-
-  const shareOnWhatsApp = () => {
-    window.open('https://wa.me/?text=Check%20out%20Crescendo%20Festival%202025%20Brochure!%20https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view', '_blank');
+  const downloadPointsTable = () => {
+    // Open the Points Table Google Drive link in a new tab
+    window.open('https://drive.google.com/file/d/1lzzBnir4Yfk29S11RtYVZesdUQgWkPCg/view?usp=drive_link', '_blank');
   };
 
   return (
@@ -127,20 +120,45 @@ export default function Brochure() {
               <CardHeader>
                 <CardTitle className="font-cinzel text-xl flex items-center">
                   <i className="fas fa-eye text-accent mr-2" />
-                  Unveil the Vision
+                  Unveil the Vision (Brochure)
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <Button
                   onClick={downloadBrochure}
                   className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold py-3 text-base"
+                  data-testid="button-download-brochure"
                 >
-                  <i className="fas fa-eye mr-2" />
+                  <i className="fas fa-download mr-2" />
                   Awaken Trinetra
                 </Button>
 
                 <p className="text-sm text-muted-foreground text-center">
                   Your gateway to all events, schedules, and the spirit of Trinetra.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Points Table Download */}
+            <Card className="bg-card border border-border">
+              <CardHeader>
+                <CardTitle className="font-cinzel text-xl flex items-center">
+                  <i className="fas fa-chart-line text-accent mr-2" />
+                  Points Table
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <Button
+                  onClick={downloadPointsTable}
+                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold py-3 text-base"
+                  data-testid="button-download-points-table"
+                >
+                  <i className="fas fa-download mr-2" />
+                  Explore Points System
+                </Button>
+                
+                <p className="text-sm text-muted-foreground text-center">
+                  Track every point, for scoring and achieving victory across all Crescendo competitions.
                 </p>
               </CardContent>
             </Card>
@@ -191,32 +209,35 @@ export default function Brochure() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Help spread the word about Crescendo Festival 2025
+                  Share the Crescendo 2025 brochure with your contacts
                 </p>
                 <div className="grid grid-cols-3 gap-2">
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={shareOnTwitter}
-                    className="border-blue-500/20 text-blue-400 hover:bg-blue-500/20"
-                  >
-                    <i className="fab fa-twitter" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={shareOnLinkedIn}
-                    className="border-blue-600/20 text-blue-500 hover:bg-blue-600/20"
-                  >
-                    <i className="fab fa-linkedin" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={shareOnWhatsApp}
                     className="border-green-500/20 text-green-400 hover:bg-green-500/20"
+                    data-testid="button-share-whatsapp"
+                    onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent('Check out the Crescendo Festival 2025 brochure: https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view?usp=drive_link')}`, '_blank')}
                   >
                     <i className="fab fa-whatsapp" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="border-pink-500/20 text-pink-400 hover:bg-pink-500/20"
+                    data-testid="button-share-instagram"
+                    onClick={() => window.open(`https://www.instagram.com/`, '_blank')}
+                  >
+                    <i className="fab fa-instagram" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="border-blue-600/20 text-blue-500 hover:bg-blue-600/20"
+                    data-testid="button-share-linkedin"
+                    onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view?usp=drive_link')}`, '_blank')}
+                  >
+                    <i className="fab fa-linkedin" />
                   </Button>
                 </div>
               </CardContent>

@@ -9,6 +9,7 @@ import Events from "@/pages/Events";
 import EventDetail from "@/pages/EventDetail";
 import Sponsors from "@/pages/Sponsors";
 import Brochure from "@/pages/Brochure";
+import Schedule from "@/pages/Schedule";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import { AnimationDemo } from "@/components/AnimationDemo";
@@ -56,6 +57,7 @@ function Router() {
         <Route path="/events/:slug" component={EventDetail} />
         <Route path="/sponsors" component={Sponsors} />
         <Route path="/brochure" component={Brochure} />
+        <Route path="/schedule" component={Schedule} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/anime-demo" component={AnimationDemo} />
