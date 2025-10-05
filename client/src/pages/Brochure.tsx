@@ -9,59 +9,83 @@ export default function Brochure() {
 
   const brochurePages = [
     {
-      title: 'Welcome to Crescendo Festival 2026',
+      title: 'Crescendo Festival 2025',
       content: 'Awaken Your Vision',
       description: 'The ultimate convergence of innovation, creativity, and transcendent technology',
       image: 'cover'
     },
     {
       title: 'Festival Overview',
-      content: 'Three Days of Pure Innovation',
-      description: 'February 10-12, 2026 • Innovation District, Mumbai',
+      content: 'Four Days of Innovation',
+      description: 'October 9-12, 2025 • Fr. Conceicao Rodrigues College of Engineering',
       image: 'overview'
     },
     {
-      title: 'Events & Competitions',
-      content: 'Challenge Your Limits',
-      description: 'Hackathons, workshops, and competitions for every skill level',
-      image: 'events'
+      title: 'Flagship Events',
+      content: 'The Big Three',
+      description: 'RoboRift 2.0, Synergy Hackathon, and CRCE Esports - the crown jewels of Crescendo',
+      image: 'flagship'
     },
     {
-      title: 'Venue & Facilities',
-      content: 'State-of-the-Art Infrastructure',
-      description: 'Modern facilities designed for innovation and collaboration',
-      image: 'venue'
+      title: 'RoboRift 2.0',
+      content: 'Intercollegiate Robo Fight',
+      description: '120+ teams battle it out in the ultimate robotics showdown on October 10th',
+      image: 'roborift'
     },
     {
-      title: 'Sponsors & Partners',
-      content: 'Visionary Collaborators',
-      description: 'Industry leaders supporting the next generation of innovators',
-      image: 'sponsors'
+      title: 'Synergy Hackathon',
+      content: 'Hardware & Simulation',
+      description: '100+ participants create innovative solutions in 48 hours of pure innovation',
+      image: 'synergy'
     },
     {
-      title: 'Registration Information',
-      content: 'Join the Movement',
-      description: 'Everything you need to know about participating',
+      title: 'CRCE Esports',
+      content: 'BGMI & Valorant',
+      description: '400+ players compete across 3 days in the ultimate gaming championship',
+      image: 'esports'
+    },
+    {
+      title: 'Points Table',
+      content: 'Scoring System',
+      description: 'Complete breakdown of points distribution and prize pool of ₹70K+',
+      image: 'points'
+    },
+    {
+      title: 'Event Schedule',
+      content: 'Timeline & Venues',
+      description: 'Detailed schedule of all events from October 9-12 with venue information',
+      image: 'schedule'
+    },
+    {
+      title: 'Registration & Rules',
+      content: 'How to Participate',
+      description: 'Registration process, team formation, and competition guidelines',
       image: 'registration'
+    },
+    {
+      title: 'Contact Information',
+      content: 'Get in Touch',
+      description: 'Student Council contacts and support for all your queries',
+      image: 'contact'
     }
   ];
 
   const highlights = [
-    { label: 'Events', value: '15+', icon: 'fas fa-calendar' },
-    { label: 'Participants', value: '2000+', icon: 'fas fa-users' },
-    { label: 'Prize Pool', value: '₹50L+', icon: 'fas fa-trophy' },
-    { label: 'Days', value: '3', icon: 'fas fa-clock' }
+    { label: 'RoboRift Teams', value: '120+', icon: 'fas fa-robot' },
+    { label: 'Synergy Participants', value: '100+', icon: 'fas fa-code' },
+    { label: 'Esports Players', value: '400+', icon: 'fas fa-gamepad' },
+    { label: 'Prize Pool', value: '₹70K+', icon: 'fas fa-trophy' }
   ];
 
   const keyEvents = [
-    { name: 'Circuit Breaker', date: 'Feb 11', type: 'Hackathon' },
-    { name: 'Third Eye Challenge', date: 'Feb 12', type: 'Final Competition' },
-    { name: 'AI Symposium', date: 'Feb 10', type: 'Workshop' }
+    { name: 'RoboRift 2.0', date: '10th Oct', type: 'Robotics' },
+    { name: 'Synergy Hackathon', date: '12th Oct', type: 'Hardware' },
+    { name: 'CRCE Esports', date: '9th-11th Oct', type: 'Gaming' }
   ];
 
-  const downloadBrochure = (format: 'high' | 'low') => {
-    // In a real app, this would trigger a download
-    console.log(`Downloading ${format} resolution brochure`);
+  const downloadBrochure = () => {
+    // Open the Google Drive link in a new tab
+    window.open('https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view?usp=drive_link', '_blank');
   };
 
   return (
@@ -70,11 +94,10 @@ export default function Brochure() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="font-cinzel text-4xl md:text-6xl font-bold mb-6 text-foreground">
-            Festival Brochure
+            CRESCENDO BROCHURE 2025
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Get the complete festival guide with schedules, venue maps, 
-            and everything you need for an amazing experience.
+            Dive into the official Crescendo brochure featuring event registrations, schedules, venues, and the points table carving your roadmap to an experience you will cherish forever.
           </p>
         </div>
 
@@ -84,87 +107,60 @@ export default function Brochure() {
             <Card className="bg-card border border-border overflow-hidden">
               <CardHeader className="border-b border-border">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="font-cinzel text-2xl">Brochure Preview</CardTitle>
+                  <CardTitle className="font-cinzel text-2xl">Live Brochure</CardTitle>
                   <div className="flex items-center space-x-2">
                     <span className="text-sm text-muted-foreground">
-                      Page {currentPage + 1} of {brochurePages.length}
+                      Full Document
                     </span>
                     <Badge variant="secondary" className="bg-accent/20 text-accent">
-                      Interactive
+                      Live
                     </Badge>
                   </div>
                 </div>
               </CardHeader>
               <CardContent className="p-0">
-                {/* Page Display */}
-                <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 aspect-[3/4] flex items-center justify-center">
+                {/* Brochure Embed with Google Drive */}
+                <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 aspect-[3/4] overflow-hidden">
                   {/* Golden page edges effect */}
-                  <div className="absolute inset-0 border-4 border-accent/20 rounded-lg" />
-                  <div className="absolute top-2 left-2 right-2 bottom-2 border border-accent/10 rounded-md" />
+                  <div className="absolute inset-0 border-4 border-accent/20 rounded-lg z-10" />
+                  <div className="absolute top-2 left-2 right-2 bottom-2 border border-accent/10 rounded-md z-10" />
                   
-                  {/* Page content */}
-                  <div className="text-center p-8 relative z-10">
-                    <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <i className="fas fa-eye text-accent text-2xl" />
-                    </div>
-                    
-                    <h2 className="font-cinzel text-2xl md:text-3xl font-bold mb-4 text-foreground">
-                      {brochurePages[currentPage].title}
-                    </h2>
-                    
-                    <h3 className="text-xl md:text-2xl font-semibold text-accent mb-4">
-                      {brochurePages[currentPage].content}
-                    </h3>
-                    
-                    <p className="text-muted-foreground max-w-md mx-auto">
-                      {brochurePages[currentPage].description}
-                    </p>
-                  </div>
-
+                  {/* Google Drive PDF Embed - Full Document */}
+                  <iframe
+                    src="https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/preview?usp=sharing&embedded=true"
+                    className="w-full h-full border-0"
+                    allow="autoplay"
+                    title="Crescendo 2025 Brochure Preview"
+                  />
+                  
                   {/* Page number indicator */}
-                  <div className="absolute bottom-4 right-4 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-accent-foreground text-sm font-bold">
+                  <div className="absolute bottom-4 right-4 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-accent-foreground text-sm font-bold z-20">
                     {currentPage + 1}
                   </div>
                 </div>
 
                 {/* Navigation */}
                 <div className="p-6 border-t border-border">
-                  <div className="flex items-center justify-between">
-                    <Button
-                      variant="outline"
-                      onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
-                      disabled={currentPage === 0}
-                      className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                      data-testid="button-prev-page"
-                    >
-                      <i className="fas fa-chevron-left mr-2" />
-                      Previous
-                    </Button>
-
-                    {/* Page dots */}
-                    <div className="flex space-x-2">
-                      {brochurePages.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setCurrentPage(index)}
-                          className={`w-3 h-3 rounded-full transition-colors ${
-                            index === currentPage ? 'bg-accent' : 'bg-muted'
-                          }`}
-                          data-testid={`page-dot-${index}`}
-                        />
-                      ))}
+                  <div className="flex items-center justify-center">
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        Use the PDF controls below to navigate through the brochure
+                      </p>
+                      <div className="flex items-center justify-center space-x-4">
+                        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                          <i className="fas fa-mouse" />
+                          <span>Scroll to zoom</span>
+                        </div>
+                        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                          <i className="fas fa-arrows-alt" />
+                          <span>Drag to pan</span>
+                        </div>
+                        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                          <i className="fas fa-chevron-left" />
+                          <span>Previous/Next</span>
+                        </div>
+                      </div>
                     </div>
-
-                    <Button
-                      variant="outline"
-                      onClick={() => setCurrentPage(Math.min(brochurePages.length - 1, currentPage + 1))}
-                      disabled={currentPage === brochurePages.length - 1}
-                      className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                      data-testid="button-next-page"
-                    >
-                      Next
-                      <i className="fas fa-chevron-right ml-2" />
-                    </Button>
                   </div>
                 </div>
               </CardContent>
@@ -177,40 +173,23 @@ export default function Brochure() {
             <Card className="bg-card border border-border">
               <CardHeader>
                 <CardTitle className="font-cinzel text-xl flex items-center">
-                  <i className="fas fa-download text-accent mr-2" />
-                  Download Brochure
+                  <i className="fas fa-eye text-accent mr-2" />
+                  Unveil the Vision
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <Button
-                  onClick={() => downloadBrochure('high')}
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
-                  data-testid="button-download-high-res"
+                  onClick={downloadBrochure}
+                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold py-3 text-base"
+                  data-testid="button-download-brochure"
                 >
-                  <i className="fas fa-file-pdf mr-2" />
-                  High Resolution PDF (5MB)
+                  <i className="fas fa-eye mr-2" />
+                  Awaken Trinetra
                 </Button>
                 
-                <Button
-                  onClick={() => downloadBrochure('low')}
-                  variant="outline"
-                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                  data-testid="button-download-low-res"
-                >
-                  <i className="fas fa-mobile-alt mr-2" />
-                  Mobile Optimized PDF (1MB)
-                </Button>
-
-                <Separator />
-
-                <Button
-                  variant="ghost"
-                  className="w-full text-muted-foreground hover:text-accent"
-                  data-testid="button-download-text-only"
-                >
-                  <i className="fas fa-file-alt mr-2" />
-                  Text-Only Version (Accessible)
-                </Button>
+                <p className="text-sm text-muted-foreground text-center">
+                  Your gateway to all events, schedules, and the spirit of Trinetra.
+                </p>
               </CardContent>
             </Card>
 
@@ -302,32 +281,32 @@ export default function Brochure() {
             <CardContent>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-map text-primary text-2xl" />
+                  <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i className="fas fa-robot text-accent text-2xl" />
                   </div>
-                  <h3 className="font-cinzel text-lg font-bold mb-2 text-foreground">Venue Maps</h3>
+                  <h3 className="font-cinzel text-lg font-bold mb-2 text-foreground">Flagship Events</h3>
                   <p className="text-muted-foreground text-sm">
-                    Detailed floor plans and navigation guides for all festival venues
+                    RoboRift 2.0, Synergy Hackathon, and CRCE Esports with detailed rules and guidelines
                   </p>
                 </div>
                 
                 <div className="text-center">
                   <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-schedule text-accent text-2xl" />
+                    <i className="fas fa-chart-line text-accent text-2xl" />
                   </div>
-                  <h3 className="font-cinzel text-lg font-bold mb-2 text-foreground">Event Schedule</h3>
+                  <h3 className="font-cinzel text-lg font-bold mb-2 text-foreground">Points Table</h3>
                   <p className="text-muted-foreground text-sm">
-                    Complete timeline of all events, workshops, and activities
+                    Complete scoring system and point distribution for all competitions
                   </p>
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-info-circle text-primary text-2xl" />
+                  <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i className="fas fa-calendar text-accent text-2xl" />
                   </div>
-                  <h3 className="font-cinzel text-lg font-bold mb-2 text-foreground">Essential Info</h3>
+                  <h3 className="font-cinzel text-lg font-bold mb-2 text-foreground">Event Schedule</h3>
                   <p className="text-muted-foreground text-sm">
-                    Registration details, rules, contact information, and FAQs
+                    Detailed timeline of all events from 9th-12th October with venue information
                   </p>
                 </div>
               </div>
