@@ -35,12 +35,12 @@ import { insertContactSchema } from "@shared/schema";
 
 const extendedContactSchema = insertContactSchema.extend({
   phone: z.string().optional(),
+  type: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof extendedContactSchema>;
 
 export default function Contact() {
-  const [activeTab, setActiveTab] = useState("general");
   const { toast } = useToast();
 
   const form = useForm<ContactFormData>({
@@ -81,61 +81,25 @@ export default function Contact() {
     contactMutation.mutate(data);
   };
 
-  const contactTypes = [
-    {
-      id: "general",
-      title: "General Inquiry",
-      description:
-        "Questions about the festival, events, or general information",
-      icon: "fas fa-info-circle",
-      color: "primary",
-    },
-    {
-      id: "volunteer",
-      title: "Volunteer",
-      description: "Join our team and help make Crescendo Festival amazing",
-      icon: "fas fa-hands-helping",
-      color: "accent",
-    },
-    {
-      id: "press",
-      title: "Press & Media",
-      description: "Media inquiries, interviews, and press kit requests",
-      icon: "fas fa-newspaper",
-      color: "secondary",
-    },
-    {
-      id: "partnership",
-      title: "Partnerships",
-      description: "Sponsorship opportunities and strategic partnerships",
-      icon: "fas fa-handshake",
-      color: "primary",
-    },
-  ];
 
   const contactInfo = [
     {
-      title: "Festival Headquarters",
-      details: ["Innovation District, Mumbai", "Maharashtra, India - 400001"],
-      icon: "fas fa-map-marker-alt",
+      title: "General Secretary - Yashdeep Kulkarni",
+      details: ["+91 93223 11666"],
+      icon: "fab fa-whatsapp",
+      whatsapp: "https://wa.me/919322311666",
     },
     {
-      title: "General Information",
-      details: ["+91 98765 43210", "info@crescendofestival.com"],
-      icon: "fas fa-phone",
+      title: "Technical Secretary - Jack Sequeira",
+      details: ["+91 91379 67300"],
+      icon: "fab fa-whatsapp",
+      whatsapp: "https://wa.me/919137967300",
     },
     {
-      title: "Media Relations",
-      details: ["press@crescendofestival.com", "Download Press Kit"],
-      icon: "fas fa-newspaper",
-    },
-    {
-      title: "Partnerships",
-      details: [
-        "partnerships@crescendofestival.com",
-        "Sponsorship Opportunities",
-      ],
-      icon: "fas fa-briefcase",
+      title: "PR Head - Branch Mathew",
+      details: ["+91 99209 10592"],
+      icon: "fab fa-whatsapp",
+      whatsapp: "https://wa.me/919920910592",
     },
   ];
 
@@ -207,58 +171,186 @@ export default function Contact() {
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to be part of something extraordinary? We're here to answer
-            your questions and help you join the Crescendo Festival community.
+            your questions and help you join the Crescendo Community.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Contact Form */}
           <div className="lg:col-span-2">
-            {/* Contact Type Selection */}
-            <div className="grid md:grid-cols-2 gap-4 mb-8">
-              {contactTypes.map((type) => (
-                <Card
-                  key={type.id}
-                  className={`cursor-pointer transition-all duration-300 ${
-                    activeTab === type.id
-                      ? "border-accent bg-accent/5"
-                      : "border-border hover:border-accent/50"
-                  }`}
-                  onClick={() => {
-                    setActiveTab(type.id);
-                    form.setValue("type", type.id);
-                  }}
-                  data-testid={`contact-type-${type.id}`}
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div
-                        className={`w-12 h-12 bg-${
-                          type.color === "accent" ? "accent" : "primary"
-                        }/20 rounded-full flex items-center justify-center flex-shrink-0`}
-                      >
-                        <i
-                          className={`${type.icon} text-${
-                            type.color === "accent" ? "accent" : "primary"
-                          }`}
-                        />
+            {/* Team Cards */}
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              {/* Yashdeep Kulkarni Card */}
+              <div className="group relative overflow-hidden rounded-3xl border-2 border-[var(--noir-gold)]/30 hover:border-red-500 transition-all duration-700 hover:scale-110 hover:rotate-3 hover:shadow-[0_0_60px_rgba(239,68,68,0.6)] cursor-pointer h-80">
+                {/* Background Image - Always Visible */}
+                <div className="absolute inset-0">
+                  <img
+                    src="/images/team/yashdeep_11zon.webp"
+                    alt="Yashdeep Kulkarni"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Very subtle overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                </div>
+                
+                {/* Content Overlay */}
+                <div className="relative z-10 h-full flex flex-col justify-end p-6">
+                  {/* Name and Title - Positioned lower to avoid blocking face */}
+                  <div className="transform group-hover:translate-y-0 transition-all duration-700 mt-16">
+                    <h3 className="font-cinzel text-2xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors duration-500 drop-shadow-lg">
+                      Yashdeep Kulkarni
+                    </h3>
+                    <p className="text-lg text-white/90 mb-6 group-hover:text-white transition-colors duration-500 font-semibold drop-shadow-md">
+                      General Secretary
+                    </p>
+                  </div>
+                  
+                  {/* Social Links - Appear on hover */}
+                  <div className="flex justify-center space-x-4 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-200">
+                    <a
+                      href="https://www.linkedin.com/in/yashdeep-kulkarni-33476a216"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-500 hover:scale-125 hover:rotate-12"
+                    >
+                      <i className="fab fa-linkedin text-lg"></i>
+                    </a>
+                    <a
+                      href="https://www.instagram.com/yashdeepkulkarni_10/?hl=en"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-500 hover:scale-125 hover:-rotate-12"
+                    >
+                      <i className="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a
+                      href="https://github.com/ValourWarrior"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-500 hover:scale-125 hover:rotate-12"
+                    >
+                      <i className="fab fa-github text-lg"></i>
+                    </a>
+                  </div>
+                </div>
+                
+              </div>
+
+              {/* Jack Sequeira Card */}
+              <div className="group relative overflow-hidden rounded-3xl border-2 border-[var(--noir-gold)]/30 hover:border-red-500 transition-all duration-700 hover:scale-110 hover:-rotate-3 hover:shadow-[0_0_60px_rgba(239,68,68,0.6)] cursor-pointer h-80">
+                {/* Background Image - Always Visible */}
+                <div className="absolute inset-0">
+                  <img
+                    src="/images/team/jack_11zon.webp"
+                    alt="Jack Sequeira"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Very subtle overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                </div>
+                
+                {/* Content Overlay */}
+                <div className="relative z-10 h-full flex flex-col justify-end p-6">
+                  {/* Name and Title - Positioned lower to avoid blocking face */}
+                  <div className="transform group-hover:translate-y-0 transition-all duration-700 mt-16">
+                    <h3 className="font-cinzel text-2xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors duration-500 drop-shadow-lg">
+                      Jack Sequeira
+                    </h3>
+                    <p className="text-lg text-white/90 mb-6 group-hover:text-white transition-colors duration-500 font-semibold drop-shadow-md">
+                      Technical Secretary
+                    </p>
+                  </div>
+                  
+                  {/* Social Links - Appear on hover */}
+                  <div className="flex justify-center space-x-4 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-200">
+                    <a
+                      href="https://www.linkedin.com/in/gabbar-v7"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-500 hover:scale-125 hover:rotate-12"
+                    >
+                      <i className="fab fa-linkedin text-lg"></i>
+                    </a>
+                    <a
+                      href="https://www.instagram.com/gabbar_v7/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-500 hover:scale-125 hover:-rotate-12"
+                    >
+                      <i className="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a
+                      href="https://github.com/Gabbar-v7"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-500 hover:scale-125 hover:rotate-12"
+                    >
+                      <i className="fab fa-github text-lg"></i>
+                    </a>
+                  </div>
+                </div>
+                
+              </div>
+
+              {/* Branch Mathew Card */}
+              <div className="group relative overflow-hidden rounded-3xl border-2 border-[var(--noir-gold)]/30 hover:border-red-500 transition-all duration-700 hover:scale-110 hover:rotate-2 hover:shadow-[0_0_60px_rgba(239,68,68,0.6)] cursor-pointer h-80">
+                {/* Background Image - Always Visible */}
+                <div className="absolute inset-0">
+                  <img
+                    src="/images/team/branch_11zon.webp"
+                    alt="Branch Mathew"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Very subtle overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                       </div>
-                      <div>
-                        <h3 className="font-cinzel font-bold text-card-foreground mb-2">
-                          {type.title}
-                        </h3>
-                        <p className="text-muted-foreground text-sm">
-                          {type.description}
-                        </p>
-                      </div>
+                
+                {/* Content Overlay */}
+                <div className="relative z-10 h-full flex flex-col justify-end p-6">
+                  {/* Name and Title - Positioned lower to avoid blocking face */}
+                  <div className="transform group-hover:translate-y-0 transition-all duration-700 mt-16">
+                    <h3 className="font-cinzel text-2xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors duration-500 drop-shadow-lg">
+                      Branch Mathew
+                    </h3>
+                    <p className="text-lg text-white/90 mb-6 group-hover:text-white transition-colors duration-500 font-semibold drop-shadow-md">
+                      PR Head
+                    </p>
+                  </div>
+                  
+                  {/* Social Links - Appear on hover */}
+                  <div className="flex justify-center space-x-4 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-200">
+                    <a
+                      href="https://www.linkedin.com/in/branchmathew/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-500 hover:scale-125 hover:rotate-12"
+                    >
+                      <i className="fab fa-linkedin text-lg"></i>
+                    </a>
+                    <a
+                      href="https://www.instagram.com/mathewbranch16/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-500 hover:scale-125 hover:-rotate-12"
+                    >
+                      <i className="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a
+                      href="https://github.com/mathewbranch16"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-500 hover:scale-125 hover:rotate-12"
+                    >
+                      <i className="fab fa-github text-lg"></i>
+                    </a>
+                  </div>
+                </div>
+                
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
             </div>
 
             {/* Contact Form */}
-            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
+            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg hover:border-red-500 transition-all duration-300 cursor-pointer">
               <CardHeader>
                 <CardTitle className="font-cinzel text-2xl">
                   Send us a Message
@@ -280,7 +372,7 @@ export default function Contact() {
                             <FormControl>
                               <Input
                                 placeholder="Your full name"
-                                className="bg-background border-border"
+                                className="bg-background border-border hover:border-red-500 transition-all duration-300"
                                 data-testid="input-name"
                                 {...field}
                               />
@@ -300,7 +392,7 @@ export default function Contact() {
                               <Input
                                 type="email"
                                 placeholder="your@email.com"
-                                className="bg-background border-border"
+                                className="bg-background border-border hover:border-red-500 transition-all duration-300"
                                 data-testid="input-email"
                                 {...field}
                               />
@@ -321,7 +413,7 @@ export default function Contact() {
                             <Input
                               type="tel"
                               placeholder="+91 98765 43210"
-                              className="bg-background border-border"
+                              className="bg-background border-border hover:border-red-500 transition-all duration-300"
                               data-testid="input-phone"
                               {...field}
                             />
@@ -331,37 +423,6 @@ export default function Contact() {
                       )}
                     />
 
-                    <FormField
-                      control={form.control}
-                      name="type"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Inquiry Type *</FormLabel>
-                          <Select
-                            onValueChange={field.onChange}
-                            value={field.value}
-                            disabled
-                          >
-                            <FormControl>
-                              <SelectTrigger
-                                className="bg-background border-border"
-                                data-testid="select-type"
-                              >
-                                <SelectValue />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              {contactTypes.map((type) => (
-                                <SelectItem key={type.id} value={type.id}>
-                                  {type.title}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
 
                     <FormField
                       control={form.control}
@@ -372,7 +433,7 @@ export default function Contact() {
                           <FormControl>
                             <Textarea
                               placeholder="Tell us how we can help you..."
-                              className="bg-background border-border min-h-[120px]"
+                              className="bg-background border-border min-h-[120px] hover:border-red-500 transition-all duration-300"
                               data-testid="textarea-message"
                               {...field}
                             />
@@ -409,7 +470,7 @@ export default function Contact() {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* Contact Information */}
-            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
+            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg hover:border-red-500 transition-all duration-300 cursor-pointer">
               <CardHeader>
                 <CardTitle className="font-cinzel text-xl">
                   Contact Information
@@ -426,9 +487,23 @@ export default function Contact() {
                         {info.title}
                       </h4>
                       {info.details.map((detail, i) => (
-                        <p key={i} className="text-muted-foreground text-sm">
-                          {detail}
-                        </p>
+                        <div key={i}>
+                          {info.whatsapp ? (
+                            <a
+                              href={info.whatsapp}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-muted-foreground text-sm hover:text-green-500 transition-colors duration-300 flex items-center space-x-2"
+                            >
+                              <i className="fab fa-whatsapp text-green-500"></i>
+                              <span>{detail}</span>
+                            </a>
+                          ) : (
+                            <p className="text-muted-foreground text-sm">
+                              {detail}
+                            </p>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -437,7 +512,7 @@ export default function Contact() {
             </Card>
 
             {/* Quick Actions */}
-            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
+            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg hover:border-red-500 transition-all duration-300 cursor-pointer">
               <CardHeader>
                 <CardTitle className="font-cinzel text-xl">
                   Quick Actions
@@ -446,7 +521,7 @@ export default function Contact() {
               <CardContent className="space-y-4">
                 <Button
                   variant="outline"
-                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground hover:border-red-500 transition-all duration-300"
                   data-testid="button-download-media-kit"
                 >
                   <i className="fas fa-download mr-2" />
@@ -455,7 +530,7 @@ export default function Contact() {
 
                 <Button
                   variant="outline"
-                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground hover:border-red-500 transition-all duration-300"
                   data-testid="button-sponsorship-package"
                 >
                   <i className="fas fa-file-pdf mr-2" />
@@ -464,7 +539,7 @@ export default function Contact() {
 
                 <Button
                   variant="outline"
-                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground hover:border-red-500 transition-all duration-300"
                   data-testid="button-volunteer-guide"
                 >
                   <i className="fas fa-hands-helping mr-2" />
@@ -474,7 +549,7 @@ export default function Contact() {
             </Card>
 
             {/* Social Media */}
-            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
+            <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg hover:border-red-500 transition-all duration-300 cursor-pointer">
               <CardHeader>
                 <CardTitle className="font-cinzel text-xl">Follow Us</CardTitle>
               </CardHeader>
@@ -485,7 +560,7 @@ export default function Contact() {
                 <div className="grid grid-cols-2 gap-3">
                   <a
                     href="#"
-                    className="flex items-center justify-center space-x-2 p-3 bg-blue-500/20 text-blue-400 rounded-lg hover:bg-blue-500/30 transition-colors"
+                    className="flex items-center justify-center space-x-2 p-3 bg-blue-500/20 text-blue-400 rounded-lg hover:bg-blue-500/30 hover:border-red-500 border border-transparent transition-all duration-300"
                     data-testid="social-twitter"
                   >
                     <i className="fab fa-twitter" />
@@ -493,7 +568,7 @@ export default function Contact() {
                   </a>
                   <a
                     href="#"
-                    className="flex items-center justify-center space-x-2 p-3 bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 transition-colors"
+                    className="flex items-center justify-center space-x-2 p-3 bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 hover:border-red-500 border border-transparent transition-all duration-300"
                     data-testid="social-instagram"
                   >
                     <i className="fab fa-instagram" />
@@ -501,7 +576,7 @@ export default function Contact() {
                   </a>
                   <a
                     href="#"
-                    className="flex items-center justify-center space-x-2 p-3 bg-blue-600/20 text-blue-500 rounded-lg hover:bg-blue-600/30 transition-colors"
+                    className="flex items-center justify-center space-x-2 p-3 bg-blue-600/20 text-blue-500 rounded-lg hover:bg-blue-600/30 hover:border-red-500 border border-transparent transition-all duration-300"
                     data-testid="social-linkedin"
                   >
                     <i className="fab fa-linkedin" />
@@ -509,7 +584,7 @@ export default function Contact() {
                   </a>
                   <a
                     href="#"
-                    className="flex items-center justify-center space-x-2 p-3 bg-purple-500/20 text-purple-400 rounded-lg hover:bg-purple-500/30 transition-colors"
+                    className="flex items-center justify-center space-x-2 p-3 bg-purple-500/20 text-purple-400 rounded-lg hover:bg-purple-500/30 hover:border-red-500 border border-transparent transition-all duration-300"
                     data-testid="social-discord"
                   >
                     <i className="fab fa-discord" />
@@ -523,7 +598,7 @@ export default function Contact() {
 
         {/* FAQ Section */}
         <div className="mt-20">
-          <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
+          <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg hover:border-red-500 transition-all duration-300 cursor-pointer">
             <CardHeader>
               <CardTitle className="font-cinzel text-2xl text-center">
                 Frequently Asked Questions
@@ -535,7 +610,7 @@ export default function Contact() {
                   <AccordionItem
                     key={index}
                     value={`faq-${index}`}
-                    className="border border-border rounded-lg px-6"
+                    className="border border-border rounded-lg px-6 hover:border-red-500 transition-all duration-300 cursor-pointer"
                     data-testid={`faq-item-${index}`}
                   >
                     <AccordionTrigger className="font-semibold text-left hover:text-accent">
@@ -553,7 +628,7 @@ export default function Contact() {
 
         {/* Map Section */}
         <div className="mt-16">
-          <Card className="bg-card/80 backdrop-blur-sm border border-border overflow-hidden shadow-lg">
+          <Card className="bg-card/80 backdrop-blur-sm border border-border overflow-hidden shadow-lg hover:border-red-500 transition-all duration-300 cursor-pointer">
             <CardHeader>
               <CardTitle className="font-cinzel text-2xl text-center">
                 Find Us

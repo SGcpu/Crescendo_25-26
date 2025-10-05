@@ -47,8 +47,8 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { icon: "fab fa-instagram", href: "#", label: "Instagram" },
-    { icon: "fab fa-linkedin", href: "#", label: "LinkedIn" },
+    { icon: "fab fa-instagram", href: "https://www.instagram.com/frcrce_official?igsh=cDZrNjVxMDJocDdk", label: "Instagram" },
+    { icon: "fab fa-linkedin", href: "https://www.linkedin.com/school/fr.-conceicao-rodrigues-college-of-engineering/?originalSubdomain=in", label: "LinkedIn" },
   ];
 
   const importantDates = [
@@ -104,7 +104,7 @@ export default function Footer() {
                 className="w-12 h-16 animate-float"
               />
               <span className="font-cinzel text-2xl font-bold text-[#D4AF37]">
-                Crescendo Festival 2025
+                Crescendo 2025
               </span>
             </div>
             <p className="text-white/80 mb-6 max-w-md">
@@ -220,8 +220,8 @@ export default function Footer() {
         <div className="mt-12 pt-6 border-t border-noir-gold/30 text-center">
           <p className="text-sm text-white/70" data-testid="footer-copyright">
             © {new Date().getFullYear()} Crescendo Festival. All rights
-            reserved. Created with <span className="text-[#E63946]">HONOR AND LOVE</span> by
-            Student Council CRCE.
+            reserved. Forged with <span className="text-[#E63946]">Creativity and Spirit</span> by
+            Students' Council CRCE.
           </p>
           <div className="flex justify-center space-x-6 text-sm text-white/70 mt-4">
             <Link href="/privacy">
