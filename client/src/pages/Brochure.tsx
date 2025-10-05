@@ -5,70 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 
 export default function Brochure() {
-  const [currentPage, setCurrentPage] = useState(0);
-
-  const brochurePages = [
-    {
-      title: 'Crescendo Festival 2025',
-      content: 'Awaken Your Vision',
-      description: 'The ultimate convergence of innovation, creativity, and transcendent technology',
-      image: 'cover'
-    },
-    {
-      title: 'Festival Overview',
-      content: 'Four Days of Innovation',
-      description: 'October 9-12, 2025 • Fr. Conceicao Rodrigues College of Engineering',
-      image: 'overview'
-    },
-    {
-      title: 'Flagship Events',
-      content: 'The Big Three',
-      description: 'RoboRift 2.0, Synergy Hackathon, and CRCE Esports - the crown jewels of Crescendo',
-      image: 'flagship'
-    },
-    {
-      title: 'RoboRift 2.0',
-      content: 'Intercollegiate Robo Fight',
-      description: '120+ teams battle it out in the ultimate robotics showdown on October 10th',
-      image: 'roborift'
-    },
-    {
-      title: 'Synergy Hackathon',
-      content: 'Hardware & Simulation',
-      description: '100+ participants create innovative solutions in 48 hours of pure innovation',
-      image: 'synergy'
-    },
-    {
-      title: 'CRCE Esports',
-      content: 'BGMI & Valorant',
-      description: '400+ players compete across 3 days in the ultimate gaming championship',
-      image: 'esports'
-    },
-    {
-      title: 'Points Table',
-      content: 'Scoring System',
-      description: 'Complete breakdown of points distribution and prize pool of ₹70K+',
-      image: 'points'
-    },
-    {
-      title: 'Event Schedule',
-      content: 'Timeline & Venues',
-      description: 'Detailed schedule of all events from October 9-12 with venue information',
-      image: 'schedule'
-    },
-    {
-      title: 'Registration & Rules',
-      content: 'How to Participate',
-      description: 'Registration process, team formation, and competition guidelines',
-      image: 'registration'
-    },
-    {
-      title: 'Contact Information',
-      content: 'Get in Touch',
-      description: 'Student Council contacts and support for all your queries',
-      image: 'contact'
-    }
-  ];
+  const [isLoading, setIsLoading] = useState(true);
 
   const highlights = [
     { label: 'RoboRift Teams', value: '120+', icon: 'fas fa-robot' },
@@ -84,12 +21,23 @@ export default function Brochure() {
   ];
 
   const downloadBrochure = () => {
-    // Open the Google Drive link in a new tab
     window.open('https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view?usp=drive_link', '_blank');
   };
 
+  const shareOnTwitter = () => {
+    window.open('https://twitter.com/intent/tweet?text=Check%20out%20Crescendo%20Festival%202025!&url=https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view', '_blank');
+  };
+
+  const shareOnLinkedIn = () => {
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view', '_blank');
+  };
+
+  const shareOnWhatsApp = () => {
+    window.open('https://wa.me/?text=Check%20out%20Crescendo%20Festival%202025%20Brochure!%20https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/view', '_blank');
+  };
+
   return (
-    <div className="min-h-screen pt-24 pb-12">
+    <div className="min-h-screen pt-24 pb-12 bg-background">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
@@ -119,46 +67,51 @@ export default function Brochure() {
                 </div>
               </CardHeader>
               <CardContent className="p-0">
-                {/* Brochure Embed with Google Drive */}
-                <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 aspect-[3/4] overflow-hidden">
+                {/* Brochure Embed */}
+                <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden" style={{ height: '800px' }}>
                   {/* Golden page edges effect */}
-                  <div className="absolute inset-0 border-4 border-accent/20 rounded-lg z-10" />
-                  <div className="absolute top-2 left-2 right-2 bottom-2 border border-accent/10 rounded-md z-10" />
-                  
-                  {/* Google Drive PDF Embed - Full Document */}
+                  <div className="absolute inset-0 border-4 border-accent/20 rounded-lg z-10 pointer-events-none" />
+                  <div className="absolute top-2 left-2 right-2 bottom-2 border border-accent/10 rounded-md z-10 pointer-events-none" />
+
+                  {/* Loading Indicator */}
+                  {isLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center z-20 bg-background/50">
+                      <div className="text-center">
+                        <i className="fas fa-spinner fa-spin text-accent text-4xl mb-4" />
+                        <p className="text-muted-foreground text-lg">Loading brochure...</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Google Drive PDF Embed */}
                   <iframe
-                    src="https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/preview?usp=sharing&embedded=true"
-                    className="w-full h-full border-0"
+                    src="https://drive.google.com/file/d/1dqEjFfSVVofWSUZmK4ZGDQQ6FQZ4Lolm/preview"
+                    className="w-full h-full"
                     allow="autoplay"
-                    title="Crescendo 2025 Brochure Preview"
+                    onLoad={() => setIsLoading(false)}
+                    title="Crescendo Brochure 2025"
                   />
-                  
-                  {/* Page number indicator */}
-                  <div className="absolute bottom-4 right-4 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-accent-foreground text-sm font-bold z-20">
-                    {currentPage + 1}
-                  </div>
                 </div>
 
-                {/* Navigation */}
+                {/* Navigation Info */}
                 <div className="p-6 border-t border-border">
-                  <div className="flex items-center justify-center">
-                    <div className="text-center">
-                      <p className="text-sm text-muted-foreground mb-2">
-                        Use the PDF controls below to navigate through the brochure
-                      </p>
-                      <div className="flex items-center justify-center space-x-4">
-                        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                          <i className="fas fa-mouse" />
-                          <span>Scroll to zoom</span>
-                        </div>
-                        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                          <i className="fas fa-arrows-alt" />
-                          <span>Drag to pan</span>
-                        </div>
-                        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                          <i className="fas fa-chevron-left" />
-                          <span>Previous/Next</span>
-                        </div>
+                  <div className="text-center">
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Use the controls in the viewer above to navigate through the brochure
+                    </p>
+                    <div className="flex items-center justify-center space-x-6">
+                      <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                        <i className="fas fa-search-plus" />
+                        <span>Zoom controls available</span>
+                      </div>
+                      <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                        <i className="fas fa-chevron-left" />
+                        <i className="fas fa-chevron-right" />
+                        <span>Navigate pages</span>
+                      </div>
+                      <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                        <i className="fas fa-download" />
+                        <span>Download option</span>
                       </div>
                     </div>
                   </div>
@@ -181,12 +134,11 @@ export default function Brochure() {
                 <Button
                   onClick={downloadBrochure}
                   className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold py-3 text-base"
-                  data-testid="button-download-brochure"
                 >
                   <i className="fas fa-eye mr-2" />
                   Awaken Trinetra
                 </Button>
-                
+
                 <p className="text-sm text-muted-foreground text-center">
                   Your gateway to all events, schedules, and the spirit of Trinetra.
                 </p>
@@ -210,9 +162,9 @@ export default function Brochure() {
                     </div>
                   ))}
                 </div>
-                
+
                 <Separator className="my-4" />
-                
+
                 <div>
                   <h4 className="font-semibold text-foreground mb-3">Key Events</h4>
                   <div className="space-y-2">
@@ -239,30 +191,30 @@ export default function Brochure() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Help spread the word about Crescendo Festival 2026
+                  Help spread the word about Crescendo Festival 2025
                 </p>
                 <div className="grid grid-cols-3 gap-2">
                   <Button
                     variant="outline"
                     size="sm"
+                    onClick={shareOnTwitter}
                     className="border-blue-500/20 text-blue-400 hover:bg-blue-500/20"
-                    data-testid="button-share-twitter"
                   >
                     <i className="fab fa-twitter" />
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
+                    onClick={shareOnLinkedIn}
                     className="border-blue-600/20 text-blue-500 hover:bg-blue-600/20"
-                    data-testid="button-share-linkedin"
                   >
                     <i className="fab fa-linkedin" />
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
+                    onClick={shareOnWhatsApp}
                     className="border-green-500/20 text-green-400 hover:bg-green-500/20"
-                    data-testid="button-share-whatsapp"
                   >
                     <i className="fab fa-whatsapp" />
                   </Button>
@@ -289,7 +241,7 @@ export default function Brochure() {
                     RoboRift 2.0, Synergy Hackathon, and CRCE Esports with detailed rules and guidelines
                   </p>
                 </div>
-                
+
                 <div className="text-center">
                   <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i className="fas fa-chart-line text-accent text-2xl" />
@@ -299,7 +251,7 @@ export default function Brochure() {
                     Complete scoring system and point distribution for all competitions
                   </p>
                 </div>
-                
+
                 <div className="text-center">
                   <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i className="fas fa-calendar text-accent text-2xl" />
