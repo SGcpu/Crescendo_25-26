@@ -192,7 +192,7 @@ export default function Contact() {
                   {/* Very subtle overlay for text readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 </div>
-                
+
                 {/* Content Overlay */}
                 <div className="relative z-10 h-full flex flex-col justify-end p-6">
                   {/* Name and Title - Positioned lower to avoid blocking face */}
@@ -204,7 +204,7 @@ export default function Contact() {
                       General Secretary
                     </p>
                   </div>
-                  
+
                   {/* Social Links - Appear on hover */}
                   <div className="flex justify-center space-x-4 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-200">
                     <a
@@ -233,7 +233,7 @@ export default function Contact() {
                     </a>
                   </div>
                 </div>
-                
+
               </div>
 
               {/* Jack Sequeira Card */}
@@ -248,7 +248,7 @@ export default function Contact() {
                   {/* Very subtle overlay for text readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 </div>
-                
+
                 {/* Content Overlay */}
                 <div className="relative z-10 h-full flex flex-col justify-end p-6">
                   {/* Name and Title - Positioned lower to avoid blocking face */}
@@ -260,7 +260,7 @@ export default function Contact() {
                       Technical Secretary
                     </p>
                   </div>
-                  
+
                   {/* Social Links - Appear on hover */}
                   <div className="flex justify-center space-x-4 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-200">
                     <a
@@ -289,7 +289,7 @@ export default function Contact() {
                     </a>
                   </div>
                 </div>
-                
+
               </div>
 
               {/* Branch Mathew Card */}
@@ -303,8 +303,8 @@ export default function Contact() {
                   />
                   {/* Very subtle overlay for text readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                      </div>
-                
+                </div>
+
                 {/* Content Overlay */}
                 <div className="relative z-10 h-full flex flex-col justify-end p-6">
                   {/* Name and Title - Positioned lower to avoid blocking face */}
@@ -316,7 +316,7 @@ export default function Contact() {
                       PR Head
                     </p>
                   </div>
-                  
+
                   {/* Social Links - Appear on hover */}
                   <div className="flex justify-center space-x-4 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-200">
                     <a
@@ -345,8 +345,8 @@ export default function Contact() {
                     </a>
                   </div>
                 </div>
-                
-                    </div>
+
+              </div>
             </div>
 
             {/* Contact Form */}
@@ -635,19 +635,15 @@ export default function Contact() {
               </CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-              <div className="bg-gradient-to-br from-primary/10 to-accent/10 aspect-video flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-map-marker-alt text-accent text-2xl" />
-                  </div>
-                  <h3 className="font-cinzel text-xl font-bold mb-2 text-foreground">
-                    Innovation District, Mumbai
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Interactive map coming soon
-                  </p>
-                </div>
-              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.44101371307!2d72.81779557588335!3d19.044338052964406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9410830616d%3A0x111b63353dbbce01!2sFr.%20Conceicao%20Rodrigues%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1759664442408!5m2!1sen!2sin"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </CardContent>
           </Card>
         </div>
