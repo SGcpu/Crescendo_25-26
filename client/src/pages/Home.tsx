@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Card as ShadcnCard, CardContent } from "@/components/ui/card";
 import FestivalHighlights from "@/components/FestivalHighlights";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import { sampleSponsors } from "@/data/sponsors.ts";
 import CardSwap, { Card } from "@/components/ui/card-swap";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import LoadingScreen from "@/components/LoadingScreen";
@@ -91,6 +90,21 @@ export default function Home() {
       description: "Connect with 2000+ innovators and entrepreneurs",
       color: "primary",
     },
+  ];
+
+  const councilLogos = [
+    { name: "ASME CRCE", logo: "/images/council-logos/asme_crce.webp" },
+    { name: "CodeStorm", logo: "/images/council-logos/codestorm.webp" },
+    { name: "CSI CRCE", logo: "/images/council-logos/csi_crce.webp" },
+    { name: "E-Cell", logo: "/images/council-logos/ecell.webp" },
+    { name: "GDA", logo: "/images/council-logos/gda.webp" },
+    { name: "GDSC", logo: "/images/council-logos/gdsc.webp" },
+    { name: "IEEE", logo: "/images/council-logos/ieee.webp" },
+    { name: "Mozilla", logo: "/images/council-logos/mozilla.webp" },
+    { name: "Project Cell", logo: "/images/council-logos/projectcell.webp" },
+    { name: "Rocket Team", logo: "/images/council-logos/rocket_team.webp" },
+    { name: "RTC x ACM", logo: "/images/council-logos/rtc_x_acm.webp" },
+    { name: "WIE", logo: "/images/council-logos/wie.webp" },
   ];
 
   return (
@@ -423,23 +437,18 @@ export default function Home() {
           <div className="container mx-auto px-6">
             <div className="text-center mb-12 animate-in opacity-0">
               <h3 className="font-cinzel text-3xl font-bold mb-4 text-foreground">
-                Powered By Visionary Partners
+                Organising Councils
               </h3>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Industry leaders who believe in the future we're building
-                together
+                Student councils hosting Trinetra events
               </p>
             </div>
 
             <div className="h-[300px] my-20">
               <InfiniteMovingCards
-                items={sampleSponsors.map((sponsor) => ({
-                  name: sponsor.name,
-                  logo: sponsor.logo || undefined,
-                  description:
-                    sponsor.tier.charAt(0).toUpperCase() +
-                    sponsor.tier.slice(1) +
-                    " Partner",
+                items={councilLogos.map((council) => ({
+                  name: council.name,
+                  logo: council.logo,
                 }))}
                 direction="right"
                 speed="slow"
@@ -447,34 +456,6 @@ export default function Home() {
               />
             </div>
             
-            {/* Additional Partner Showcase */}
-            <div className="mt-16 mb-8">
-              <div className="text-center mb-12">
-                <h4 className="font-cinzel text-2xl font-bold mb-4 text-foreground">
-                  Our Valued Partners
-                </h4>
-                <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-                  Collaborating with industry leaders to bring you the best festival experience
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
-                {sampleSponsors.slice(0, 12).map((sponsor, index) => (
-                  <div key={index} className="group">
-                    <div className="w-24 h-24 md:w-32 md:h-32 bg-card rounded-xl border border-border/50 flex items-center justify-center hover:border-accent/50 transition-all duration-300 hover:scale-105">
-                      <div className="text-center">
-                        <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mb-2">
-                          <i className="fas fa-building text-2xl text-accent"></i>
-                        </div>
-                        <p className="text-xs font-medium text-foreground">{sponsor.name}</p>
-                        <p className="text-xs text-muted-foreground">{sponsor.tier}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             <div className="mt-10 flex justify-center">
               <Button
                 variant="outline"
