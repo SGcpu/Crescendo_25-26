@@ -10,6 +10,7 @@ export const FestivalHighlights = () => {
       poster: "/images/posters/roborift.webp",
       category: "Robotics",
       prize: "₹10,000",
+      brochureLink: "https://drive.google.com/file/d/146BUZzmrsRewoWxoicjsL0M7Fsmp-ZmX/view?usp=drive_link",
     },
     {
       name: "Synergy",
@@ -17,6 +18,7 @@ export const FestivalHighlights = () => {
       poster: "/images/posters/synergy.webp",
       category: "Hardware",
       prize: "₹40,000",
+      brochureLink: "https://drive.google.com/file/d/1q7LjrOG3avLXbRaJ9l4Tb_VnS57jO4az/view?usp=drive_link",
     },
     {
       name: "BGMI",
@@ -51,7 +53,7 @@ export const FestivalHighlights = () => {
             >
               <PinContainer
                 title={event.name}
-                href={`/events/${event.name.toLowerCase()}`}
+                href={event.brochureLink || `/events/${event.name.toLowerCase()}`}
                 containerClassName="w-full h-full"
               >
                 <div className="flex flex-col gap-2 w-[300px] mx-auto">

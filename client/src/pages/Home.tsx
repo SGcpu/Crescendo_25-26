@@ -268,9 +268,8 @@ export default function Home() {
                           Exclusive Opportunities
                         </span>
                         <span className="text-[var(--noir-text)]">
-                          Compete in flagship events like the International
-                          Hackathon, RoboWars, and Hardware & Simulation
-                          Hackathon
+                          Compete in flagship events like RoboRift 2.0, Synergy Hackathon, 
+                          and CRCE Esports with ₹70K+ prize pool
                         </span>
                       </div>
                     </li>
@@ -284,8 +283,8 @@ export default function Home() {
                           Industry & Community
                         </span>
                         <span className="text-[var(--noir-text)]">
-                          Connect with leading professionals, student councils,
-                          and peers from across institutions
+                          Connect with 120+ RoboRift teams, 100+ Synergy participants, 
+                          and 400+ Esports players from across institutions
                         </span>
                       </div>
                     </li>
@@ -299,8 +298,8 @@ export default function Home() {
                           Immersive Experience
                         </span>
                         <span className="text-[var(--noir-text)]">
-                          Engage with 15+ technical and non-technical events,
-                          plus eSports tournaments, all under one festival
+                          Experience 4 days of intense competition across robotics, 
+                          hardware hackathons, and esports tournaments
                         </span>
                       </div>
                     </li>
@@ -419,107 +418,8 @@ export default function Home() {
         {/* Festival Highlights */}
         <FestivalHighlights />
 
-        {/* Featured Event Callout */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-6">
-            <ShadcnCard className="relative bg-card rounded-3xl overflow-hidden border border-accent/20">
-              <CardContent className="p-6 md:p-12">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-10 left-10 w-4 h-4 border border-accent rotate-45" />
-                  <div className="absolute top-20 right-20 w-6 h-6 border border-primary rotate-12" />
-                  <div className="absolute bottom-20 left-20 w-5 h-5 border border-accent rotate-45" />
-                  <div className="absolute bottom-10 right-10 w-3 h-3 bg-primary rotate-45" />
-                </div>
-
-                <div className="relative z-10 grid md:grid-cols-2 gap-6 md:gap-12 items-center">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-3 mb-4">
-                      <span className="px-3 py-1 bg-primary/20 text-primary text-sm font-medium rounded-full">
-                        HEADLINE EVENT
-                      </span>
-                      <span className="text-muted-foreground text-sm">
-                        Day 3 Finale
-                      </span>
-                    </div>
-                    <h3 className="font-cinzel text-2xl md:text-4xl font-bold mb-4 md:mb-6 text-card-foreground bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                      Synergy : Hardware Hackathon
-                    </h3>
-                    <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                      Gear up for a Hardware Revolution, where innovation meets
-                      sustainability, and unleash your creativity to build
-                      powerful solutions that shape a better future!
-                    </p>
-                    <div className="flex flex-wrap items-center gap-3 md:gap-6 mb-6 md:mb-8">
-                      <div className="text-center bg-primary/5 px-4 py-2 rounded-lg">
-                        <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                          ₹45,000
-                        </div>
-                        <div className="text-sm text-muted-foreground font-medium">
-                          Prize Pool
-                        </div>
-                      </div>
-                      <div className="text-center bg-primary/5 px-4 py-2 rounded-lg">
-                        <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                          32
-                        </div>
-                        <div className="text-sm text-muted-foreground font-medium">
-                          Max Teams
-                        </div>
-                      </div>
-                      <div className="text-center bg-primary/5 px-4 py-2 rounded-lg">
-                        <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                          12h
-                        </div>
-                        <div className="text-sm text-muted-foreground font-medium">
-                          Duration
-                        </div>
-                      </div>
-                    </div>
-                    <a
-                      href="https://forms.gle/your-google-form-link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button
-                        className="px-6 py-2 md:px-8 md:py-3 bg-gradient-to-r from-accent to-primary text-white hover:opacity-90 font-semibold transition-all duration-300"
-                        data-testid="button-register-challenge"
-                      >
-                        <i className="fas fa-bolt mr-2" />
-                        Register for event
-                      </Button>
-                    </a>
-                  </div>
-
-                  <div className="relative">
-                    <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center border border-border overflow-hidden">
-                      <div className="absolute inset-0 opacity-20">
-                        <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--accent)_0%,_transparent_50%)]"></div>
-                      </div>
-                      <div className="relative z-10 w-full h-full flex items-center justify-center">
-                        {/* Image placeholder - replace src with actual image when available */}
-                        <div className="w-full h-full flex items-center justify-center">
-                          <div className="text-center">
-                            <i className="fas fa-image text-4xl text-muted-foreground mb-2"></i>
-                            <p className="text-muted-foreground font-medium">
-                              Event Image
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="absolute top-4 right-4 w-10 h-10 md:w-12 md:h-12 bg-accent rounded-full flex items-center justify-center">
-                      <i className="fas fa-image text-accent-foreground text-lg md:text-xl" />
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </ShadcnCard>
-          </div>
-        </section>
-
         {/* Partner Logos */}
-        <section className="py-20 bg-muted/20">
+        <section className="py-32 bg-muted/20">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12 animate-in opacity-0">
               <h3 className="font-cinzel text-3xl font-bold mb-4 text-foreground">
@@ -531,7 +431,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="h-[180px] my-16">
+            <div className="h-[300px] my-20">
               <InfiniteMovingCards
                 items={sampleSponsors.map((sponsor) => ({
                   name: sponsor.name,
@@ -545,6 +445,34 @@ export default function Home() {
                 speed="slow"
                 pauseOnHover={true}
               />
+            </div>
+            
+            {/* Additional Partner Showcase */}
+            <div className="mt-16 mb-8">
+              <div className="text-center mb-12">
+                <h4 className="font-cinzel text-2xl font-bold mb-4 text-foreground">
+                  Our Valued Partners
+                </h4>
+                <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+                  Collaborating with industry leaders to bring you the best festival experience
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+                {sampleSponsors.slice(0, 12).map((sponsor, index) => (
+                  <div key={index} className="group">
+                    <div className="w-24 h-24 md:w-32 md:h-32 bg-card rounded-xl border border-border/50 flex items-center justify-center hover:border-accent/50 transition-all duration-300 hover:scale-105">
+                      <div className="text-center">
+                        <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mb-2">
+                          <i className="fas fa-building text-2xl text-accent"></i>
+                        </div>
+                        <p className="text-xs font-medium text-foreground">{sponsor.name}</p>
+                        <p className="text-xs text-muted-foreground">{sponsor.tier}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="mt-10 flex justify-center">

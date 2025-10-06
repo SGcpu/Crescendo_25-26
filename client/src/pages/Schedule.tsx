@@ -24,12 +24,12 @@ export default function Schedule() {
           duration: "45 minutes"
         },
         {
-          time: "09:00 AM",
+          time: "10:00 AM",
           title: "Valorant Round of 16",
           description: "Valorant tournament Round of 16 matches",
           venue: "Room 311",
           type: "Esports",
-          duration: "10 hours"
+          duration: "9 hours"
         }
       ]
     },
@@ -41,7 +41,7 @@ export default function Schedule() {
           time: "09:00 AM",
           title: "RoboRift 2.0 - Team Registration",
           description: "120+ teams register for the intercollegiate robot fighting championship",
-          venue: "Robotics Lab",
+          venue: "Open Canteen",
           type: "Robotics",
           duration: "1 hour"
         },
@@ -49,7 +49,7 @@ export default function Schedule() {
           time: "10:00 AM",
           title: "RoboRift 2.0 - Robot Inspection",
           description: "Technical inspection and safety checks for all competing robots",
-          venue: "Robotics Lab",
+          venue: "Open Canteen",
           type: "Robotics",
           duration: "1 hour"
         },
@@ -57,7 +57,7 @@ export default function Schedule() {
           time: "11:00 AM",
           title: "RoboRift 2.0 - Preliminary Rounds",
           description: "Intercollegiate robot fighting competition begins",
-          venue: "Robotics Lab",
+          venue: "Open Canteen",
           type: "Robotics",
           duration: "4 hours"
         },
@@ -73,7 +73,7 @@ export default function Schedule() {
           time: "03:00 PM",
           title: "RoboRift 2.0 - Finals",
           description: "Championship round of robot fighting - the ultimate showdown",
-          venue: "Robotics Lab",
+          venue: "Open Canteen",
           type: "Robotics",
           duration: "2 hours"
         }
@@ -87,7 +87,7 @@ export default function Schedule() {
           time: "09:00 AM",
           title: "Valorant Finale",
           description: "Valorant championship finale - the ultimate gaming showdown",
-          venue: "Computer Lab",
+          venue: "Room 311",
           type: "Esports",
           duration: "9 hours"
         }
@@ -101,7 +101,7 @@ export default function Schedule() {
           time: "09:00 AM",
           title: "Synergy Hackathon - Problem Statement Release",
           description: "Hardware & Simulation hackathon kickoff with 100+ participants",
-          venue: "Computer Lab",
+          venue: "Elec & Mech Labs (3rd, 4th & 5th floor)",
           type: "Hackathon",
           duration: "1 hour"
         },
@@ -109,7 +109,7 @@ export default function Schedule() {
           time: "10:00 AM",
           title: "Synergy Hackathon - Development Phase",
           description: "Teams begin working on innovative hardware solutions",
-          venue: "Computer Lab",
+          venue: "Elec & Mech Labs (3rd, 4th & 5th floor)",
           type: "Hackathon",
           duration: "6 hours"
         },
@@ -130,9 +130,9 @@ export default function Schedule() {
           duration: "1 hour"
         },
         {
-          time: "07:00 PM",
-          title: "Awards Ceremony",
-          description: "Prize distribution for all competitions with ₹70K+ prize pool",
+          time: "08:00 PM",
+          title: "Closing Ceremony",
+          description: "Festival conclusion and farewell with all participants",
           venue: "Samvaad (9th Floor)",
           type: "General",
           duration: "1 hour"

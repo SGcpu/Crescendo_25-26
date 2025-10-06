@@ -96,6 +96,57 @@ export default function EventDetail() {
     );
   };
 
+  const getRegistrationLink = (eventTitle: string) => {
+    // Map event titles to their specific council registration forms
+    const registrationLinks: { [key: string]: string } = {
+      // GDSC Events
+      "What If Ventures": "https://docs.google.com/forms/d/e/1FAIpQLSeiBELtYDQ1WVlXRUBkeqG31vdjbnA2gIOhMu8rVTKvthYUgA/viewform",
+      
+      // Formula Unicorn Events  
+      "Formula Unicorn": "https://docs.google.com/forms/d/e/1FAIpQLScuEI8n56J0fKFcjIsvIoM1tddEvLpjdG66LLU46s1AC7t4iA/viewform",
+      
+      // Mech Mania Events
+      "Mech Mania 2.0": "https://docs.google.com/forms/d/e/1FAIpQLScezA7gkNpZ42s3Accn2gPnkgq7ROKNYEnOrZLNBiXU-p1neg/viewform",
+      
+      // Watt's Next Events
+      "Watt's Next": "https://docs.google.com/forms/d/e/1FAIpQLSebvCWD9vtISJ3uF1_990RXPuvXhM7oFu5NntigwWI5JL0JlA/viewform",
+      
+      // CodeCraft Events
+      "CodeCraft": "https://docs.google.com/forms/d/e/1FAIpQLSdR_ZnMz9_HCcVEir52Hsn9kEnEgpDb4EqvMywCPqgZmDbr4g/viewform",
+      
+      // Sharktank Events
+      "Sharktank": "https://docs.google.com/forms/d/e/1FAIpQLSfSR-44UtMr1ag1yTQRJdD37o3Gi59WVXPutn2HMtPgJR2IVg/viewform",
+      
+      // Hack Into PCell Events
+      "Hack Into PCell": "https://docs.google.com/forms/d/e/1FAIpQLSfSR-44UtMr1ag1yTQRJdD37o3Gi59WVXPutn2HMtPgJR2IVg/viewform",
+      
+      // Robo-thon Events
+      "Robo-thon": "https://docs.google.com/forms/d/e/1FAIpQLSfwUjLjcVOdomkZejutqN-UuwbhiSmZH1Dimcg2RwumHddySw/viewform",
+      
+      // The Digital Decode Challenge Events
+      "The Digital Decode Challenge": "https://docs.google.com/forms/d/e/1FAIpQLScUFfeS0w1SO_gYNhypRco3bMC1fCZ__BvrSKc_Crh0RmLTyg/viewform",
+      
+      // Simulate Life on Mars Events
+      "Simulate Life on Mars": "https://docs.google.com/forms/d/e/1FAIpQLSfCePj1bs54WLBsqboIWXZkS39m-OY_AoYcN-aA1Ni-G6SiKw/viewform",
+      
+      // Cartographer's Quest Events
+      "Cartographer's Quest": "https://docs.google.com/forms/d/e/1FAIpQLSeuAUVz8ryzPfiWFeezVa0MGHcH76qZoGLKGI_P6GPVJXG-Hg/viewform",
+      
+      // Escape Room Events
+      "Escape Room": "https://docs.google.com/forms/d/e/1FAIpQLSeAbKg-QpnP4s3lR4s5qBEpTur0KGZ-qaRcgdGbvK2Q-qkdtQ/viewform",
+      
+      // UNO – Endgame() Events
+      "UNO – Endgame() ": "https://docs.google.com/forms/d/e/1FAIpQLSevxY7h0GybgEN8W2Oqw5on4SN6WktCBp7F-GNhzEeXVgwjaw/viewform",
+      
+      // Additional Events
+      "BGMI Showdown": "https://docs.google.com/forms/d/e/1FAIpQLSeiBELtYDQ1WVlXRUBkeqG31vdjbnA2gIOhMu8rVTKvthYUgA/viewform",
+      "VALORANT Champions": "https://docs.google.com/forms/d/e/1FAIpQLSeiBELtYDQ1WVlXRUBkeqG31vdjbnA2gIOhMu8rVTKvthYUgA/viewform",
+    };
+    
+    // Return the specific form for the event, or default to GDSC form
+    return registrationLinks[eventTitle] || "https://docs.google.com/forms/d/e/1FAIpQLSeiBELtYDQ1WVlXRUBkeqG31vdjbnA2gIOhMu8rVTKvthYUgA/viewform";
+  };
+
   return (
     <div className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-6">
@@ -138,7 +189,7 @@ export default function EventDetail() {
             <div className="flex flex-wrap items-center mb-2">
               <Badge
                 variant="outline"
-                className="bg-primary/10 text-primary border-primary/20 text-sm py-1 px-3"
+                className="bg-accent/20 text-accent border-accent/30 text-sm py-1 px-3 font-semibold"
               >
                 {event.summary.split(" - ")[0]}
               </Badge>
@@ -198,7 +249,7 @@ export default function EventDetail() {
 
   {/* Registration Button */}
   <a 
-    href="https://docs.google.com/forms/d/e/1FAIpQLSeiBELtYDQ1WVlXRUBkeqG31vdjbnA2gIOhMu8rVTKvthYUgA/viewform" 
+    href={getRegistrationLink(event.title)} 
     target="_blank" 
     rel="noopener noreferrer"
   >

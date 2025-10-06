@@ -18,22 +18,6 @@ export const sampleEvents: Omit<Event, 'id'>[] = [
     registrationLink: "/register/what-if-ventures"
   },
   {
-    slug: "jack-n-jill-grand-prix",
-    title: "Jack N Jill Grand Prix",
-    category: "Competition",
-    date: "2025-10-09",
-    teamSize: "2-5",
-    difficulty: "Intermediate",
-    location: "Racing Track",
-    summary: "IIIExCRCE - High-octane racing competition",
-    description: "Organized by IIIExCRCE, this exciting racing competition challenges teams to design, build and race miniature vehicles. Competitors will navigate challenging tracks and obstacles in this thrilling grand prix event.",
-    prizePool: "₹1,20,000",
-    maxTeams: 30,
-    duration: "8 hours",
-    assets: ["jack-n-jill-poster.jpg"],
-    registrationLink: "/register/jack-n-jill-grand-prix"
-  },
-  {
     slug: "simulate-life-on-mars",
     title: "Simulate Life on Mars",
     category: "Competition",
