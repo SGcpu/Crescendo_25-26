@@ -120,7 +120,7 @@ export default function Home() {
       >
         {/* Hero Section */}
         <section
-          className="relative min-h-screen flex items-center justify-center overflow-hidden"
+          className="relative min-h-screen hero-safe flex items-center justify-center overflow-hidden"
           style={{
             backgroundImage: "url('/images/Assets/Trinetra_bg.png')",
             backgroundSize: "cover",
