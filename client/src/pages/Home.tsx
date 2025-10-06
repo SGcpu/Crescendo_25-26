@@ -157,11 +157,18 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12 text-lg">
               <div className="flex items-center space-x-2 text-accent">
                 <i className="fas fa-calendar" />
-                <span className="font-medium">February 10-12, 2026</span>
+                <span className="font-medium">October 9-12, 2025</span>
               </div>
               <div className="flex items-center space-x-2 text-accent">
                 <i className="fas fa-map-marker-alt" />
-                <span className="font-medium">Innovation District, Mumbai</span>
+                <a 
+                  href="https://maps.google.com/?q=Fr.+Conceicao+Rodrigues+College+of+Engineering"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:text-accent/80 transition-colors duration-300 underline decoration-accent/50 hover:decoration-accent"
+                >
+                  Fr. Conceicao Rodrigues College of Engineering
+                </a>
               </div>
             </div>
 
@@ -169,15 +176,17 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
               <Button
                 className="px-8 py-4 bg-[var(--noir-crimson)] text-white rounded-xl hover:bg-[var(--noir-crimson)]/90 font-semibold text-lg shadow-lg shadow-[var(--noir-crimson)]/20"
-                data-testid="button-register-hero"
+                data-testid="button-schedule-hero"
+                onClick={() => window.open('https://drive.google.com/file/d/1b5EGo9VlXD4zJNBo1lm3jZamyVQi-Nai/view?usp=drive_link', '_blank')}
               >
-                <i className="fas fa-ticket-alt mr-2" />
-                Register Now
+                <i className="fas fa-calendar-alt mr-2" />
+                Schedule
               </Button>
               <Button
                 variant="outline"
                 className="px-8 py-4 border-2 border-[var(--noir-gold)] text-[var(--noir-gold)] rounded-xl hover:bg-[var(--noir-gold)] hover:text-[var(--noir-black)] font-semibold text-lg"
                 data-testid="button-watch-trailer"
+                onClick={() => window.open('https://www.instagram.com/reel/DPYl_r-ka5V/?igsh=MWV4YjduMjNqYjAxcQ==', '_blank')}
               >
                 <i className="fas fa-play mr-2" />
                 Watch Trailer

@@ -17,27 +17,19 @@ export default function Schedule() {
       events: [
         {
           time: "09:00 AM",
-          title: "Festival Inauguration",
+          title: "Crescendo Inauguration",
           description: "Welcome ceremony and festival kickoff",
-          venue: "Samvaad (9th Floor)",
+          venue: "Samvaad",
           type: "General",
-          duration: "1 hour"
+          duration: "45 minutes"
         },
         {
-          time: "10:00 AM",
-          title: "CRCE Esports - BGMI Registration",
-          description: "Battlegrounds Mobile India player registration and briefing",
-          venue: "Computer Lab",
+          time: "09:00 AM",
+          title: "Valorant Round of 16",
+          description: "Valorant tournament Round of 16 matches",
+          venue: "Room 311",
           type: "Esports",
-          duration: "1 hour"
-        },
-        {
-          time: "11:00 AM",
-          title: "CRCE Esports - BGMI Qualifiers",
-          description: "Battlegrounds Mobile India tournament begins with 400+ players",
-          venue: "Computer Lab",
-          type: "Esports",
-          duration: "6 hours"
+          duration: "10 hours"
         }
       ]
     },
@@ -70,6 +62,14 @@ export default function Schedule() {
           duration: "4 hours"
         },
         {
+          time: "02:00 PM",
+          title: "BGMI Tournament",
+          description: "Battlegrounds Mobile India tournament matches",
+          venue: "Room 108 & 708",
+          type: "Esports",
+          duration: "4 hours"
+        },
+        {
           time: "03:00 PM",
           title: "RoboRift 2.0 - Finals",
           description: "Championship round of robot fighting - the ultimate showdown",
@@ -85,19 +85,11 @@ export default function Schedule() {
       events: [
         {
           time: "09:00 AM",
-          title: "CRCE Esports - BGMI Finals",
-          description: "Battlegrounds Mobile India championship match",
+          title: "Valorant Finale",
+          description: "Valorant championship finale - the ultimate gaming showdown",
           venue: "Computer Lab",
           type: "Esports",
-          duration: "3 hours"
-        },
-        {
-          time: "12:00 PM",
-          title: "CRCE Esports - Valorant Finals",
-          description: "Valorant championship match - the ultimate gaming showdown",
-          venue: "Computer Lab",
-          type: "Esports",
-          duration: "3 hours"
+          duration: "9 hours"
         }
       ]
     },
