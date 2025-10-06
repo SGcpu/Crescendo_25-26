@@ -117,7 +117,7 @@ export default function About() {
         github: "https://github.com/mathewbranch16" 
       },
     },
-    {
+    /* {
       name: "Elish Mark",
       role: "Technical Representative",
       bio: "The backbone of innovation, solving challenges and powering progress",
@@ -138,7 +138,7 @@ export default function About() {
         instagram: "https://www.instagram.com/sg.phil_", 
         github: "https://github.com/SGcpu" 
       },
-    },
+    }, */
   ];
 
   const impactStats = [

@@ -44,18 +44,21 @@ const LoadingScreen = ({ onLoadComplete }: LoadingScreenProps) => {
       // Set up the STUCO logo initially
       anime.set(logoRef.current, {
         opacity: 0,
+        transformOrigin: "50% 50%",
+        translateX: 0,
+        translateY: 0,
+        rotate: 0,
+        scale: 1,
       });
 
-      // Phase 1: Rotate the STUCO logo with enhanced animation
+      // Phase 1: Rotate the STUCO logo with reduced wobble
       if (logoRef.current) {
         anime({
           targets: logoRef.current,
-          rotate: "360deg",
-          scale: [0.8, 1.2, 1],
-          opacity: [0, 1, 0],
-          translateY: [20, 0, -20], // Add vertical motion
-          duration: 2000, // Slightly longer for smoother animation
-          easing: "easeInOutCubic", // Smoother easing function
+          rotate: { value: 360, easing: "linear" },
+          scale: { value: [0.95, 1], easing: "easeOutQuad" },
+          opacity: { value: [0, 1, 0], easing: "easeInOutQuad" },
+          duration: 1800,
           complete: () => {
             setLoadingPhase("svg");
           },
