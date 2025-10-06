@@ -62,7 +62,7 @@ app.use((req, res, next) => {
   // Start the server on localhost (127.0.0.1) instead of 0.0.0.0
   server.listen({
     port,
-    host: "127.0.0.1",  // Binding to localhost to avoid issues on Windows
+    host: "0.0.0.0",  // Binding to localhost to avoid issues on Windows
     reusePort: false,  // Removed reusePort to avoid potential issues
   }, () => {
     log(`Server is serving on http://127.0.0.1:${port}`);
