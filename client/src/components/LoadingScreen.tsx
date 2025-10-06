@@ -327,11 +327,11 @@ const LoadingScreen = ({ onLoadComplete }: LoadingScreenProps) => {
           {/* AWAKENING text with Golden Noir theme */}
           <div
             ref={awakeningRef}
-            className="text-4xl md:text-6xl font-bold tracking-wider mt-4"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold mt-4 px-4 text-center"
             style={{
               opacity: 0, // Start invisible for animation
               fontFamily: "var(--font-cinzel), serif",
-              letterSpacing: "0.5rem",
+              letterSpacing: "0.2rem",
               color: "var(--noir-crimson)", // Crimson for AWAKENING
               textShadow: "0 0 15px rgba(230, 57, 70, 0.6)", // Crimson glow
             }}

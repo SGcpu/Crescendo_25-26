@@ -147,9 +147,9 @@ export default function Home() {
               <span className="block text-[#FFD700] mystical-title-animation">
                 TRINETRA
               </span>
-              <div className="flex justify-center items-center w-full mt-2">
+              <div className="flex justify-center items-center w-full mt-2 px-4 sm:px-0 overflow-x-hidden">
                 <FuzzyText
-                  fontSize="clamp(4rem, 8vw, 8rem)"
+                  fontSize="clamp(3.75rem, 7vw, 6.5rem)"
                   fontWeight={700}
                   fontFamily="Cinzel, serif"
                   color="#8A2BE2"
