@@ -58,7 +58,6 @@ export default function CardNav({ isScrolled }: CardNavProps) {
           href: "/about",
           ariaLabel: "About Trinetra Festival",
         },
-        { label: "Sponsors", href: "/sponsors", ariaLabel: "Our sponsors" },
         { label: "Contact", href: "/contact", ariaLabel: "Contact us" },
       ],
     },

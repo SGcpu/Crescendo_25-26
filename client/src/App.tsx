@@ -7,7 +7,6 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Events from "@/pages/Events";
 import EventDetail from "@/pages/EventDetail";
-import Sponsors from "@/pages/Sponsors";
 import Brochure from "@/pages/Brochure";
 import Schedule from "@/pages/Schedule";
 import About from "@/pages/About";
@@ -55,7 +54,6 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/events" component={Events} />
         <Route path="/events/:slug" component={EventDetail} />
-        <Route path="/sponsors" component={Sponsors} />
         <Route path="/brochure" component={Brochure} />
         <Route path="/schedule" component={Schedule} />
         <Route path="/about" component={About} />

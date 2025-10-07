@@ -39,9 +39,7 @@ export const FestivalHighlights = () => {
   return (
     <section className="py-16 relative overflow-hidden bg-black">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center text-white relative z-10">
-          Crescendo Highlights
-        </h2>
+
 
         {/* Increased gap and margin for mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-24 md:gap-10 mt-8">

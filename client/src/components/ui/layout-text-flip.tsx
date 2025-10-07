@@ -26,14 +26,14 @@ export const LayoutTextFlip = ({
     <>
       <motion.span
         layoutId="subtext"
-        className="text-2xl font-bold tracking-tight drop-shadow-lg md:text-4xl"
+        className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold tracking-tight drop-shadow-lg"
       >
         {text}
       </motion.span>
 
       <motion.span
         layout
-        className="relative w-fit overflow-hidden rounded-md border border-transparent bg-gradient-to-br from-primary/20 to-accent/20 px-4 py-2 font-sans text-2xl font-bold tracking-tight text-white shadow-sm ring shadow-black/10 ring-black/10 drop-shadow-lg md:text-4xl"
+        className="relative w-auto max-w-full rounded-md border border-transparent bg-gradient-to-br from-primary/20 to-accent/20 px-2 sm:px-3 md:px-4 py-1 sm:py-2 font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold tracking-tight text-white shadow-sm ring shadow-black/10 ring-black/10 drop-shadow-lg"
       >
         <AnimatePresence mode="popLayout">
           <motion.span
@@ -47,7 +47,8 @@ export const LayoutTextFlip = ({
             transition={{
               duration: 0.5,
             }}
-            className={cn("inline-block whitespace-nowrap")}
+            className={cn("inline-block break-words hyphens-auto")}
+            style={{ fontSize: "inherit" }}
           >
             {words[currentIndex]}
           </motion.span>

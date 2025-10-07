@@ -47,8 +47,16 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { icon: "fab fa-instagram", href: "https://www.instagram.com/frcrce_official?igsh=cDZrNjVxMDJocDdk", label: "Instagram" },
-    { icon: "fab fa-linkedin", href: "https://www.linkedin.com/school/fr.-conceicao-rodrigues-college-of-engineering/?originalSubdomain=in", label: "LinkedIn" },
+    {
+      icon: "fab fa-instagram",
+      href: "https://www.instagram.com/frcrce_official?igsh=cDZrNjVxMDJocDdk",
+      label: "Instagram",
+    },
+    {
+      icon: "fab fa-linkedin",
+      href: "https://www.linkedin.com/school/fr.-conceicao-rodrigues-college-of-engineering/?originalSubdomain=in",
+      label: "LinkedIn",
+    },
   ];
 
   const importantDates = [
@@ -59,18 +67,19 @@ export default function Footer() {
 
   const credits = [
     {
-      name: "Elish Mark",
-      role: "Technical Representative",
+      name: "Jack Sequeira",
+      role: "Technical Secretary",
+      image: "/images/team/jack_11zon.webp",
       socials: {
-        instagram:
-          "https://www.instagram.com/elish_mark?igsh=MWE2cWZtZjlzZGQ3OA%3D%3D&utm_source=qr",
-        linkedin: "https://www.linkedin.com/in/elish-mark4444",
-        github: "https://github.com/Elish-4444",
+        instagram: "https://www.instagram.com/gabbar_v7/",
+        linkedin: "https://www.linkedin.com/in/gabbar-v7",
+        github: "https://github.com/Gabbar-v7",
       },
     },
     {
       name: "Sian George",
       role: "Technical Representative",
+      image: "/images/team/sian_11zon.webp",
       socials: {
         instagram: "https://www.instagram.com/sg.phil_",
         linkedin: "https://www.linkedin.com/in/sian-george-864a69352",
@@ -78,14 +87,18 @@ export default function Footer() {
       },
     },
     {
-      name: "Jack Sequeira",
-      role: "Technical Secretary",
+      name: "Elish Mark",
+      role: "Technical Representative",
+      image: "/images/team/elish_11zon.webp",
       socials: {
-        instagram: "https://www.instagram.com/gabbar_v7/",
-        linkedin: "https://www.linkedin.com/in/gabbar-v7",
-        github: "https://github.com/Gabbar-v7",
+        instagram:
+          "https://www.instagram.com/elish_mark?igsh=MWE2cWZtZjlzZGQ3OA%3D%3D&utm_source=qr",
+        linkedin: "https://www.linkedin.com/in/elish-mark4444",
+        github: "https://github.com/Elish-4444",
       },
     },
+    
+    
   ];
 
   return (
@@ -176,40 +189,55 @@ export default function Footer() {
             {credits.map((person) => (
               <div
                 key={person.name}
-                className="p-4 rounded-2xl shadow-md bg-gradient-to-b from-[#121212] to-[#1A001F] text-center border border-noir-gold/30"
+                className="relative h-80 rounded-2xl shadow-md overflow-hidden group"
               >
-                <h5 className="font-semibold text-[#D4AF37]">{person.name}</h5>
-                <p className="text-sm text-white/70 mb-4">{person.role}</p>
+                {/* Background Image */}
+                <img
+                  src={person.image}
+                  alt={person.name}
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                />
 
-                {/* Social Links */}
-                <div className="flex justify-center space-x-4">
-                  <a
-                    href={person.socials.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-noir-gold/10 rounded-full flex items-center justify-center text-noir-gold hover:bg-noir-gold hover:text-noir-black transition-colors"
-                    aria-label={`${person.name} Instagram`}
-                  >
-                    <i className="fab fa-instagram" />
-                  </a>
-                  <a
-                    href={person.socials.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-noir-gold/10 rounded-full flex items-center justify-center text-noir-gold hover:bg-noir-gold hover:text-noir-black transition-colors"
-                    aria-label={`${person.name} LinkedIn`}
-                  >
-                    <i className="fab fa-linkedin-in" />
-                  </a>
-                  <a
-                    href={person.socials.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-noir-gold/10 rounded-full flex items-center justify-center text-noir-gold hover:bg-noir-gold hover:text-noir-black transition-colors"
-                    aria-label={`${person.name} GitHub`}
-                  >
-                    <i className="fab fa-github" />
-                  </a>
+                {/* Overlay for better text visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-noir-black to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-300"></div>
+
+                {/* Content */}
+                <div className="absolute inset-0 flex flex-col justify-end p-6 text-center">
+                  <h5 className="font-semibold text-xl text-[#D4AF37]">
+                    {person.name}
+                  </h5>
+                  <p className="text-white/90 mb-4">{person.role}</p>
+
+                  {/* Social Links */}
+                  <div className="flex justify-center space-x-4">
+                    <a
+                      href={person.socials.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-noir-gold/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-noir-gold hover:text-noir-black transition-colors"
+                      aria-label={`${person.name} Instagram`}
+                    >
+                      <i className="fab fa-instagram" />
+                    </a>
+                    <a
+                      href={person.socials.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-noir-gold/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-noir-gold hover:text-noir-black transition-colors"
+                      aria-label={`${person.name} LinkedIn`}
+                    >
+                      <i className="fab fa-linkedin-in" />
+                    </a>
+                    <a
+                      href={person.socials.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-noir-gold/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-noir-gold hover:text-noir-black transition-colors"
+                      aria-label={`${person.name} GitHub`}
+                    >
+                      <i className="fab fa-github" />
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -220,7 +248,8 @@ export default function Footer() {
         <div className="mt-12 pt-6 border-t border-noir-gold/30 text-center">
           <p className="text-sm text-white/70" data-testid="footer-copyright">
             © {new Date().getFullYear()} Crescendo Festival. All rights
-            reserved. Forged with <span className="text-[#E63946]">Creativity and Spirit</span> by
+            reserved. Forged with{" "}
+            <span className="text-[#E63946]">Creativity and Spirit</span> by
             Students' Council CRCE.
           </p>
           <div className="flex justify-center space-x-6 text-sm text-white/70 mt-4">

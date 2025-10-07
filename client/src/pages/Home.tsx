@@ -48,14 +48,6 @@ export default function Home() {
       color: "primary",
     },
     {
-      icon: "fas fa-handshake",
-      title: "Sponsors",
-      description:
-        "Meet our visionary partners making innovation accessible to all",
-      href: "/sponsors",
-      color: "accent",
-    },
-    {
       icon: "fas fa-file-pdf",
       title: "Brochure",
       description:
@@ -175,7 +167,7 @@ export default function Home() {
               </div>
               <div className="flex items-center space-x-2 text-accent">
                 <i className="fas fa-map-marker-alt" />
-                <a 
+                <a
                   href="https://maps.google.com/?q=Fr.+Conceicao+Rodrigues+College+of+Engineering"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -191,7 +183,12 @@ export default function Home() {
               <Button
                 className="px-8 py-4 bg-[var(--noir-crimson)] text-white rounded-xl hover:bg-[var(--noir-crimson)]/90 font-semibold text-lg shadow-lg shadow-[var(--noir-crimson)]/20"
                 data-testid="button-schedule-hero"
-                onClick={() => window.open('https://drive.google.com/file/d/1b5EGo9VlXD4zJNBo1lm3jZamyVQi-Nai/view?usp=drive_link', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://drive.google.com/file/d/1b5EGo9VlXD4zJNBo1lm3jZamyVQi-Nai/view?usp=drive_link",
+                    "_blank"
+                  )
+                }
               >
                 <i className="fas fa-calendar-alt mr-2" />
                 Schedule
@@ -200,7 +197,12 @@ export default function Home() {
                 variant="outline"
                 className="px-8 py-4 border-2 border-[var(--noir-gold)] text-[var(--noir-gold)] rounded-xl hover:bg-[var(--noir-gold)] hover:text-[var(--noir-black)] font-semibold text-lg"
                 data-testid="button-watch-trailer"
-                onClick={() => window.open('https://www.instagram.com/reel/DPYl_r-ka5V/?igsh=MWV4YjduMjNqYjAxcQ==', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://www.instagram.com/reel/DPYl_r-ka5V/?igsh=MWV4YjduMjNqYjAxcQ==",
+                    "_blank"
+                  )
+                }
               >
                 <i className="fas fa-play mr-2" />
                 Watch Trailer
@@ -241,7 +243,7 @@ export default function Home() {
                   {/* Decorative elements */}
                   <div className="absolute -left-8 -top-8 w-16 h-16 border border-accent/30 rounded-full hidden lg:block"></div>
 
-                  <div className="flex flex-col md:flex-row gap-4 items-start md:items-center font-cinzel relative z-10 mb-6 animate-in opacity-0">
+                  <div className="flex flex-wrap gap-2 md:gap-4 items-center justify-start font-cinzel relative z-10 mb-6 animate-in opacity-0 w-full">
                     <LayoutTextFlip
                       text="Unlock Your"
                       words={[
@@ -282,8 +284,8 @@ export default function Home() {
                           Exclusive Opportunities
                         </span>
                         <span className="text-[var(--noir-text)]">
-                          Compete in flagship events like RoboRift 2.0, Synergy Hackathon, 
-                          and CRCE Esports with ₹70K+ prize pool
+                          Compete in flagship events like RoboRift 2.0, Synergy
+                          Hackathon, and CRCE Esports with ₹70K+ prize pool
                         </span>
                       </div>
                     </li>
@@ -297,8 +299,9 @@ export default function Home() {
                           Industry & Community
                         </span>
                         <span className="text-[var(--noir-text)]">
-                          Connect with 120+ RoboRift teams, 100+ Synergy participants, 
-                          and 400+ Esports players from across institutions
+                          Connect with 120+ RoboRift teams, 100+ Synergy
+                          participants, and 400+ Esports players from across
+                          institutions
                         </span>
                       </div>
                     </li>
@@ -312,8 +315,8 @@ export default function Home() {
                           Immersive Experience
                         </span>
                         <span className="text-[var(--noir-text)]">
-                          Experience 4 days of intense competition across robotics, 
-                          hardware hackathons, and esports tournaments
+                          Experience 4 days of intense competition across
+                          robotics, hardware hackathons, and esports tournaments
                         </span>
                       </div>
                     </li>
@@ -455,8 +458,8 @@ export default function Home() {
                 pauseOnHover={true}
               />
             </div>
-            
-            <div className="mt-10 flex justify-center">
+
+            {/* <div className="mt-10 flex justify-center">
               <Button
                 variant="outline"
                 className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
@@ -464,7 +467,7 @@ export default function Home() {
                 <i className="fas fa-handshake mr-2"></i>
                 Become a Partner
               </Button>
-            </div>
+            </div> */}
           </div>
         </section>
       </div>
