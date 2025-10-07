@@ -437,10 +437,10 @@ export default function Home() {
           <div className="container mx-auto px-6">
             <div className="text-center mb-12 animate-in opacity-0">
               <h3 className="font-cinzel text-3xl font-bold mb-4 text-foreground">
-                Organising Councils
+                Organising Councils and Clubs
               </h3>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Student councils hosting Trinetra events
+                Driven by passion, powered by Trinetra
               </p>
             </div>
 

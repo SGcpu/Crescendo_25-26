@@ -118,7 +118,7 @@ export default function EventDetail() {
       "Sharktank": "https://docs.google.com/forms/d/e/1FAIpQLSfSR-44UtMr1ag1yTQRJdD37o3Gi59WVXPutn2HMtPgJR2IVg/viewform",
       
       // Hack Into PCell Events
-      "Hack Into PCell": "https://docs.google.com/forms/d/e/1FAIpQLSfSR-44UtMr1ag1yTQRJdD37o3Gi59WVXPutn2HMtPgJR2IVg/viewform",
+      "Hack Into PCell": "https://docs.google.com/forms/d/e/1FAIpQLSe1eo9tizPNuELK_clKpvoLJq6NAAoTK89zhjuSZKm9jfyQZQ/viewform",
       
       // Robo-thon Events
       "Robo-thon": "https://docs.google.com/forms/d/e/1FAIpQLSfwUjLjcVOdomkZejutqN-UuwbhiSmZH1Dimcg2RwumHddySw/viewform",
@@ -247,20 +247,22 @@ export default function EventDetail() {
           {/* Registration CTA */}
 <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
 
-  {/* Registration Button */}
-  <a 
-    href={getRegistrationLink(event.title)} 
-    target="_blank" 
-    rel="noopener noreferrer"
-  >
-    <Button
-      className="px-8 py-4 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg animate-pulse-gold"
-      data-testid="button-register-event"
+  {/* Registration Button - Hidden for BGMI and Valorant */}
+  {event.title !== "BGMI Showdown" && event.title !== "VALORANT Champions" && (
+    <a 
+      href={getRegistrationLink(event.title)} 
+      target="_blank" 
+      rel="noopener noreferrer"
     >
-      <i className="fas fa-ticket-alt mr-2" />
-      Register for Event
-    </Button>
-  </a>
+      <Button
+        className="px-8 py-4 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg animate-pulse-gold"
+        data-testid="button-register-event"
+      >
+        <i className="fas fa-ticket-alt mr-2" />
+        Register for Event
+      </Button>
+    </a>
+  )}
 
   {/* Prize Pool Info */}
   {event.prizePool && (
