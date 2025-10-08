@@ -220,7 +220,7 @@ export const sampleEvents: Omit<Event, 'id'>[] = [
     location: "Open canteen, 303",
     summary: "ROBIX - Robotics design and building challenge",
     description: "ROBIX hosts this comprehensive robotics competition where teams design, build, and program robots to complete a series of increasingly difficult challenges. From autonomous navigation to precise manipulation tasks, robots will be tested across multiple dimensions.",
-    prizePool: "₹3,000",
+    prizePool: "₹4,000",
     maxTeams: 40,
     duration: "1 day",
     assets: ["robo-thon-poster.jpg"],

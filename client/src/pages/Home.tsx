@@ -97,6 +97,7 @@ export default function Home() {
     { name: "Rocket Team", logo: "/images/council-logos/rocket_team.webp" },
     { name: "RTC x ACM", logo: "/images/council-logos/rtc_x_acm.webp" },
     { name: "WIE", logo: "/images/council-logos/wie.webp" },
+    { name: "Robix", logo: "/images/council-logos/robix_logo.webp" },
   ];
 
   return (
